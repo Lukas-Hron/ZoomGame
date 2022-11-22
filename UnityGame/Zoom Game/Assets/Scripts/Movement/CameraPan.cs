@@ -7,12 +7,8 @@ public class CameraPan : MonoBehaviour
     public Vector3 currentMouseScreenPosition;
     public Vector3 mouseScreenPositionLastFrame;
     public Vector3 mouseVector;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButton(1)||Input.GetMouseButton(2))

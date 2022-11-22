@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Layer : MonoBehaviour
 {
-    public int value = 0;
+    public float value = 0;
 }
