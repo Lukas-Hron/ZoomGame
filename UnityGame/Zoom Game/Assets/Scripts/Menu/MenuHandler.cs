@@ -7,6 +7,7 @@ public class MenuHandler : MonoBehaviour
 {
 	[SerializeField] private GameObject creditsPanel;
 	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject settingsPanel;
 	private int counter;
 
 	public void Quit()
@@ -21,9 +22,10 @@ public class MenuHandler : MonoBehaviour
 	{
 		SceneManager.LoadScene("Game");
 	}
-	public void LoadMenu(string name)
+	public void SettingsMenu(string name)
 	{
-		SceneManager.LoadScene("Menu");
+		settingsPanel.SetActive(true);
+		mainMenu.SetActive(true);
 	}
 	public void Credits()
 	{
