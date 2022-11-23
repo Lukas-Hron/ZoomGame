@@ -57,9 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Movement\CameraPan.cs" />
-    <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
-    <Compile Include="Assets\Scripts\Movement\Layer.cs" />
     <Compile Include="Assets\Scripts\Movement\ZoomHandler.cs" />
+    <Compile Include="Assets\Scripts\Movement\Layer.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,23 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class ZoomHandler : MonoBehaviour
 {
+    bool isZoom = false;
     Vector2 mousePos;
-       [SerializeField] private float smoothZoom = 0.1f;
-    public float zoomMultiplier = 0.2f;
-    float currentZoomValue = 0;
+    [SerializeField] private float smoothZoom = 0.1f;
+    [SerializeField] private float zoomMultiplier = 0.2f;
     public float zoomValue = 0;
+    float currentZoomValue = 0;
     public GameObject[] ZoomLayers;
     void Start()
     {
-        foreach (GameObject layer in ZoomLayers)
+        for (var i = 0; i < ZoomLayers.Length; i++)
         {
-            float layerZoom = currentZoomValue - layer.GetComponent<Layer>().value;
+            float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
             layerZoom = Mathf.Exp(layerZoom);
-            layer.transform.localScale = new Vector3(layerZoom, layerZoom, -10);
+            ZoomLayers[i].transform.localScale = new Vector3(layerZoom, layerZoom, -10);
+
+            if (i > 0)
+            {
+                ZoomLayers[i].transform.position = ZoomLayers[i - 1].GetComponent<Layer>().nextLayerPos.position;
+            }
         }
 
     }
@@ -27,23 +32,37 @@ public class ZoomHandler : MonoBehaviour
         if (Input.mouseScrollDelta != Vector2.zero)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-        foreach (GameObject layer in ZoomLayers)
-        {
-            float layerZoom = currentZoomValue - layer.GetComponent<Layer>().value;
-            layerZoom = Mathf.Exp(layerZoom);
-            //layer.transform.localScale = new Vector3(layerZoom, layerZoom, -10);
-            ScaleAround(layer, new Vector3(mousePos.x, mousePos.y, 0), new Vector3(layerZoom, layerZoom, -10));
-        }
+            isZoom = true;
 
-        zoomValue = (Input.mouseScrollDelta.y * zoomMultiplier) + zoomValue;
-        currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
+        }
+        if (isZoom)
+        {
+            MoveToZoomLevel();
+        }
     }
 
     void MoveToZoomLevel()
     {
+        for (var i = 0; i < ZoomLayers.Length; i++)
+        {
+            float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
+            layerZoom = Mathf.Exp(layerZoom);
+            ScaleAround(ZoomLayers[i], new Vector3(mousePos.x, mousePos.y, 0), new Vector3(layerZoom, layerZoom, -10));
 
+            if (i > 0)
+            {
+                ZoomLayers[i].transform.position = ZoomLayers[i - 1].GetComponent<Layer>().nextLayerPos.position;
+            }
+        }
+
+        zoomValue = (Input.mouseScrollDelta.y * zoomMultiplier) + zoomValue;
+        currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
+        if (currentZoomValue == zoomValue)
+        {
+            isZoom = false;
+        }
     }
+
     public void ScaleAround(GameObject target, Vector3 pivot, Vector3 newScale)
     {
         Vector3 A = target.transform.localPosition;

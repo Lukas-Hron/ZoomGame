@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Layer : MonoBehaviour
 {
-    public float value = 0;
+    public float size = 0;
+    public Transform nextLayerPos;
 }
