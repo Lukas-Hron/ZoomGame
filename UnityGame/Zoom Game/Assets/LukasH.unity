@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1da9e2c0618014ab5ac67d68bcdbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothZoom: 0.07
+  smoothZoom: 0.1
   zoomMultiplier: 0.2
   zoomValue: 0
   ZoomLayers:

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ZoomHandler : MonoBehaviour
 {
-    bool isZoom = false;
-    Vector2 mousePos;
-    [SerializeField] private float smoothZoom = 0.1f;
-    [SerializeField] private float zoomMultiplier = 0.2f;
-    public float zoomValue = 0;
+    bool isZoom = false; //Updates Scaling of all active layers when enabled
+    Vector2 mousePos; // Mouse position in game coordinates
+    [SerializeField] private float smoothZoom = 0.1f; //How smooth the zoom should be
+    [SerializeField] private float zoomMultiplier = 0.2f; //How far you zoom with each scroll
+    public float zoomValue = 0; //Target ZoomLevel
     float currentZoomValue = 0;
-    public GameObject[] ZoomLayers;
+    public GameObject[] ZoomLayers; //Current layers loaded in
     void Start()
     {
-        for (var i = 0; i < ZoomLayers.Length; i++)
+        for (var i = 0; i < ZoomLayers.Length; i++) //Loop over every layer and align it correctly
         {
             float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
             layerZoom = Mathf.Exp(layerZoom);

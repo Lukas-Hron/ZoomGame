@@ -33,7 +33,6 @@ public class MenuHandler : MonoBehaviour
 			creditsPanel.SetActive(true);
 		else
 			creditsPanel.SetActive(false);
-		creditsPanel.Ac
 
 	}
 	public void BackToMenu()
