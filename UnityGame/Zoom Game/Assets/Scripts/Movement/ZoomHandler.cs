@@ -29,7 +29,7 @@ public class ZoomHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.mouseScrollDelta != Vector2.zero)
+        if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0))
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isZoom = true;
@@ -57,7 +57,7 @@ public class ZoomHandler : MonoBehaviour
 
         zoomValue = (Input.mouseScrollDelta.y * zoomMultiplier) + zoomValue;
         currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
-        if (currentZoomValue == zoomValue)
+        if (Mathf.Abs(currentZoomValue-zoomValue)<0.01)
         {
             isZoom = false;
         }
