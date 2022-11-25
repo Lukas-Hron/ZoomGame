@@ -20,12 +20,12 @@ public class MenuHandler : MonoBehaviour
 	}
 	public void StartGame(string name)
 	{
-		SceneManager.LoadScene("Game");
+		//startgame function
 	}
 	public void SettingsMenu(string name)
 	{
 		settingsPanel.SetActive(true);
-		mainMenu.SetActive(true);
+		mainMenu.SetActive(false);
 	}
 	public void Credits()
 	{
@@ -39,7 +39,7 @@ public class MenuHandler : MonoBehaviour
 	}
 	public void BackToMenu()
 	{
-		creditsPanel.SetActive(false);
+		settingsPanel.SetActive(false);
 		mainMenu.SetActive(true);
 	}
 }
