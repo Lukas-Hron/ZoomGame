@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 
-public class Item
+public class Item : MonoBehaviour, IPointerClickHandler
 {
-    public string itemName;
-    
-    public Item(string newName)
+    public Inventory inventory;
+
+    public void OnPointerClick(PointerEventData eventData)
     {
-        itemName = newName;
+        inventory.AddItem(this);
     }
 }
