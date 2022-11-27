@@ -56,12 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Gameplay\Inventory.cs" />
     <Compile Include="Assets\Scripts\Movement\CameraPan.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
     <Compile Include="Assets\Scripts\Movement\ZoomHandler.cs" />
     <Compile Include="Assets\Scripts\Movement\Layer.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Inventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
