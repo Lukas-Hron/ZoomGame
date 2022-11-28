@@ -28,7 +28,7 @@ public class MouseVectorAnimationScrubber : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 isHolding = false;
-                if (normalizedTime > 0.9) //Complete state
+                if (normalizedTime > 0.95) //Complete state
                 {
                     normalizedTime = 0.99f;
                     GetComponent<BoxCollider2D>().enabled = false;
