@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
         itemList.Add(item);
         item.transform.parent = gameObject.transform;
         item.transform.position = transform.position + new Vector3(0, (itemList.Count - 1) * itemOffset, 0);
+        item.transform.localScale = Vector3.one;
     }
     public void RemoveItem(string itemName)
     {
