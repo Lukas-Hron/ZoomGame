@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 
-public class Item : MonoBehaviour, IPointerClickHandler
+public class Item : MonoBehaviour
 {
     public Inventory inventory;
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnMouseDown()
     {
         inventory.AddItem(this);
     }

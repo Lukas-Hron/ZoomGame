@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
     <Compile Include="Assets\Scripts\Movement\ZoomHandler.cs" />
     <Compile Include="Assets\Scripts\Movement\Layer.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
   </ItemGroup>
   <ItemGroup>
