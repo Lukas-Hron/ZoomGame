@@ -10,14 +10,18 @@ public class ZoomHandler : MonoBehaviour
     [SerializeField] private float zoomSpeed = 0.2f; //How far you zoom with each scroll
     public float zoomInMultiplier = 0.5f;
     public float zoomValue = 0; //Target ZoomLevel
-    float currentZoomValue = 0;
+    float currentZoomValue = -2;
     public GameObject[] ZoomLayers; //Current layers loaded in
 
-    [SerializeField] public float zoomMin, zoomMax; //Clamp min and max
-
+    [SerializeField] public float tempZoomMin, tempZoomMax; //Clamp min and max
+    [SerializeField] public float zoomMin, zoomMax; 
     void Start()
     {
-        SetZoomClamp(3.6f, 5); //set starting clamp
+        isZoom = true;
+        zoomMax = 8;
+        zoomMin = -5;
+
+        SetZoomClamp(0, 0); //set starting clamp
 
         for (var i = 0; i < ZoomLayers.Length; i++) //Loop over every layer and align it correctly
         {
@@ -68,7 +72,7 @@ public class ZoomHandler : MonoBehaviour
             zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
 
         if (Input.mouseScrollDelta.y != 0)
-        zoomValue = Mathf.Clamp(zoomValue, zoomMin, zoomMax); //Clamp zoom value
+        zoomValue = Mathf.Clamp(zoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
 
         currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
         if (Mathf.Abs(currentZoomValue - zoomValue) < 0.01)
@@ -98,8 +102,14 @@ public class ZoomHandler : MonoBehaviour
     public void SetZoomClamp(float min, float max)
     {
         if (min != 0)
-            zoomMin = min;
+            tempZoomMin = min;
         if (max != 0)
-            zoomMax = max;
+            tempZoomMax = max;
+        if (max == 0 && min == 0)
+        {
+            tempZoomMax = zoomMax;
+            tempZoomMin = zoomMin;
+        }
+
     }
 }

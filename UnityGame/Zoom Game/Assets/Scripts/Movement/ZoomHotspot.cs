@@ -42,7 +42,7 @@ public class ZoomHotspot : MonoBehaviour
 
     private void OnMouseExit()
     {
-        zoom.SetZoomClamp(3.6f, 5);
+        zoom.SetZoomClamp(0, 0);
         zoomMultipler = 0;
         zoom.zoomInMultiplier = 0.5f;
         Debug.Log("Radius " + radius + ". Current Zoom Multiplier " + zoomMultipler + ". Cursor has exited");
