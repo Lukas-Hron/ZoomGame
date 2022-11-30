@@ -27,7 +27,13 @@ public class GameBoard : MonoBehaviour
             //}
             //else
             //    ChangeSprite(tileOff);
-
     }
 }
-
+public class Tile : MonoBehaviour
+{
+    public bool active;
+    public void ToggleActive()
+    {
+        active = !active;
+    }
+}
