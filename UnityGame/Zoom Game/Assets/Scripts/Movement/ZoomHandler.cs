@@ -9,8 +9,8 @@ public class ZoomHandler : MonoBehaviour
     [SerializeField] private float smoothZoom = 0.1f; //How smooth the zoom should be
     [SerializeField] private float zoomSpeed = 0.2f; //How far you zoom with each scroll
     public float zoomInMultiplier = 0.5f;
-    public float zoomValue = 0; //Target ZoomLevel
-    float currentZoomValue = -2;
+    public float zoomValue = -1; //Target ZoomLevel
+    float currentZoomValue = -1;
     public GameObject[] ZoomLayers; //Current layers loaded in
 
     [SerializeField] public float tempZoomMin, tempZoomMax; //Clamp min and max
@@ -42,7 +42,8 @@ public class ZoomHandler : MonoBehaviour
         
         if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0))
         {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Max grej
+            //mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
             isZoom = true;
 
         }

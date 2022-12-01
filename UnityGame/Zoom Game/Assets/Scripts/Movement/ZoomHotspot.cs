@@ -32,7 +32,8 @@ public class ZoomHotspot : MonoBehaviour
 
 
 
-        zoomMultipler = Mathf.InverseLerp(radius, 0 , Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+        zoomMultipler = Mathf.InverseLerp(radius, 0, Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition))); //Max grej
+        //zoomMultipler = Mathf.InverseLerp(radius, 0, Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2))));
 
 
         zoom.zoomInMultiplier = falloffCurve.Evaluate(zoomMultipler);

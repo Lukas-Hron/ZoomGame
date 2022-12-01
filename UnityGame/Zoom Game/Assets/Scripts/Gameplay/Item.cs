@@ -7,15 +7,17 @@ using System;
 public class Item : MonoBehaviour
 {
     Collider2D _collider;
-    public Inventory inventory;
+    Inventory inventory;
+    [SerializeField] float inventorySize;
 
     private void Start()
     {
+        inventory = UnityEngine.Object.FindObjectOfType<Inventory>();
         _collider = GetComponent<Collider2D>();
     }
     public void OnMouseDown()
     {
-        inventory.AddItem(this);
+        inventory.AddItem(this,inventorySize);
         _collider.enabled = false;
     }
 }

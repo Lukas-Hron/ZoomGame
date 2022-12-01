@@ -12,12 +12,12 @@ public class Inventory : MonoBehaviour
     {
         itemSlot = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
     }
-    public void AddItem(Item item)
+    public void AddItem(Item item,float size)
     {
         itemList.Add(item);
         item.transform.parent = gameObject.transform;
         item.transform.position = transform.position + new Vector3(0, (itemList.Count - 1) * itemOffset, 0);
-        item.transform.localScale = Vector3.one;
+        item.transform.localScale = new Vector3(size,size,size);
     }
     public void RemoveItem(string itemName)
     {
