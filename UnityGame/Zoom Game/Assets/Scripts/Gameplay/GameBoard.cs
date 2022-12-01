@@ -16,7 +16,7 @@ public class GameBoard : MonoBehaviour
         tileAmount = columns * rows;
         //preset puzzle change which tiles starts active
         ToggleOn(1);
-        ToggleOn(3);
+        ToggleOn(6);
     }
     private void ChangeSprite(SpriteRenderer tileSpriteRenderer, Sprite newSprite)
     {

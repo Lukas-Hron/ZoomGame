@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PuzzleReset : MonoBehaviour
 {
+    GameBoard gameBoard;
+
     private void OnMouseDown()
     {
         if (gameObject.name == "Reset")
@@ -17,15 +19,17 @@ public class PuzzleReset : MonoBehaviour
     }
     public void ResetPuzzle()
     {
+        gameBoard = GameObject.Find("GridPuzzle").GetComponent<GameBoard>();
+
         for (int i = 1; i <= 9; i++)
         {
             Tile tile = GameObject.Find(i.ToString()).GetComponent<Tile>();
             if (tile.active)
             {
-                GameObject.Find("GridPuzzle").GetComponent<GameBoard>().ToggleOn(i);
+                gameBoard.ToggleOn(i);
             }
         }
-        GameObject.Find("GridPuzzle").GetComponent<GameBoard>().ToggleOn(1);
-        GameObject.Find("GridPuzzle").GetComponent<GameBoard>().ToggleOn(3);
+        gameBoard.ToggleOn(1);
+        gameBoard.ToggleOn(6);
     }
 }
