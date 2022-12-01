@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
     <Compile Include="Assets\MenuCutscene.cs" />
+    <Compile Include="Assets\Scripts\Menu\MouseCursor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

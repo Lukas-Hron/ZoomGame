@@ -8,19 +8,52 @@ public class CameraPan : MonoBehaviour
     public Vector3 currentMouseScreenPosition;
     public Vector3 mouseScreenPositionLastFrame;
     public Vector3 mouseVector;
+    private MouseCursor mouseCursor;
+    private bool beginPanning = false;
+    private bool stopPanning = true;
 
     void Start()
     {
+        mouseCursor = new MouseCursor();
+        var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
+        mouseCursor.changeCursorTexture(texturen);
+        mouseCursor.updateCursor();
         zoom = Object.FindObjectOfType<ZoomHandler>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(1)||Input.GetMouseButton(2))
+        if (zoom.hasControl)
         {
-            if (zoom.hasControl)
-            Panning();
+            if (stopPanning && (!(Input.GetMouseButton(1) || Input.GetMouseButton(2))))
+            {
+                var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
+                mouseCursor.changeCursorTexture(texturen);
+                mouseCursor.updateCursor();
+                stopPanning = false;
+            }
+
+            else if (Input.GetMouseButton(1) || Input.GetMouseButton(2))
+            {
+                if (!beginPanning)
+                {
+                    var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorPanning");
+                    beginPanning = true;
+                    stopPanning = false;
+                    mouseCursor.changeCursorTexture(texturen);
+                    mouseCursor.updateCursor();
+                }
+                Panning();
+            }
+            else
+            {
+                stopPanning = true;
+                beginPanning = false;
+            }
+
+
         }
+
 
     }
 

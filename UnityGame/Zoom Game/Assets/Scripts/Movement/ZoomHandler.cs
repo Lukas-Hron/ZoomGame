@@ -18,6 +18,7 @@ public class ZoomHandler : MonoBehaviour
     [SerializeField] public float zoomMin, zoomMax; 
     void Start()
     {
+       
         isZoom = true;
         zoomMax = 10;
         zoomMin = -5;
