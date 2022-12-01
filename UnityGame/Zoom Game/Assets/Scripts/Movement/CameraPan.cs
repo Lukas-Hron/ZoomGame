@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class CameraPan : MonoBehaviour
 {
+    ZoomHandler zoom;
     public Vector3 currentMouseScreenPosition;
     public Vector3 mouseScreenPositionLastFrame;
     public Vector3 mouseVector;
 
+    void Start()
+    {
+        zoom = Object.FindObjectOfType<ZoomHandler>();
+    }
 
     void Update()
     {
         if (Input.GetMouseButton(1)||Input.GetMouseButton(2))
         {
+            if (zoom.hasControl)
             Panning();
         }
 

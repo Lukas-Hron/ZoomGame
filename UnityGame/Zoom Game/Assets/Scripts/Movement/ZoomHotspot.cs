@@ -7,11 +7,10 @@ using UnityEngine.EventSystems;
 public class ZoomHotspot : MonoBehaviour
 {
     [SerializeField] private float minZoomClamp, maxZoomClamp;
-    public AnimationCurve falloffCurve;
     public Transform radiusPoint;
     public float radius;
-    public float zoomMultipler;
     ZoomHandler zoom;
+    bool mouseIn;
 
 
     // Start is called before the first frame update
@@ -22,31 +21,23 @@ public class ZoomHotspot : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        zoom.SetZoomClamp(minZoomClamp, maxZoomClamp);
+        
     }
 
-    private void OnMouseOver()
+    private void FixedUpdate()
     {
-
-        radius = Vector2.Distance(radiusPoint.position, gameObject.transform.position);
-
-
-
-        zoomMultipler = Mathf.InverseLerp(radius, 0, Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition))); //Max grej
-        //zoomMultipler = Mathf.InverseLerp(radius, 0, Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2))));
-
-
-        zoom.zoomInMultiplier = falloffCurve.Evaluate(zoomMultipler);
-
-        Debug.Log("Radius " + radius + ". Current Zoom Multiplier " + zoomMultipler+".");
-    }
-
-    private void OnMouseExit()
-    {
-        zoom.SetZoomClamp(0, 0);
-        zoomMultipler = 0;
-        zoom.zoomInMultiplier = 0.5f;
-        Debug.Log("Radius " + radius + ". Current Zoom Multiplier " + zoomMultipler + ". Cursor has exited");
+        if (Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) < Vector2.Distance(radiusPoint.position, gameObject.transform.position))
+        {
+            mouseIn = true;
+            zoom.SetZoomClamp(minZoomClamp, maxZoomClamp);
+            Debug.Log("Radius " + radius + ".");
+        }
+        else if (mouseIn)
+        {
+            mouseIn = false;
+            zoom.SetZoomClamp(0, 0);
+            Debug.Log("Radius " + radius + ". Cursor has exited");
+        }
     }
 
 }

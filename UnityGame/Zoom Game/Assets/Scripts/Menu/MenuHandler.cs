@@ -8,7 +8,13 @@ public class MenuHandler : MonoBehaviour
 	[SerializeField] private GameObject creditsPanel;
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject settingsPanel;
-	private int counter;
+    private int counter;
+    MenuCutscene cut;
+
+	void Start()
+	{
+		cut = Object.FindObjectOfType<MenuCutscene>();
+	}
 
 	public void Quit()
 	{
@@ -19,10 +25,12 @@ public class MenuHandler : MonoBehaviour
 #endif
 	}
 	public void StartGame(string name)
-	{
-		//startgame function
-	}
-	public void SettingsMenu(string name)
+    {
+        //startgame function
+        cut.startCutscene = true;
+		mainMenu.SetActive(false);
+    }
+    public void SettingsMenu(string name)
 	{
 		settingsPanel.SetActive(true);
 		mainMenu.SetActive(false);
