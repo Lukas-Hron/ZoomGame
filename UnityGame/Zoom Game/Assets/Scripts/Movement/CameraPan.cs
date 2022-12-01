@@ -7,24 +7,49 @@ public class CameraPan : MonoBehaviour
     public Vector3 currentMouseScreenPosition;
     public Vector3 mouseScreenPositionLastFrame;
     public Vector3 mouseVector;
+    private mouseCursor musPekaren;
+    private bool beginPanning = false;
+    private bool stopPanning = true;
 
-
-    void Update()
+    private void Start()
     {
-        if (Input.GetMouseButton(1)||Input.GetMouseButton(2))
-        {
+        musPekaren = new mouseCursor();
+        var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
+        musPekaren.changeCursorTexture(texturen);
+        musPekaren.updateCursor();
+    }
+
+    void Update() {
+        if (stopPanning && (!(Input.GetMouseButton(1) || Input.GetMouseButton(2)))) {
+            var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
+            musPekaren.changeCursorTexture(texturen);
+            musPekaren.updateCursor();
+            stopPanning = false;
+        }
+
+        else if (Input.GetMouseButton(1) || Input.GetMouseButton(2)) {
+            if (!beginPanning)
+            {
+                var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorPanning");
+                beginPanning = true;
+                stopPanning = false;
+                musPekaren.changeCursorTexture(texturen);
+                musPekaren.updateCursor();
+            }
             Panning();
         }
+        else
+        {
+            stopPanning = true;
+            beginPanning = false;
+        }
+
 
     }
 
     public void Panning()
     {
-        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-        {
-            mouseScreenPositionLastFrame = Input.mousePosition;
-        }
-
+        mouseScreenPositionLastFrame = Input.mousePosition;
         currentMouseScreenPosition = Input.mousePosition;
 
             mouseVector = mouseScreenPositionLastFrame - currentMouseScreenPosition;

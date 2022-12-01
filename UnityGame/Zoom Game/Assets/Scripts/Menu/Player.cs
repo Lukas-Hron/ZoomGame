@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private StateMachine.PlayerState currentPlayerState;
-    private StateMachine.PlayerState nextPlayerState;
+//  private StateMachine.PlayerState nextPlayerState;
     
     private (float, float) mouseCursorRestriction;
 
@@ -17,38 +17,28 @@ public class Player : MonoBehaviour
     //private bool inventoryAllowed;                //16        0001 0000
     //private bool constrainedMovement;             //32        0010 0000
 
-    //private bool[] allowedPlayerActions;                                                  // METOD 2
-
-    private uint allowedPlayerActions;                                                     // METOD 3
-
     public Player()
     {
         currentPlayerState = StateMachine.PlayerState.idle;
-        nextPlayerState = StateMachine.PlayerState.idle;
         mouseCursorRestriction = (0.0F, 0.0F);
-        allowedPlayerActions = 255;
-        }
+    }
 
     // GETTERS & SETTERS
 
-    public void setActionsAllowed(uint newActionsAllowed)
+  /*  public void setActionsAllowed(uint newActionsAllowed)
     {
         allowedPlayerActions = allowedPlayerActions & newActionsAllowed;
-    }
+    }*/
     public void setCurrentState(StateMachine.PlayerState newState)
     {
         currentPlayerState = newState;
     }
-    public void setNextState(StateMachine.PlayerState newState)
-    {
-        nextPlayerState = newState;
-    }
     // FUNCTIONS
-
+    /*
     public bool isAllowed(uint allowedMask)
     {
         if ((allowedMask & allowedPlayerActions) > 0) return true;
         else return false;
     }
-    
+    */
 }

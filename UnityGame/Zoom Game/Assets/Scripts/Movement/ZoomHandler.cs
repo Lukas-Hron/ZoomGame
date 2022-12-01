@@ -35,7 +35,6 @@ public class ZoomHandler : MonoBehaviour
 
     void Update()
     {
-        
         if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0))
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
