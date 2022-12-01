@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<Item> itemList = new List<Item>();
+    public List<Item> itemList = new List<Item>();
     private Vector3 itemSlot;
     public float itemOffset = 2f;
  

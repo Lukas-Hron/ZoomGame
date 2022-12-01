@@ -32,10 +32,11 @@ public class MenuCutscene : MonoBehaviour
         zoom.isZoom = true;
         if (lerpLevel>1)
         {
+            zoom.hasControl = true;
             startCutscene = false;
             zoom.zoomMin = targetZoom;
             zoom.SetZoomClamp(targetZoom, 0);
-            zoom.hasControl = true;
+
         }
 
     }
