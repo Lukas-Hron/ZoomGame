@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Inventory.cs" />
     <Compile Include="Assets\Scripts\Movement\CameraPan.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Tile.cs" />
+    <Compile Include="Assets\Scripts\Movement\ZoomHotspot.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MouseVectorAnimationScrubber.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PuzzleReset.cs" />
     <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
+    <Compile Include="Assets\MenuCutscene.cs" />
+    <Compile Include="Assets\Scripts\Menu\MouseCursor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
