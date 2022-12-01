@@ -6,16 +6,22 @@ public class GameBoard : MonoBehaviour
 {
     public Sprite tileOn;
     public Sprite tileOff;
+    public int columns = 3;
+    public int rows = 3;
+    public int tileAmount;
 
     private void Start()
     {
- 
+        //calculate tiles in on gameboard
+        tileAmount = columns * rows;
+        //preset puzzle change which tiles starts active
+        ToggleOn(1);
+        ToggleOn(3);
     }
     private void ChangeSprite(SpriteRenderer tileSpriteRenderer, Sprite newSprite)
     {
         tileSpriteRenderer.sprite = newSprite;
     }
- 
     public void OnMouseDown()
     {
         //When clicking on the gameobj tile, turn the tile name to int and send to TurnTile function
@@ -29,19 +35,19 @@ public class GameBoard : MonoBehaviour
         //Toggles the tile you click on (its own number)
         ToggleOn(name);
         //Toggles the tile below
-        ToggleOn(name + 3);
+        ToggleOn(name + columns);
         //Toggles the tile above
-        ToggleOn(name - 3);
+        ToggleOn(name - columns);
 
         //Stops tile 3 from turning tile 4
-        if(name%3 != 0)
+        if(name%columns != 0)
             ToggleOn(name+1);
         //Stops tile 7 from turning tile 6
-        if(name%3 != 1)
+        if(name%columns != 1)
             ToggleOn(name-1);
     }
 
-    void ToggleOn(int name)
+    public void ToggleOn(int name)
     {
         //Only run when the tile exists (1-9)
         if (name < 1 || name > 9) return;
