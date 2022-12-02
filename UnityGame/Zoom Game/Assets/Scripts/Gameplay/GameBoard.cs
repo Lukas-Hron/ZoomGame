@@ -9,6 +9,8 @@ public class GameBoard : MonoBehaviour
     public int columns = 3;
     public int rows = 3;
     public int tileAmount;
+    public GameObject winSound;
+
 
     private void Start()
     {
@@ -40,11 +42,13 @@ public class GameBoard : MonoBehaviour
         ToggleOn(name - columns);
 
         //Stops tile 3 from turning tile 4
-        if(name%columns != 0)
-            ToggleOn(name+1);
+        if (name % columns != 0)
+            ToggleOn(name + 1);
         //Stops tile 7 from turning tile 6
-        if(name%columns != 1)
-            ToggleOn(name-1);
+        if (name % columns != 1)
+            ToggleOn(name - 1);
+
+        checkWin();
     }
 
     public void ToggleOn(int name)
@@ -53,7 +57,7 @@ public class GameBoard : MonoBehaviour
         if (name < 1 || name > 9) return;
 
         //Reference Tile from tile class to toggle targeted tiles active bool
-        Tile tile= GameObject.Find(name.ToString()).GetComponent<Tile>();
+        Tile tile = GameObject.Find(name.ToString()).GetComponent<Tile>();
         tile.ToggleActive();
 
         //Sets to active or inactive sprite (On/Off)
@@ -61,5 +65,28 @@ public class GameBoard : MonoBehaviour
             ChangeSprite(tile.GetComponent<SpriteRenderer>(), tileOn);
         else
             ChangeSprite(tile.GetComponent<SpriteRenderer>(), tileOff);
+
+    }
+
+    public void checkWin()
+    {
+        for (int i = 1; i <= 9; i++)
+        {
+            Tile tile = GameObject.Find(i.ToString()).GetComponent<Tile>();
+            if (tile.active == false)
+            {
+                return; //check all tiles if enabled
+            }
+        }
+
+        //win
+
+        Debug.Log("Wooowwow");
+        for (int i = 1; i <= 9; i++)
+        {
+            Tile tile = GameObject.Find(i.ToString()).GetComponent<Tile>();
+            tile.GetComponent<Collider2D>().enabled = false;
+            winSound.SetActive(true);
+        }
     }
 }

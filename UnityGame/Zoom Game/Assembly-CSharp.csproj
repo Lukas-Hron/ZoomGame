@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Tile.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameBoard.cs" />
     <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
+    <Compile Include="Assets\DebugFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
