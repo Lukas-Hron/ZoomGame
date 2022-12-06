@@ -12,36 +12,27 @@ public class ZoomHandler : MonoBehaviour
     public float zoomInMultiplier = 0.5f;
     public float zoomValue = -1; //Target ZoomLevel
     public float currentZoomValue = -1;
-    public GameObject[] ZoomLayers; //Current layers loaded in
+    public List<GameObject> ZoomLayers; //Current layers loaded in
 
     [SerializeField] public float tempZoomMin, tempZoomMax; //Clamp min and max
-    [SerializeField] public float zoomMin, zoomMax; 
+    [SerializeField] public float zoomMin, zoomMax;
+    ZoomLayerHandler zoomLayerHandler;
     void Start()
     {
-       
+        ZoomLayers = new List<GameObject>();
+        zoomLayerHandler = GetComponent<ZoomLayerHandler>();
         isZoom = true;
         zoomMax = 10;
         zoomMin = -5;
 
         SetZoomClamp(0, 0); //set starting clamp
 
-        for (var i = 0; i < ZoomLayers.Length; i++) //Loop over every layer and align it correctly
-        {
-            float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
-            layerZoom = Mathf.Exp(layerZoom);
-            ZoomLayers[i].transform.localScale = new Vector3(layerZoom, layerZoom, -10);
-
-            if (i > 0)
-            {
-                ZoomLayers[i].transform.position = ZoomLayers[i - 1].GetComponent<Layer>().nextLayerPos.position;
-            }
-        }
 
     }
 
     void Update()
     {
-        
+
         if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0) && hasControl)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Max grej
@@ -52,12 +43,13 @@ public class ZoomHandler : MonoBehaviour
         if (isZoom)
         {
             MoveToZoomLevel();
+            zoomLayerHandler.CheckZoomLevel();
         }
     }
 
     void MoveToZoomLevel()
     {
-        for (var i = 0; i < ZoomLayers.Length; i++)
+        for (var i = 0; i < ZoomLayers.Count; i++)
         {
             float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
             layerZoom = Mathf.Exp(layerZoom);
@@ -75,7 +67,7 @@ public class ZoomHandler : MonoBehaviour
             zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
 
         if (Input.mouseScrollDelta.y != 0)
-        zoomValue = Mathf.Clamp(zoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
+            zoomValue = Mathf.Clamp(zoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
 
         currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
         //currentZoomValue = Mathf.Clamp(currentZoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
@@ -117,4 +109,20 @@ public class ZoomHandler : MonoBehaviour
 
 
     }
+
+    public void RealignZoomlayers()
+    {
+        for (var i = 0; i < ZoomLayers.Count; i++) //Loop over every layer and align it correctly
+        {
+            float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
+            layerZoom = Mathf.Exp(layerZoom);
+            ZoomLayers[i].transform.localScale = new Vector3(layerZoom, layerZoom, -10);
+
+            if (i > 0)
+            {
+                ZoomLayers[i].transform.position = ZoomLayers[i - 1].GetComponent<Layer>().nextLayerPos.position;
+            }
+        }
+    }
 }
+

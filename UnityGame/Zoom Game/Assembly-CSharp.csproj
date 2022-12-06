@@ -56,23 +56,24 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Gameplay\PuzzleReset.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Inventory.cs" />
     <Compile Include="Assets\Scripts\Movement\CameraPan.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tile.cs" />
     <Compile Include="Assets\Scripts\Movement\ZoomHotspot.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuHandler.cs" />
+    <Compile Include="Assets\MenuCutscene.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MouseVectorAnimationScrubber.cs" />
+    <Compile Include="Assets\Scripts\Menu\MouseCursor.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
     <Compile Include="Assets\Scripts\Movement\ZoomHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameBoard.cs" />
+    <Compile Include="Assets\DebugFunctions.cs" />
     <Compile Include="Assets\Scripts\Movement\Layer.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
-    <Compile Include="Assets\MenuCutscene.cs" />
-    <Compile Include="Assets\Scripts\Menu\MouseCursor.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\PuzzleReset.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Tile.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\GameBoard.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
-    <Compile Include="Assets\DebugFunctions.cs" />
+    <Compile Include="Assets\ZoomLayerHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -90,6 +91,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\NotFinal\VignetteShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
