@@ -6,23 +6,35 @@ public class StarConstellation : MonoBehaviour
 {
     public Sprite starOn;
     public Sprite starOff;
+    public Sprite lineOn;
+    public Sprite lineOff;
+    [SerializeField] private List<GameObject> lines;
 
-    private void ChangeSprite(SpriteRenderer tileSpriteRenderer, Sprite newSprite)
+    private void ChangeSprite(SpriteRenderer starSpriteRenderer, Sprite newSprite)
     {
-        tileSpriteRenderer.sprite = newSprite;
+        starSpriteRenderer.sprite = newSprite;
     }
 
-    public void TurnStar()
+    public void ChangeSpriteLine(SpriteRenderer lineSpriteRenderer, Sprite newSprite)
     {
-        ToggleOn();
-
+        lineSpriteRenderer.sprite = newSprite;
     }
 
-    public void ToggleOn()
+    public void ActivateStar(List<GameObject> stars, GameObject clickedStar)
     {
-        Star star = GameObject.FindGameObjectWithTag("Star").GetComponent<Star>();
+        StartCoroutine(ToggleOn(clickedStar.GetComponent<Star>(), 0));
+        foreach (GameObject star in stars)
+            StartCoroutine(ToggleOn(star.GetComponent<Star>(), 1));
+    }
+
+    public IEnumerator ToggleOn(Star star, float delayTime)
+    {
+        
+        yield return new WaitForSeconds(delayTime);
         //Reference Tile from tile class to toggle targeted tiles active bool
         star.ToggleActive();
+        foreach (GameObject starLine in lines)
+            starLine.GetComponent<StarLine>().CheckLine();
         Debug.Log(star.litStar);
 
         //Sets to active or inactive sprite (On/Off)
@@ -30,6 +42,5 @@ public class StarConstellation : MonoBehaviour
             ChangeSprite(star.GetComponent<SpriteRenderer>(), starOn);
         else
             ChangeSprite(star.GetComponent<SpriteRenderer>(), starOff);
-
     }
 }

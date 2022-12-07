@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> linesConnected;
+    [SerializeField] private List<GameObject> starsConnected;
+
     public bool litStar;
     public void ToggleActive()
     {
@@ -13,7 +16,9 @@ public class Star : MonoBehaviour
     public void OnMouseDown()
     {
         //Get GameBoard class to use call on TurnTile function
-        GameObject.Find("StarConstellation").GetComponent<StarConstellation>().TurnStar();
+        
+        GameObject.Find("StarConstellation").GetComponent<StarConstellation>().ActivateStar(starsConnected, gameObject);
+        
         //Debug.Log(gameObject.name);
     }
 
