@@ -73,9 +73,9 @@
     <Compile Include="Assets\Scripts\Gameplay\GameBoard.cs" />
     <Compile Include="Assets\DebugFunctions.cs" />
     <Compile Include="Assets\Scripts\Movement\Layer.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\StarLine.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\StarLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
