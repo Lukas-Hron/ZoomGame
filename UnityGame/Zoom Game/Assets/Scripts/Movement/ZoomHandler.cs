@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ZoomHandler : MonoBehaviour
 {
-    public bool hasControl;
+    Player player;
+    CutsceneManager cutscene;
     public bool isZoom = false; //Updates Scaling of all active layers when enabled
     Vector2 mousePos; // Mouse position in game coordinates
     [SerializeField] private float smoothZoom = 0.1f; //How smooth the zoom should be
@@ -19,6 +20,8 @@ public class ZoomHandler : MonoBehaviour
     ZoomLayerHandler zoomLayerHandler;
     void Start()
     {
+        player = GetComponent<Player>();
+        cutscene = GetComponent<CutsceneManager>();
         ZoomLayers = new List<GameObject>();
         zoomLayerHandler = GetComponent<ZoomLayerHandler>();
         isZoom = true;
@@ -30,12 +33,21 @@ public class ZoomHandler : MonoBehaviour
     void Update()
     {
 
-        if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0) && hasControl)
+        if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0) && player.canZoom && player.canInput)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isZoom = true;
+            player.isZooming = true;
 
         }
+
+        else if (player.inCutscene)
+        {
+            mousePos = cutscene.cutsceneOrigin;
+            isZoom = true;
+            zoomValue = cutscene.resultingZoomValue;
+        }
+
         if (isZoom)
         {
             MoveToZoomLevel();
@@ -73,6 +85,7 @@ public class ZoomHandler : MonoBehaviour
         if (Mathf.Abs(currentZoomValue - zoomValue) < 0.01)
         {
             isZoom = false;
+            player.isZooming = false;
         }
 
     }

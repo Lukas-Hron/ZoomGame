@@ -11,10 +11,9 @@ public class ZoomLayerHandler : MonoBehaviour
     {
         zoom = GetComponent<ZoomHandler>();
         pan = Camera.main.GetComponent<CameraPan>();
+        zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == "ZoomLayer0 - Test Variant"), transform.position + new Vector3(-0.5f, 0, 0), Quaternion.identity));
+        PanChange("ZoomLayer0 - Test Variant");
 
-        zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == "TestLayer0"), transform.position + new Vector3(-0.5f, 0, 0), Quaternion.identity));
-        InstansiateNewZoomLayer("TestLayer1");
-        PanChange("TestLayer0");
     }
 
     private void Update()
@@ -39,8 +38,7 @@ public class ZoomLayerHandler : MonoBehaviour
             if (!actionPerformedForZoomLevel1)
             {
                 actionPerformedForZoomLevel1 = true;
-                InstansiateNewZoomLayer("TestLayer2");
-                SetZoomConstraints(0.9f, 0);
+
             }
             return;
         }
@@ -52,11 +50,6 @@ public class ZoomLayerHandler : MonoBehaviour
             if (!actionPerformedForZoomLevel2)
             {
                 actionPerformedForZoomLevel2 = true;
-                InstansiateNewZoomLayer("TestLayer3");
-                PanChange("TestLayer1");
-                SetLayerFunctions("TestLayer2", true);
-                DeleteZoomLayer("TestLayer0");
-                SetZoomConstraints(4f, 10f);
 
 
             }
@@ -73,6 +66,7 @@ public class ZoomLayerHandler : MonoBehaviour
 
             }
             return;
+
         }
     }
 

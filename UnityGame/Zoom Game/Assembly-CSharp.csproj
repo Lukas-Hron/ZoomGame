@@ -73,6 +73,9 @@
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
     <Compile Include="Assets\ZoomLayerHandler.cs" />
+    <Compile Include="Assets\Player.cs" />
+    <Compile Include="Assets\CutsceneManager.cs" />
+    <Compile Include="Assets\Curser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

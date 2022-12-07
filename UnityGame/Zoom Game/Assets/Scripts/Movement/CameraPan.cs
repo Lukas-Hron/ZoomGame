@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraPan : MonoBehaviour
 {
+    public Player player;
     public Vector3 currentMouseScreenPosition;
     public Vector3 mouseScreenPositionLastFrame;
     // Vector to store the difference between the mouse positions in the current and last frames
@@ -33,16 +34,18 @@ public class CameraPan : MonoBehaviour
     void Update()
     {
         // If the right or middle mouse button is being held down, start panning the camera
-        if (Input.GetMouseButton(1) || Input.GetMouseButton(2))
+        if ((Input.GetMouseButton(1) || Input.GetMouseButton(2)) && player.canInput && player.canPan)
         {
             Panning();
             isPanning = true;
+            player.isPanning = true;
         }
 
         // If the right or middle mouse button is released, move the camera to its clamped position
-        else if (Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+        if ((Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2)) && player.canInput && player.canPan)
         {
             isPanning = true;
+            player.isPanning = false;   
             targetPos = ClampCameraPosition
                 (
                 new Vector2(conTopRight.position.x - conSlowZone, conTopRight.position.y - conSlowZone),
@@ -73,6 +76,7 @@ public class CameraPan : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPos) < 0.01)
         {
             isPanning = false;
+            
         }
     }
 
