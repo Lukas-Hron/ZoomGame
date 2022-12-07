@@ -4500,6 +4500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZoomLayer2 - Transition2
       objectReference: {fileID: 0}
+    - target: {fileID: 491807213428166225, guid: 29bc5ffd21daeaf4c9ef15af661dab41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2758680546560848137, guid: 29bc5ffd21daeaf4c9ef15af661dab41, type: 3}
       propertyPath: size
       value: 8.39

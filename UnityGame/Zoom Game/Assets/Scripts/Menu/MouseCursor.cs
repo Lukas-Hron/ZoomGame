@@ -29,5 +29,29 @@ public class MouseCursor
         cursorTexture = newCursorTexture;
         Cursor.SetCursor(cursorTexture, clickPoint, cursorMode);
     }
+    /// <summary>
+    /// cursorNumbers: 0-default, 1-panning, 2-zooming, 3-dragInteract
+    /// </summary>
+    /// <param name="cursorNumber"></param>
+    public void changeCursor(int cursorNumber)
+    {
+        var texturen = Texture2D.whiteTexture;
+        switch (cursorNumber)
+        {
+            case 0:
+                texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
+                break;
+            case 1:
+                texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorPanning");
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+
+        }
+        this.changeCursorTexture(texturen);
+        Cursor.SetCursor(cursorTexture, clickPoint, cursorMode);
+    }
 
 }

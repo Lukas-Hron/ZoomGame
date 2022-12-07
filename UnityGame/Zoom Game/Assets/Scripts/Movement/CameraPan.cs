@@ -8,28 +8,30 @@ public class CameraPan : MonoBehaviour
     public Vector3 currentMouseScreenPosition;
     public Vector3 mouseScreenPositionLastFrame;
     public Vector3 mouseVector;
-    private MouseCursor mouseCursor;
     private bool beginPanning = false;
     private bool stopPanning = true;
 
-    void Start()
+    public CameraPan()
     {
-        mouseCursor = new MouseCursor();
-        var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
-        mouseCursor.changeCursorTexture(texturen);
-        mouseCursor.updateCursor();
+        currentMouseScreenPosition = Vector3.zero;
+        mouseScreenPositionLastFrame = Vector3.zero;
+        mouseVector = Vector3.zero;
+        beginPanning = false;
+        stopPanning = true;
+    }
+    public void initiate()
+    {
         zoom = Object.FindObjectOfType<ZoomHandler>();
     }
 
-    void Update()
+    public Player ZoomUpdate(Player player)
     {
+        Player _player = player;
         if (zoom.hasControl)
         {
             if (stopPanning && (!(Input.GetMouseButton(1) || Input.GetMouseButton(2))))
             {
-                var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorDefault");
-                mouseCursor.changeCursorTexture(texturen);
-                mouseCursor.updateCursor();
+                player.getMouseCursor().changeCursor(0);
                 stopPanning = false;
             }
 
@@ -37,11 +39,9 @@ public class CameraPan : MonoBehaviour
             {
                 if (!beginPanning)
                 {
-                    var texturen = Resources.Load<Texture2D>("Art/MouseCursors/mouseCursorPanning");
                     beginPanning = true;
                     stopPanning = false;
-                    mouseCursor.changeCursorTexture(texturen);
-                    mouseCursor.updateCursor();
+                    _player.setNewState(StateMachine.PlayerState.panning);
                 }
                 Panning();
             }
@@ -49,12 +49,12 @@ public class CameraPan : MonoBehaviour
             {
                 stopPanning = true;
                 beginPanning = false;
+                _player.setNewState(StateMachine.PlayerState.idle);
             }
-
 
         }
 
-
+        return _player;
     }
 
     public void Panning()

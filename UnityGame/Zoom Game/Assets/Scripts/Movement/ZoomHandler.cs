@@ -48,6 +48,7 @@ public class ZoomHandler : MonoBehaviour
             //mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
             isZoom = true;
 
+
         }
         if (isZoom)
         {
