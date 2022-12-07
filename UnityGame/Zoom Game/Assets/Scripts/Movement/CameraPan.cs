@@ -141,7 +141,7 @@ public class CameraPan : MonoBehaviour
     public void UpdatePanConstraints()
     {
         // Get the transforms for the top-right and bottom-left constraints
-        conTopRight = layer.Find("Constraints").Find("TopRight");
-        conBottomLeft = layer.Find("Constraints").Find("BottomLeft");
+        conTopRight = layer.GetComponent<Layer>().topRight;
+        conBottomLeft = layer.GetComponent<Layer>().bottomLeft;
     }
 }

@@ -9,11 +9,10 @@ public class MenuHandler : MonoBehaviour
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject settingsPanel;
     private int counter;
-    MenuCutscene cut;
 
 	void Start()
 	{
-		cut = Object.FindObjectOfType<MenuCutscene>();
+
 	}
 
 	public void Quit()
@@ -27,7 +26,6 @@ public class MenuHandler : MonoBehaviour
 	public void StartGame(string name)
     {
         //startgame function
-        cut.startCutscene = true;
 		mainMenu.SetActive(false);
     }
     public void SettingsMenu(string name)

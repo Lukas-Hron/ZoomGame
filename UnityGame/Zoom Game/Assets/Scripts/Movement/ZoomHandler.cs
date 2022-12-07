@@ -14,8 +14,8 @@ public class ZoomHandler : MonoBehaviour
     public float currentZoomValue = -1;
     public List<GameObject> ZoomLayers; //Current layers loaded in
 
-    [SerializeField] public float tempZoomMin, tempZoomMax; //Clamp min and max
     [SerializeField] public float zoomMin, zoomMax;
+    public float hotSpotMax;
     ZoomLayerHandler zoomLayerHandler;
     void Start()
     {
@@ -25,9 +25,6 @@ public class ZoomHandler : MonoBehaviour
         zoomMax = 10;
         zoomMin = -5;
 
-        SetZoomClamp(0, 0); //set starting clamp
-
-
     }
 
     void Update()
@@ -35,8 +32,7 @@ public class ZoomHandler : MonoBehaviour
 
         if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0) && hasControl)
         {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Max grej
-            //mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isZoom = true;
 
         }
@@ -61,16 +57,19 @@ public class ZoomHandler : MonoBehaviour
             }
         }
 
-        if (Input.mouseScrollDelta.y < 0) //Constrain Zooming in to hotspots only
+        if (Input.mouseScrollDelta.y < 0) //Check if zooming in or out. Zooming in will be slower.
             zoomValue = (Input.mouseScrollDelta.y * zoomSpeed) + zoomValue;
         else
             zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
 
-        if (Input.mouseScrollDelta.y != 0)
-            zoomValue = Mathf.Clamp(zoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
+
+        if (hotSpotMax <= zoomMax)
+            zoomValue = Mathf.Clamp(zoomValue, zoomMin, zoomMax); //Clamp zoom value
+        else
+            zoomValue = Mathf.Clamp(zoomValue, zoomMin, hotSpotMax); //Clamp zoom value when in hotspot
 
         currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
-        //currentZoomValue = Mathf.Clamp(currentZoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
+
         if (Mathf.Abs(currentZoomValue - zoomValue) < 0.01)
         {
             isZoom = false;
@@ -93,21 +92,6 @@ public class ZoomHandler : MonoBehaviour
         // finally, actually perform the scale/translation
         target.transform.localScale = newScale;
         target.transform.localPosition = FP;
-    }
-
-    public void SetZoomClamp(float min, float max)
-    {
-        if (max == 0 && min == 0)
-        {
-            tempZoomMax = zoomMax;
-            tempZoomMin = zoomMin;
-        }
-        if (min != 0)
-            tempZoomMin = min;
-        if (max != 0)
-            tempZoomMax = max;
-
-
     }
 
     public void RealignZoomlayers()

@@ -63,7 +63,6 @@
     <Compile Include="Assets\Scripts\Movement\ZoomHotspot.cs" />
     <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuHandler.cs" />
-    <Compile Include="Assets\MenuCutscene.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MouseVectorAnimationScrubber.cs" />
     <Compile Include="Assets\Scripts\Menu\MouseCursor.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
@@ -91,7 +90,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\NotFinal\VignetteShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

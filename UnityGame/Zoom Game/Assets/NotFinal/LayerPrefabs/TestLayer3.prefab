@@ -193,8 +193,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eee3001278bd36499809a6f5746b9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hotSpots: []
+  objectsWithColliders: []
   size: 4.2
   nextLayerPos: {fileID: 773347541151847236}
+  topRight: {fileID: 773347541897430517}
+  bottomLeft: {fileID: 773347540750447980}
 --- !u!1 &773347541648396855
 GameObject:
   m_ObjectHideFlags: 0

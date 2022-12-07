@@ -8,6 +8,7 @@ public class Layer : MonoBehaviour
     public List<GameObject> objectsWithColliders;
     public float size = 0;
     public Transform nextLayerPos;
+    public Transform topRight, bottomLeft;
 
     private void Start()
     {

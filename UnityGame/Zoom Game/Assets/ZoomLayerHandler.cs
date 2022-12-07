@@ -40,7 +40,7 @@ public class ZoomLayerHandler : MonoBehaviour
             {
                 actionPerformedForZoomLevel1 = true;
                 InstansiateNewZoomLayer("TestLayer2");
-                SetZoomConstraints(0.9f,0);
+                SetZoomConstraints(0.9f, 0);
             }
             return;
         }
@@ -56,7 +56,7 @@ public class ZoomLayerHandler : MonoBehaviour
                 PanChange("TestLayer1");
                 SetLayerFunctions("TestLayer2", true);
                 DeleteZoomLayer("TestLayer0");
-                SetZoomConstraints(4,10);
+                SetZoomConstraints(4f, 10f);
 
 
             }
@@ -116,8 +116,11 @@ public class ZoomLayerHandler : MonoBehaviour
             zoom.zoomMin = min;
         if (max != 0)
             zoom.zoomMax = max;
+    }
 
-        zoom.SetZoomClamp(0,0);
+    public void SetPlayerState()
+    {
+        // :D
     }
 }
 

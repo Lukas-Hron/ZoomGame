@@ -84,6 +84,8 @@ MonoBehaviour:
   - {fileID: 4428546533041905736}
   size: 2.8
   nextLayerPos: {fileID: 4428546533725572252}
+  topRight: {fileID: 4428546533695748116}
+  bottomLeft: {fileID: 4428546533592149582}
 --- !u!1 &4428546532979364475
 GameObject:
   m_ObjectHideFlags: 0
