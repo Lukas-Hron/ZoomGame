@@ -5,23 +5,23 @@ using UnityEngine;
 public class PlayerItem
 {
     private string name;
-    private GameObject gameObject;
+    private Texture2D texture;
 
-    public PlayerItem(string _name, GameObject _gameObject)
+    public PlayerItem(string _name, Texture2D _gameObject)
     {
         name = _name;
-        gameObject = _gameObject;
+        texture = _gameObject;
     }
-    public void setGameObject(GameObject _gameObject)
+    public void setTexture(Texture2D _gameObject)
     {
-        gameObject = _gameObject;
+        texture = _gameObject;
     }
     public string getName()
     {
         return name;
     }
-    public GameObject getGameObject()
+    public Texture2D getTexture()
     {
-        return gameObject;
+        return texture;
     }
 }

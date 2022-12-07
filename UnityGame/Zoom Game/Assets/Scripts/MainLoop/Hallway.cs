@@ -5,36 +5,49 @@ using UnityEngine;
 public class Hallway : ZoomLayer
 {
     public GameObject background;
-    public GameObject[] zoomLayerObjects;
+    public ZoomLayerObject[] zoomLayerObjects;
     public (float, float) zoomingConstraints;
     public Transform nextLayerPos;
 
 
     public void disableZoomLayer()
     {
-        foreach(GameObject gameObject in zoomLayerObjects)
+        foreach(ZoomLayerObject gameObject in zoomLayerObjects)
         {
-            gameObject.SetActive(false);
+            gameObject.getGameObject().SetActive(false);
         }
         background.SetActive(false);
     }
 
     public void enableZoomLayer()
     {
-        foreach (GameObject gameObject in zoomLayerObjects)
+        
+        foreach (ZoomLayerObject gameObject in zoomLayerObjects)
         {
-            gameObject.SetActive(true);
+            gameObject.getGameObject().SetActive(true);
         }
         background.SetActive(true);
     }
 
+    public void loadZoomLayer()
+    {
+        zoomLayerObjects = new ZoomLayerObject[1];
+        zoomLayerObjects[0] = new ZoomLayerObject(GameObject.Find("key"));
+
+    }
+
     public bool transissionForward()
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 
     public Player updateZoomLayer(Player player)
     {
-        throw new System.NotImplementedException();
+        player.getInventory();
+        if (keyHasbeenUsed)
+        {
+            
+        }
     }
+    
 }

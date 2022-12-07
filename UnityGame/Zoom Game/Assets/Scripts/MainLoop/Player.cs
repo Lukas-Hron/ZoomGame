@@ -6,7 +6,7 @@ public class Player
 {
   private StateMachine.PlayerState currentState;
   private PlayerItem[] inventory;
-    private MouseCursor mouseCursor;
+  private MouseCursor mouseCursor;
 
     public Player()
     {

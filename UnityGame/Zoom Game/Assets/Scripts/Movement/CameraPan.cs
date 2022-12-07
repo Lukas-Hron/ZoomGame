@@ -51,9 +51,7 @@ public class CameraPan : MonoBehaviour
                 beginPanning = false;
                 _player.setNewState(StateMachine.PlayerState.idle);
             }
-
         }
-
         return _player;
     }
 

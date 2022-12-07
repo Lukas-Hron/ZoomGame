@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface ZoomLayer
 {
+    public void loadZoomLayer();
     public void disableZoomLayer();
     public void enableZoomLayer();
     public bool transissionForward();

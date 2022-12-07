@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ZoomHandler : MonoBehaviour
 {
+    //public StateMachine.PlayerState currentPlayerState;
+
     public bool hasControl;
     public bool isZoom = false; //Updates Scaling of all active layers when enabled
     Vector2 mousePos; // Mouse position in game coordinates
