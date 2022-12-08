@@ -1819,6 +1819,7 @@ MonoBehaviour:
   - {fileID: 804112497}
   - {fileID: 14440081}
   - {fileID: 252357541}
+  stars: []
 --- !u!4 &220074947
 Transform:
   m_ObjectHideFlags: 0
@@ -7156,6 +7157,12 @@ MonoBehaviour:
   - {fileID: 719891351}
   - {fileID: 1750698797}
   - {fileID: 1848197648}
+  stars:
+  - {fileID: 842810423}
+  - {fileID: 285661363}
+  - {fileID: 179703928}
+  - {fileID: 941392289}
+  - {fileID: 783023743}
 --- !u!4 &1239158270
 Transform:
   m_ObjectHideFlags: 0
@@ -9456,6 +9463,7 @@ MonoBehaviour:
   - {fileID: 1911510251}
   - {fileID: 1207832227}
   - {fileID: 1534133137}
+  stars: []
 --- !u!4 &1899269220
 Transform:
   m_ObjectHideFlags: 0
