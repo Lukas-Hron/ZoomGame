@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class UseItem : MonoBehaviour
 {
-    Animator win;
+    Player player;
+    Animator anim;
     Inventory inventory;
-    Item keyItem;
-    GameObject key;
+    Item item;
+    GameObject itemToUse;
+    [SerializeField] string itemName;
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         //item = GameObject.Find("Key").GetComponent<Item>();
         inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
 
-        key = GameObject.Find("Key");
-        keyItem = key.GetComponent<Item>();
-        win = GetComponent<Animator>();
+        itemToUse = GameObject.Find(itemName);
+        item = itemToUse.GetComponent<Item>();
+        anim = GetComponent<Animator>();
     }
     private void OnMouseDown()
     {
@@ -24,13 +27,36 @@ public class UseItem : MonoBehaviour
             Debug.Log("Keyhole Clicked");
         }
 
-        if (inventory.itemList.Contains(keyItem))
+        if (inventory.itemList.Contains(item))
         {
-            win.SetTrigger("win");
+            anim.SetTrigger("item");
             Debug.Log("Item found");
-            inventory.RemoveItem("Key");
-            Destroy(key);
-
+            inventory.RemoveItem(item.name);
+            Destroy(itemToUse);
+            GetComponent<Collider2D>().enabled = false;
+            player.isItemInteract = false;
+            player.hasRightItem = false;
         }
+    }
+
+    private void OnMouseEnter()
+    {
+
+        if (inventory.itemList.Contains(item))
+        {
+            player.hasRightItem = true;
+            player.SetCurserSprite(item.GetComponent<SpriteRenderer>().sprite);
+        }
+        else
+        {
+            player.hasRightItem = false;
+        }
+
+        player.isItemInteract = true;
+    }
+    private void OnMouseExit()
+    {
+        player.hasRightItem = false;
+        player.isItemInteract = false;
     }
 }

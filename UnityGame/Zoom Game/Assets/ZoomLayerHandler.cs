@@ -11,8 +11,9 @@ public class ZoomLayerHandler : MonoBehaviour
     {
         zoom = GetComponent<ZoomHandler>();
         pan = Camera.main.GetComponent<CameraPan>();
-        zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == "ZoomLayer0 - Test Variant"), transform.position + new Vector3(-0.5f, 0, 0), Quaternion.identity));
-        PanChange("ZoomLayer0 - Test Variant");
+        zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == "ZoomLayer0 - MainMenu"), transform.position, Quaternion.identity));
+        PanChange("ZoomLayer0 - MainMenu");
+        InstansiateNewZoomLayer("ZoomLayer2 - Hallway");
 
     }
 
@@ -33,12 +34,15 @@ public class ZoomLayerHandler : MonoBehaviour
 
 
 
-        if (zoomValue >= 0.9 && zoomValue < 2)
+        if (zoomValue >= 6.0 && zoomValue < 9)
         {
             if (!actionPerformedForZoomLevel1)
             {
                 actionPerformedForZoomLevel1 = true;
-
+                PanChange("ZoomLayer2 - Hallway");
+                SetLayerFunctions("ZoomLayer2 - Hallway", true);
+                zoom.zoomMax = 7.8f;
+                zoom.zoomMin = 6.8f;
             }
             return;
         }
@@ -74,7 +78,7 @@ public class ZoomLayerHandler : MonoBehaviour
 
     void InstansiateNewZoomLayer(string name)
     {
-        zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == name), zoom.ZoomLayers[zoom.ZoomLayers.Count - 1].GetComponent<Layer>().nextLayerPos.transform.position + new Vector3(-0.5f, 0, 0), Quaternion.identity));
+        zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == name), zoom.ZoomLayers[zoom.ZoomLayers.Count - 1].GetComponent<Layer>().nextLayerPos.transform.position, Quaternion.identity));
         zoom.RealignZoomlayers();
     }
 

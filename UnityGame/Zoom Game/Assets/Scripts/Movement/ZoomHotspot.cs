@@ -10,7 +10,7 @@ public class ZoomHotspot : MonoBehaviour
     public Transform radiusPoint;
     float radius;
     ZoomHandler zoom;
-    bool mouseIn;
+    bool mouseWithin;
 
 
     // Start is called before the first frame update
@@ -19,22 +19,19 @@ public class ZoomHotspot : MonoBehaviour
         zoom = Object.FindObjectOfType<ZoomHandler>();
     }
 
-    private void OnMouseEnter()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         radius = Vector2.Distance(radiusPoint.position, gameObject.transform.position);
         if (Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) < radius)
         {
-            mouseIn = true;
+            mouseWithin = true;
+
+            if (zoom.hotSpotMax < maxZoomClamp)
             zoom.hotSpotMax = maxZoomClamp;
         }
-        else if (mouseIn)
+        else if (mouseWithin)
         {
-            mouseIn = false;
+            mouseWithin = false;
             zoom.hotSpotMax = 0;
         }
     }

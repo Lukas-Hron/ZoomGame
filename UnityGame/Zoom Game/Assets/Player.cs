@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Curser curser;
+
     public bool canInput;
     public bool canZoom;
     public bool canPan;
@@ -12,10 +14,18 @@ public class Player : MonoBehaviour
     public bool isDragInteract;
     public bool isZooming;
     public bool isPanning;
+    public bool canClick;
     public bool inCutscene;
+    public bool isItemInteract;
+    public bool hasRightItem;
 
     public void toggleCutscene()
     {
         inCutscene = !inCutscene;
+    }
+
+    public void SetCurserSprite(Sprite item)
+    {
+        curser.currentItem = item;
     }
 }

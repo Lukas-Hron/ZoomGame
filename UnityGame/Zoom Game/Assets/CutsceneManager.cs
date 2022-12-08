@@ -11,13 +11,14 @@ public class CutsceneManager : MonoBehaviour
     public float zoomValue;
     [SerializeField] float targetZoomValue;
     float lerp;
-     public float resultingZoomValue = 10;
+   public float resultingZoomValue;
     [SerializeField] float duration = 5f;
 
     private void Start()
     {
         player = GetComponent<Player>();
         zoom = GetComponent<ZoomHandler>();
+        zoomValue = zoom.zoomValue;
     }
     private void Update()
     {
@@ -31,7 +32,7 @@ public class CutsceneManager : MonoBehaviour
     private void PlayCutscene()
     {
         lerp += Time.deltaTime / duration;
-        resultingZoomValue = Mathf.Lerp(zoomValue, targetZoomValue,lerp);
+        resultingZoomValue = Mathf.Lerp(zoomValue, targetZoomValue,curve.Evaluate(lerp));
 
 
         if (resultingZoomValue == targetZoomValue)
@@ -41,6 +42,7 @@ public class CutsceneManager : MonoBehaviour
             player.canZoom = true;
             player.canPan = true;
             zoom.zoomValue = targetZoomValue;
+            zoom.currentZoomValue = targetZoomValue;
         }
     }
 }

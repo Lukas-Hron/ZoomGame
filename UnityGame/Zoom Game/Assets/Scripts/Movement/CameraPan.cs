@@ -41,18 +41,19 @@ public class CameraPan : MonoBehaviour
             player.isPanning = true;
         }
 
+
+        if (player.isZooming)
+        {
+            MoveDirectlyToClampedPosition();
+        }
+
         // If the right or middle mouse button is released, move the camera to its clamped position
         if ((Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2)) && player.canInput && player.canPan)
         {
             isPanning = true;
-            player.isPanning = false;   
-            targetPos = ClampCameraPosition
-                (
-                new Vector2(conTopRight.position.x - conSlowZone, conTopRight.position.y - conSlowZone),
-                new Vector2(conBottomLeft.position.x + conSlowZone, conBottomLeft.position.y + conSlowZone),
-                targetPos,
-                Vector2.zero
-                );
+            player.isPanning = false;
+            MoveDirectlyToClampedPosition();
+
         }
 
         // If the camera is currently panning, move it towards its target position
@@ -76,7 +77,7 @@ public class CameraPan : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPos) < 0.01)
         {
             isPanning = false;
-            
+
         }
     }
 
@@ -147,5 +148,18 @@ public class CameraPan : MonoBehaviour
         // Get the transforms for the top-right and bottom-left constraints
         conTopRight = layer.GetComponent<Layer>().topRight;
         conBottomLeft = layer.GetComponent<Layer>().bottomLeft;
+    }
+
+    public void MoveDirectlyToClampedPosition()
+    {
+        targetPos = ClampCameraPosition
+        (
+            new Vector2(conTopRight.position.x - conSlowZone, conTopRight.position.y - conSlowZone),
+            new Vector2(conBottomLeft.position.x + conSlowZone, conBottomLeft.position.y + conSlowZone),
+            targetPos,
+            Vector2.zero
+        );
+        isPanning = true;
+
     }
 }

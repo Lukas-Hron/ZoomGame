@@ -46,6 +46,7 @@ public class ZoomHandler : MonoBehaviour
             mousePos = cutscene.cutsceneOrigin;
             isZoom = true;
             zoomValue = cutscene.resultingZoomValue;
+            currentZoomValue = zoomValue;
         }
 
         if (isZoom)
