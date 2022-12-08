@@ -24,7 +24,7 @@ public class StarConstellation : MonoBehaviour
     {
         StartCoroutine(ToggleOn(clickedStar.GetComponent<Star>(), 0));
         foreach (GameObject star in stars)
-            StartCoroutine(ToggleOn(star.GetComponent<Star>(), 1));
+            StartCoroutine(ToggleOn(star.GetComponent<Star>(), 0.2f));
     }
 
     public IEnumerator ToggleOn(Star star, float delayTime)
