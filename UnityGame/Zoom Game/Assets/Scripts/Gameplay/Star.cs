@@ -17,7 +17,7 @@ public class Star : MonoBehaviour
     {
         //Get GameBoard class to use call on TurnTile function
         
-        GameObject.Find("StarConstellation").GetComponent<StarConstellation>().ActivateStar(starsConnected, gameObject);
+        gameObject.transform.parent.GetComponent<StarConstellation>().ActivateStar(starsConnected, gameObject);
         
         //Debug.Log(gameObject.name);
     }

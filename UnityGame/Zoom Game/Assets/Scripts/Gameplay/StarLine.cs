@@ -12,7 +12,7 @@ public class StarLine : MonoBehaviour
 
     private void Start()
     {
-        constellation = GameObject.Find("StarConstellation").GetComponent<StarConstellation>();
+        constellation = gameObject.transform.parent.GetComponent<StarConstellation>();
     }
     public void CheckLine()
     {
