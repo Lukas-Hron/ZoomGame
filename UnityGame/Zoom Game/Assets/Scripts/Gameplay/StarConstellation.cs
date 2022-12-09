@@ -44,6 +44,7 @@ public class StarConstellation : MonoBehaviour
             ChangeSprite(star.GetComponent<SpriteRenderer>(), starOn);
         else
             ChangeSprite(star.GetComponent<SpriteRenderer>(), starOff);
+        checkWin();
     }
 
     void checkWin()
@@ -52,7 +53,11 @@ public class StarConstellation : MonoBehaviour
 
         if (allOn)
         {
-            stars.All(x => x.GetComponent<Collider2D>().enabled = false);
+            //foreach (Collider2D col in GetComponent<Collider2D>())
+            //{
+
+            //}
+            stars.All(x => x.GetComponent<Collider2D>().enabled == false);
         }
     }
 }
