@@ -20,8 +20,6 @@ public class AudioHandler : MonoBehaviour
         }
     }
 
-
-
     [SerializeField] private List<AudioClip> audioClips;
     [SerializeField] private AudioSource audioSource, musicSource;
 
