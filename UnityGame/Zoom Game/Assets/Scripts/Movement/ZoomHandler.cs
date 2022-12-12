@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class ZoomHandler : MonoBehaviour
 {
-    bool isZoom = false; //Updates Scaling of all active layers when enabled
+    public bool hasControl;
+    public bool isZoom = false; //Updates Scaling of all active layers when enabled
     Vector2 mousePos; // Mouse position in game coordinates
     [SerializeField] private float smoothZoom = 0.1f; //How smooth the zoom should be
-    [SerializeField] private float zoomMultiplier = 0.2f; //How far you zoom with each scroll
-    public float zoomValue = 0; //Target ZoomLevel
-    float currentZoomValue = 0;
+    [SerializeField] private float zoomSpeed = 0.2f; //How far you zoom with each scroll
+    public float zoomInMultiplier = 0.5f;
+    public float zoomValue = -1; //Target ZoomLevel
+    public float currentZoomValue = -1;
     public GameObject[] ZoomLayers; //Current layers loaded in
+
+    [SerializeField] public float tempZoomMin, tempZoomMax; //Clamp min and max
+    [SerializeField] public float zoomMin, zoomMax; 
     void Start()
     {
+       
+        isZoom = true;
+        zoomMax = 10;
+        zoomMin = -5;
+
+        SetZoomClamp(0, 0); //set starting clamp
+
         for (var i = 0; i < ZoomLayers.Length; i++) //Loop over every layer and align it correctly
         {
             float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
@@ -29,9 +41,11 @@ public class ZoomHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.mouseScrollDelta != Vector2.zero)
+        
+        if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0) && hasControl)
         {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //Max grej
+            //mousePos = Camera.main.ScreenToWorldPoint(new Vector2(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
             isZoom = true;
 
         }
@@ -55,12 +69,21 @@ public class ZoomHandler : MonoBehaviour
             }
         }
 
-        zoomValue = (Input.mouseScrollDelta.y * zoomMultiplier) + zoomValue;
+        if (Input.mouseScrollDelta.y < 0) //Constrain Zooming in to hotspots only
+            zoomValue = (Input.mouseScrollDelta.y * zoomSpeed) + zoomValue;
+        else
+            zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
+
+        if (Input.mouseScrollDelta.y != 0)
+        zoomValue = Mathf.Clamp(zoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
+
         currentZoomValue = Mathf.SmoothStep(currentZoomValue, zoomValue, smoothZoom);
-        if (currentZoomValue == zoomValue)
+        //currentZoomValue = Mathf.Clamp(currentZoomValue, tempZoomMin, tempZoomMax); //Clamp zoom value
+        if (Mathf.Abs(currentZoomValue - zoomValue) < 0.01)
         {
             isZoom = false;
         }
+
     }
 
     public void ScaleAround(GameObject target, Vector3 pivot, Vector3 newScale)
@@ -78,5 +101,20 @@ public class ZoomHandler : MonoBehaviour
         // finally, actually perform the scale/translation
         target.transform.localScale = newScale;
         target.transform.localPosition = FP;
+    }
+
+    public void SetZoomClamp(float min, float max)
+    {
+        if (max == 0 && min == 0)
+        {
+            tempZoomMax = zoomMax;
+            tempZoomMin = zoomMin;
+        }
+        if (min != 0)
+            tempZoomMin = min;
+        if (max != 0)
+            tempZoomMax = max;
+
+
     }
 }

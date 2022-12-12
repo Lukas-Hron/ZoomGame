@@ -7,10 +7,27 @@ public class MenuHandler : MonoBehaviour
 {
 	[SerializeField] private GameObject creditsPanel;
 	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject pausePanel;
 	[SerializeField] private GameObject settingsPanel;
-	private int counter;
+	[SerializeField] private bool pauseMenuIsShowing;
+    private int counter;
+    MenuCutscene cut;
 
-	public void Quit()
+	void Start()
+	{
+		cut = Object.FindObjectOfType<MenuCutscene>();
+	}
+
+    private void Update()
+    {
+		if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false)
+        {
+			pauseMenuIsShowing = !pauseMenuIsShowing;
+		}
+		pausePanel.SetActive(pauseMenuIsShowing);
+	}
+
+    public void Quit()
 	{
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
@@ -19,15 +36,17 @@ public class MenuHandler : MonoBehaviour
 #endif
 	}
 	public void StartGame(string name)
-	{
-		//startgame function
-	}
-	public void SettingsMenu(string name)
-	{
-		settingsPanel.SetActive(true);
+    {
+        //startgame function
+        cut.startCutscene = true;
 		mainMenu.SetActive(false);
-	}
-	public void Credits()
+    }
+    public void SettingsMenu()
+    {
+		settingsPanel.SetActive(true);
+		pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
+    public void Credits()
 	{
 		counter++;
 
@@ -35,11 +54,15 @@ public class MenuHandler : MonoBehaviour
 			creditsPanel.SetActive(true);
 		else
 			creditsPanel.SetActive(false);
-
 	}
+	public void ResumeGame()
+    {
+		pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
 	public void BackToMenu()
 	{
-		settingsPanel.SetActive(false);
-		mainMenu.SetActive(true);
+		if (settingsPanel.activeSelf == true)
+			settingsPanel.SetActive(false);
+		pauseMenuIsShowing = !pauseMenuIsShowing;
 	}
 }
