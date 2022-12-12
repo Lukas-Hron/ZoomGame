@@ -10,6 +10,8 @@ public class UseItem : MonoBehaviour
     Item item;
     GameObject itemToUse;
     [SerializeField] string itemName;
+    [SerializeField] List<GameObject> ObjectsToEnableAfterAnimation;
+    [SerializeField] float animLenght;
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -34,6 +36,7 @@ public class UseItem : MonoBehaviour
             inventory.RemoveItem(item.name);
             Destroy(itemToUse);
             GetComponent<Collider2D>().enabled = false;
+            Invoke(methodName: "OnAnimationFinish", animLenght);
             player.isItemInteract = false;
             player.hasRightItem = false;
         }
@@ -58,5 +61,17 @@ public class UseItem : MonoBehaviour
     {
         player.hasRightItem = false;
         player.isItemInteract = false;
+    }
+
+    private void OnAnimationFinish()
+    {
+        if (ObjectsToEnableAfterAnimation != null)
+        {
+            foreach(GameObject GmObj in ObjectsToEnableAfterAnimation)
+            {
+                GmObj.SetActive(true);
+            }
+        }
+        
     }
 }

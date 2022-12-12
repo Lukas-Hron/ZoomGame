@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseVectorAnimationScrubber : MonoBehaviour
 {
     Player player;
+    ToggleColliderWithAnimation coltoggle;
     public Transform endPoint;
     private Animator anim;
     public string animClipName;
@@ -14,12 +15,14 @@ public class MouseVectorAnimationScrubber : MonoBehaviour
     Vector2 dragVector;
     Vector2 projectedVector;
     Vector3 startPoint;
+    
 
     void Start()
     {
         player = FindObjectOfType<Player>();
         anim = GetComponent<Animator>();
         anim.speed = 0;
+        coltoggle = GetComponent<ToggleColliderWithAnimation>();
     }
 
     void Update()
@@ -38,6 +41,13 @@ public class MouseVectorAnimationScrubber : MonoBehaviour
                     normalizedTime = 0.99f;
                     GetComponent<Collider2D>().enabled = false;
                     anim.Play(animClipName, -1, normalizedTime); //snap animation to right position
+
+                    if (coltoggle != null)
+                    {
+                        Debug.Log("AnimatinFinished");
+                        coltoggle.TurnOffColliders("self");
+                        coltoggle.TurnOnColliders("other");
+                    }
                     return;
                 }
                 else //Failed to complete
