@@ -25,7 +25,13 @@ public class AudioHandler : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
+        //musicSource = GetComponent<AudioSource>();
+    }
+
+    public void PlaySoundEffect(AudioClip _clip)
+    {
+        audioSource.PlayOneShot(_clip);
     }
     public void MenuButtonHover()
     {
@@ -42,7 +48,6 @@ public class AudioHandler : MonoBehaviour
     public void StartAudio()
     {
         audioSource.PlayOneShot(audioClips[3]);
-
     }
     public void ChangeMasterVolume(float value)
     {

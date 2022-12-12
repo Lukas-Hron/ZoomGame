@@ -10,6 +10,7 @@ public class StarConstellation : MonoBehaviour
     public Sprite starOff;
     public Sprite lineOn;
     public Sprite lineOff;
+    [SerializeField] private float delayT = 0.1f;
     [SerializeField] private List<GameObject> lines;
     [SerializeField] private List<GameObject> stars;
 
@@ -27,7 +28,7 @@ public class StarConstellation : MonoBehaviour
         //Toggles clicked star and connected ones
         StartCoroutine(ToggleOn(clickedStar.GetComponent<Star>(), 0));
         foreach (GameObject star in stars)
-            StartCoroutine(ToggleOn(star.GetComponent<Star>(), 0.2f));
+            StartCoroutine(ToggleOn(star.GetComponent<Star>(), delayT));
     }
 
     public IEnumerator ToggleOn(Star star, float delayTime)
