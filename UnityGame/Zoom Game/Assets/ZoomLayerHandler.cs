@@ -30,7 +30,7 @@ public class ZoomLayerHandler : MonoBehaviour
 
     public void CheckZoomLevel()
     {
-        float zoomValue = zoom.zoomValue;
+        float zoomValue = zoom.currentZoomValue;
 
 
 
@@ -41,6 +41,7 @@ public class ZoomLayerHandler : MonoBehaviour
                 actionPerformedForZoomLevel1 = true;
                 PanChange("ZoomLayer2 - Hallway");
                 SetLayerFunctions("ZoomLayer2 - Hallway", true);
+                InstansiateNewZoomLayer("ZoomLayer3 - Bedroom");
                 zoom.zoomMax = 7.8f;
                 zoom.zoomMin = 6.8f;
             }
@@ -49,13 +50,17 @@ public class ZoomLayerHandler : MonoBehaviour
 
 
 
-        else if (zoomValue >= 4 && zoomValue < 5)
+        else if (zoomValue >= 12.9f && zoomValue < 13)
         {
             if (!actionPerformedForZoomLevel2)
             {
                 actionPerformedForZoomLevel2 = true;
-
-
+                PanChange("ZoomLayer3 - Bedroom");
+                zoom.zoomMax = 13.4f;
+                zoom.zoomMin = 12.7f;
+                SetLayerFunctions("ZoomLayer2 - Hallway", false);
+                DeleteZoomLayer("ZoomLayer0 - MainMenu");
+                DeleteZoomLayer("ZoomLayer2 - Hallway");
             }
             return;
         }

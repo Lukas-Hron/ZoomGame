@@ -17,7 +17,7 @@ public class Curser : MonoBehaviour
         sprn = GetComponent<SpriteRenderer>();
         Debug.Log(cursers.Count);
         sprn.sprite = cursers[0];
-        
+
     }
 
 
@@ -49,6 +49,16 @@ public class Curser : MonoBehaviour
 
         }
 
+        if (player.startDragInteract)
+        {
+            currentCurser = 3;
+        }
+
+        if (player.isDragInteract)
+        {
+            currentCurser = 2;
+        }
+
 
         if (player.isPanning)
         {
@@ -56,12 +66,21 @@ public class Curser : MonoBehaviour
         }
 
 
-        if(lastframeCurser != currentCurser)
+
+
+        if (lastframeCurser != currentCurser)
         {
             if (currentCurser == 100)
+            {
+                transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
                 sprn.sprite = currentItem;
+
+            }
             else
-            sprn.sprite = cursers[currentCurser];
+            {
+                sprn.sprite = cursers[currentCurser];
+                transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
+            }
 
             Debug.Log("changed");
         }
