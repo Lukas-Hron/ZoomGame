@@ -6,37 +6,33 @@ using UnityEngine.EventSystems;
 
 public class ZoomHotspot : MonoBehaviour
 {
-    [SerializeField] private float minZoomClamp, maxZoomClamp;
+    [SerializeField] private float maxZoomClamp;
     public Transform radiusPoint;
-    public float radius;
+    float radius;
     ZoomHandler zoom;
-    bool mouseIn;
+    bool mouseWithin;
 
 
     // Start is called before the first frame update
     void Start()
     {
-     zoom = Object.FindObjectOfType<ZoomHandler>();
-    }
-
-    private void OnMouseEnter()
-    {
-        
+        zoom = Object.FindObjectOfType<ZoomHandler>();
     }
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) < Vector2.Distance(radiusPoint.position, gameObject.transform.position))
+        radius = Vector2.Distance(radiusPoint.position, gameObject.transform.position);
+        if (Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) < radius)
         {
-            mouseIn = true;
-            zoom.SetZoomClamp(minZoomClamp, maxZoomClamp);
-            Debug.Log("Radius " + radius + ".");
+            mouseWithin = true;
+
+            if (zoom.hotSpotMax < maxZoomClamp)
+            zoom.hotSpotMax = maxZoomClamp;
         }
-        else if (mouseIn)
+        else if (mouseWithin)
         {
-            mouseIn = false;
-            zoom.SetZoomClamp(0, 0);
-            Debug.Log("Radius " + radius + ". Cursor has exited");
+            mouseWithin = false;
+            zoom.hotSpotMax = 0;
         }
     }
 

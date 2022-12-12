@@ -6,12 +6,14 @@ using System;
 
 public class Item : MonoBehaviour
 {
+    Player player;
     Collider2D _collider;
     Inventory inventory;
     [SerializeField] float inventorySize;
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         inventory = UnityEngine.Object.FindObjectOfType<Inventory>();
         _collider = GetComponent<Collider2D>();
     }
@@ -19,5 +21,15 @@ public class Item : MonoBehaviour
     {
         inventory.AddItem(this,inventorySize);
         _collider.enabled = false;
+        player.canClick = false;
+    }
+
+    private void OnMouseEnter()
+    {
+        player.canClick = true;
+    }
+    private void OnMouseExit()
+    {
+        player.canClick = false;
     }
 }
