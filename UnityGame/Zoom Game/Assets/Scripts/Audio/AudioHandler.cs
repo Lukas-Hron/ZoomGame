@@ -49,9 +49,13 @@ public class AudioHandler : MonoBehaviour
     {
         audioSource.PlayOneShot(audioClips[3]);
     }
-    public void ChangeMasterVolume(float value)
+    public void ChangeEffectsVolume(float Value)
     {
-        AudioListener.volume = value;
+        audioSource.volume = Value;
+    }    
+    public void ChangeMusicVolume(float Value)
+    {
+        musicSource.volume = Value;
     }
     public void ToggleSoundEffects()
     {
