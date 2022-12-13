@@ -89,7 +89,7 @@ public class SimpleInteractions : MonoBehaviour
         else
         {
             if (soundToPlay != null)
-                AudioHandler.Instance.PlaySoundEffect(soundToPlay);
+                Debug.Log(soundToPlay);
             if (playAnimation)
                 anim.SetTrigger("play");
         }
@@ -128,7 +128,7 @@ public class SimpleInteractions : MonoBehaviour
             if (playAnimation)
                 anim.SetTrigger("on");
             if (soundToPlay != null)
-                AudioHandler.Instance.PlaySoundEffect(soundToPlay);
+                Debug.Log(soundToPlay);
         }
         else
         {
@@ -136,7 +136,7 @@ public class SimpleInteractions : MonoBehaviour
             if (playAnimation)
                 anim.SetTrigger("off");
             if (soundToPlay != null)
-                AudioHandler.Instance.PlaySoundEffect(soundToPlayToggleOff);
+                Debug.Log(soundToPlayToggleOff);
         }
     }
 }

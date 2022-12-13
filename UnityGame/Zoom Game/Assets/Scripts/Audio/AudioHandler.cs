@@ -20,18 +20,14 @@ public class AudioHandler : MonoBehaviour
         }
     }
 
+
+
     [SerializeField] private List<AudioClip> audioClips;
     [SerializeField] private AudioSource audioSource, musicSource;
 
     private void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
-        //musicSource = GetComponent<AudioSource>();
-    }
-
-    public void PlaySoundEffect(AudioClip _clip)
-    {
-        audioSource.PlayOneShot(_clip);
+        audioSource = GetComponent<AudioSource>();
     }
     public void MenuButtonHover()
     {
@@ -48,11 +44,12 @@ public class AudioHandler : MonoBehaviour
     public void StartAudio()
     {
         audioSource.PlayOneShot(audioClips[3]);
+
     }
     public void ChangeEffectsVolume(float Value)
     {
         audioSource.volume = Value;
-    }
+    }    
     public void ChangeMusicVolume(float Value)
     {
         musicSource.volume = Value;
