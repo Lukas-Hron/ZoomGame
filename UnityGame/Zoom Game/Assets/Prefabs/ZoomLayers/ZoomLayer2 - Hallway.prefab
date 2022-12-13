@@ -361,7 +361,7 @@ MonoBehaviour:
   soundToPlay: {fileID: 0}
   soundToPlayToggleOff: {fileID: 0}
   timeToDisableCollider: 1
-  cursor: 2
+  cursor: 1
 --- !u!1 &4088662117594991263
 GameObject:
   m_ObjectHideFlags: 0
