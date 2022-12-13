@@ -1036,18 +1036,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 69395752}
-        m_TargetAssemblyTypeName: ToggleAudio, Assembly-CSharp
-        m_MethodName: ToggleAudioSource
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &69395750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,7 +1092,7 @@ MonoBehaviour:
   vol4: {fileID: 0}
   _toggleMusic: 1
   _toggleEffects: 0
-  _slider: {fileID: 0}
+  _slider: {fileID: 243738706}
 --- !u!1 &117387253
 GameObject:
   m_ObjectHideFlags: 0
@@ -4468,18 +4456,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1960633806}
         m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
         m_MethodName: ToggleSoundEffects
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 562720663}
-        m_TargetAssemblyTypeName: ToggleAudio, Assembly-CSharp
-        m_MethodName: ToggleAudioSource
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -15,20 +15,22 @@ public class ToggleAudio : MonoBehaviour
 
     private void Start()
     {
-        _slider.GetComponentInChildren<Slider>();
         _button = GetComponent<Button>();
     }
 
     private void Update()
     {
-        if (_slider.value == 0)
-            _button.image.sprite = vol1;
-        if (_slider.value > 0 && _slider.value <= 0.33f)
-            _button.image.sprite = vol2;
-        if (_slider.value > 0.33f && _slider.value <= 0.67f)
-            _button.image.sprite = vol3;
-        if (_slider.value > 0.67f && _slider.value <= 1)
-            _button.image.sprite = vol4;
+        if (_toggleEffects)
+        {
+            if (_slider.value == 0)
+                _button.image.sprite = vol1;
+            if (_slider.value > 0 && _slider.value <= 0.33f)
+                _button.image.sprite = vol2;
+            if (_slider.value > 0.33f && _slider.value <= 0.67f)
+                _button.image.sprite = vol3;
+            if (_slider.value > 0.67f && _slider.value <= 1)
+                _button.image.sprite = vol4;
+        }
     }
     public void ToggleAudioSource()
     {
