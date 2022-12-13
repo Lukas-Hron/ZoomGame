@@ -67,12 +67,15 @@ public class ZoomLayerHandler : MonoBehaviour
 
 
 
-        else if (zoomValue >= 0 && zoomValue < 0)
+        else if (zoomValue >= 15 && zoomValue < 16)
         {
             if (!actionPerformedForZoomLevel3)
             {
                 actionPerformedForZoomLevel3 = true;
-
+                InstansiateNewZoomLayer("ZoomLayer4 - CaveEntrance");
+                PanChange("ZoomLayer4 - CaveEntrance");
+                zoom.zoomMax = 18f;
+                zoom.zoomMin = 15.29018f;
             }
             return;
 
