@@ -8,12 +8,19 @@ public class SimpleInteractions : MonoBehaviour
     Collider2D col;
     Animator anim;
 
+    [Header("Object Properties")]
+    [Tooltip("Whether this object can be toggled on and off")]
     [SerializeField] bool isTogglable = false;
     bool isToggled = false;
+    [Tooltip("Whether this object should play an animation when interacted with")]
     [SerializeField] bool playAnimation = false;
+    [Tooltip("The sound to play when this object is interacted with")]
     [SerializeField] AudioClip soundToPlay;
+    [Tooltip("The sound to play when this object is toggled off")]
     [SerializeField] AudioClip soundToPlayToggleOff;
+    [Tooltip("The amount of time to wait before re-enabling the object's collider")]
     [SerializeField] float timeToDisableCollider = 1;
+    [Tooltip("The type of cursor to display when the player's cursor hovers over this object")]
     enum CursorType { Idle, Pointer, Hand };
     [SerializeField] CursorType cursor;
 
