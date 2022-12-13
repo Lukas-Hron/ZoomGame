@@ -7,15 +7,27 @@ public class MenuHandler : MonoBehaviour
 {
 	[SerializeField] private GameObject creditsPanel;
 	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject pausePanel;
 	[SerializeField] private GameObject settingsPanel;
+    [SerializeField] private bool pauseMenuIsShowing;
+    Player player;
     private int counter;
 
-	void Start()
-	{
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
+    }
 
+    private void Update()
+    {
+		if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false)
+		{
+			pauseMenuIsShowing = !pauseMenuIsShowing;
+		}
+		pausePanel.SetActive(pauseMenuIsShowing);
 	}
 
-	public void Quit()
+    public void Quit()
 	{
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
@@ -26,26 +38,32 @@ public class MenuHandler : MonoBehaviour
 	public void StartGame(string name)
     {
         //startgame function
-		mainMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        player.inCutscene = true;
+        player.canInput = false;
     }
-    public void SettingsMenu(string name)
-	{
-		settingsPanel.SetActive(true);
-		mainMenu.SetActive(false);
-	}
-	public void Credits()
-	{
-		counter++;
+    public void SettingsMenu()
+    {
+        settingsPanel.SetActive(true);
+        pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
+    public void Credits()
+    {
+        counter++;
 
-		if (counter % 2 == 1)
-			creditsPanel.SetActive(true);
-		else
-			creditsPanel.SetActive(false);
-
-	}
-	public void BackToMenu()
-	{
-		settingsPanel.SetActive(false);
-		mainMenu.SetActive(true);
-	}
+        if (counter % 2 == 1)
+            creditsPanel.SetActive(true);
+        else
+            creditsPanel.SetActive(false);
+    }
+    public void ResumeGame()
+    {
+        pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
+    public void BackToMenu()
+    {
+        if (settingsPanel.activeSelf == true)
+            settingsPanel.SetActive(false);
+        pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
 }
