@@ -13,6 +13,7 @@ public class ZoomHandler : MonoBehaviour
     public float zoomInMultiplier = 0.5f;
     public float zoomValue = -1; //Target ZoomLevel
     public float currentZoomValue = -1;
+    public Transform lockedZoomOrigin;
     public List<GameObject> ZoomLayers; //Current layers loaded in
 
     [SerializeField] public float zoomMin, zoomMax;
@@ -32,15 +33,26 @@ public class ZoomHandler : MonoBehaviour
 
     void Update()
     {
-
+        // Check if the mouse scroll wheel is moved and the left mouse button is not pressed
+        // and the player is allowed to zoom and input
         if (Input.mouseScrollDelta != Vector2.zero && !Input.GetMouseButton(0) && player.canZoom && player.canInput)
         {
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // If the player is not locked to a specific zoom position, use the current mouse position
+            if (!player.isLockedZoom)
+            {
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+            // Otherwise, use the locked zoom origin position
+            else
+            {
+                mousePos = lockedZoomOrigin.position;
+            }
             isZoom = true;
             player.isZooming = true;
-
         }
 
+        // If the player is in a cutscene, use the cutscene origin position as the zoom target
+        // and the resulting zoom value from the cutscene as the zoom level
         else if (player.inCutscene)
         {
             mousePos = cutscene.cutsceneOrigin;
@@ -49,12 +61,14 @@ public class ZoomHandler : MonoBehaviour
             currentZoomValue = zoomValue;
         }
 
+        // If the isZoom flag is set, move to the zoom level and check the current zoom level
         if (isZoom)
         {
             MoveToZoomLevel();
             zoomLayerHandler.CheckZoomLevel();
         }
     }
+
 
     void MoveToZoomLevel()
     {

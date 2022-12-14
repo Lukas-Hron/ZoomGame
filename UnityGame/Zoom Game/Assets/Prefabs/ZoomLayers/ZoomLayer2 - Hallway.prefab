@@ -356,6 +356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798c7d2d91f453d4f82815e6ad69a9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onCollider: {fileID: 0}
+  offCollider: {fileID: 0}
   isTogglable: 1
   playAnimation: 0
   soundToPlay: {fileID: 0}
@@ -1041,7 +1043,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5389474514987430583, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.204
+      value: 0.945
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151722, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: m_RootOrder
@@ -1090,6 +1092,10 @@ PrefabInstance:
     - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: maxZoomClamp
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
+      propertyPath: CanZoomInMiddle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151724, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: m_Name

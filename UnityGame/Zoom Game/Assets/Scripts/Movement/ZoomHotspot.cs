@@ -6,16 +6,18 @@ using UnityEngine.EventSystems;
 
 public class ZoomHotspot : MonoBehaviour
 {
+    public bool CanZoomInMiddle;
     [SerializeField] private float maxZoomClamp;
     public Transform radiusPoint;
     float radius;
     ZoomHandler zoom;
     bool mouseWithin;
-
+    Player player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>();
         zoom = Object.FindObjectOfType<ZoomHandler>();
     }
 
@@ -25,6 +27,13 @@ public class ZoomHotspot : MonoBehaviour
         if (Vector2.Distance(gameObject.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) < radius)
         {
             mouseWithin = true;
+            if (CanZoomInMiddle)
+            {
+                player.isLockedZoom = true;
+                zoom.lockedZoomOrigin = gameObject.transform;
+            }
+
+
 
             if (zoom.hotSpotMax < maxZoomClamp)
             zoom.hotSpotMax = maxZoomClamp;
@@ -33,7 +42,16 @@ public class ZoomHotspot : MonoBehaviour
         {
             mouseWithin = false;
             zoom.hotSpotMax = 0;
+            if (CanZoomInMiddle)
+            player.isLockedZoom = false;
         }
     }
-
+    private void OnDestroy()
+    {
+        player.isLockedZoom = false;
+    }
+    private void OnDisable()
+    {
+        player.isLockedZoom = false;
+    }
 }
