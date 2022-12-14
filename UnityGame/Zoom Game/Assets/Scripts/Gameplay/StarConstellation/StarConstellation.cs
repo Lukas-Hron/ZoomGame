@@ -29,11 +29,11 @@ public class StarConstellation : MonoBehaviour
         StartCoroutine(ToggleOn(clickedStar.GetComponent<Star>(), 0));
         foreach (GameObject star in stars)
             StartCoroutine(ToggleOn(star.GetComponent<Star>(), delayT));
+        StartCoroutine(checkWin(delayT));
     }
 
     public IEnumerator ToggleOn(Star star, float delayTime)
     {
-        
         //Add delay variable to delay toggles
         yield return new WaitForSeconds(delayTime);
         star.ToggleActive();
@@ -45,20 +45,20 @@ public class StarConstellation : MonoBehaviour
             ChangeSprite(star.GetComponent<SpriteRenderer>(), starOn);
         else
             ChangeSprite(star.GetComponent<SpriteRenderer>(), starOff);
-        checkWin();
     }
 
-    void checkWin()
+    public IEnumerator checkWin(float delayTime)
     {
+        yield return new WaitForSeconds(delayTime);
+
         bool allOn = lines.All(x => x.GetComponent<StarLine>().litLine);
 
         if (allOn)
         {
-            //foreach (Collider2D col in GetComponent<Collider2D>())
-            //{
-
-            //}
-            stars.All(x => x.GetComponent<Collider2D>().enabled == false);
+            foreach (Collider2D col in GetComponentsInChildren<Collider2D>())
+            {
+                col.enabled = false;
+            }
         }
     }
 }
