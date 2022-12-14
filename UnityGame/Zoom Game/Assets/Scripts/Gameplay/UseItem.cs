@@ -64,11 +64,17 @@ public class UseItem : MonoBehaviour
     {
         if (ObjectsToEnableAfterAnimation != null)
         {
-            foreach(GameObject GmObj in ObjectsToEnableAfterAnimation)
+            foreach (GameObject GmObj in ObjectsToEnableAfterAnimation)
             {
                 GmObj.SetActive(true);
             }
         }
-        
+
+    }
+
+    private void OnDisable()
+    {
+        player.hasRightItem = false;
+        player.isItemInteract = false;
     }
 }

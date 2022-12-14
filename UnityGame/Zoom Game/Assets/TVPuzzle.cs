@@ -9,15 +9,19 @@ public class TVPuzzle : MonoBehaviour
     [SerializeField] AudioClip tvOn, channelSwitch;
     // Start is called before the first frame update
 
-    private void Start()
-    {
-        TurnOnTV();
-    }
     public void TurnOnTV()
     {
         AudioHandler.Instance.PlaySoundEffect(tvOn);
 
         DisplayChannel();
+    }
+
+    public void TurnOffTv()
+    {
+        foreach (GameObject chan in channels)
+        {
+            chan.SetActive(false);
+        }
     }
 
     public void NextChannel()
