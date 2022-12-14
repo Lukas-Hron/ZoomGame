@@ -8,8 +8,7 @@ public class UseItem : MonoBehaviour
     Animator anim;
     Inventory inventory;
     Item item;
-    GameObject itemToUse;
-    [SerializeField] string itemName;
+    [SerializeField] GameObject itemToUse;
     [SerializeField] List<GameObject> ObjectsToEnableAfterAnimation;
     [SerializeField] float animLenght;
     private void Start()
@@ -17,8 +16,6 @@ public class UseItem : MonoBehaviour
         player = FindObjectOfType<Player>();
         //item = GameObject.Find("Key").GetComponent<Item>();
         inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
-
-        itemToUse = GameObject.Find(itemName);
         item = itemToUse.GetComponent<Item>();
         anim = GetComponent<Animator>();
     }
@@ -67,11 +64,17 @@ public class UseItem : MonoBehaviour
     {
         if (ObjectsToEnableAfterAnimation != null)
         {
-            foreach(GameObject GmObj in ObjectsToEnableAfterAnimation)
+            foreach (GameObject GmObj in ObjectsToEnableAfterAnimation)
             {
                 GmObj.SetActive(true);
             }
         }
-        
+
+    }
+
+    private void OnDisable()
+    {
+        player.hasRightItem = false;
+        player.isItemInteract = false;
     }
 }

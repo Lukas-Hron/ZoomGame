@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003cc30ed3fe0a74a9c555f156a74174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Key
+  itemToUse: {fileID: 4088662119308770475}
   ObjectsToEnableAfterAnimation: []
   animLenght: 0
 --- !u!58 &4708706005549505628

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
     <Compile Include="Assets\Scripts\UI\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SimpleInteractions.cs" />
+    <Compile Include="Assets\TVChannelButton.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MouseVectorAnimationScrubber.cs" />
     <Compile Include="Assets\Scripts\UI\MouseCursor.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Item.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Gameplay\StarConstellation\Star.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameBoard.cs" />
     <Compile Include="Assets\Scripts\Tools\ZoomLayerHandler.cs" />
+    <Compile Include="Assets\TVPuzzle.cs" />
     <Compile Include="Assets\Scripts\UI\Curser.cs" />
     <Compile Include="Assets\Scripts\Tools\DebugFunctions.cs" />
     <Compile Include="Assets\Scripts\Movement\Layer.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\Movement\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
+    <Compile Include="Assets\tvwakerupper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

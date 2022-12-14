@@ -5,7 +5,7 @@ using UnityEngine;
 public class SimpleInteractions : MonoBehaviour
 {
     Player player;
-    Collider2D col;
+    public Collider2D onCollider, offCollider;
     Animator anim;
 
     [Header("Object Properties")]
@@ -27,7 +27,6 @@ public class SimpleInteractions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        col = GetComponent<Collider2D>();
         player = FindObjectOfType<Player>();
         if (playAnimation)
         {
@@ -78,23 +77,26 @@ public class SimpleInteractions : MonoBehaviour
 
     private void OnMouseDown()
     {
-        col.enabled = false;
-        Invoke(methodName: "EnableColliders", timeToDisableCollider);
+
+
 
 
         if (isTogglable)
         {
+            onCollider.enabled = false;
+            offCollider.enabled = false;
             Toggeler();
         }
         else
         {
+            onCollider.enabled = false;
             if (soundToPlay != null)
                 AudioHandler.Instance.PlaySoundEffect(soundToPlay);
             if (playAnimation)
                 anim.SetTrigger("play");
         }
 
-
+        Invoke(methodName: "EnableColliders", timeToDisableCollider);
 
         switch (cursor)
         {
@@ -116,14 +118,28 @@ public class SimpleInteractions : MonoBehaviour
 
     public void EnableColliders()
     {
-        col.enabled = true;
+        if (isTogglable)
+        {
+            if (isToggled)
+            {
+                onCollider.enabled = true;
+            }
+            else
+            {
+                offCollider.enabled = true;
+            }
+
+        }
+        else
+        onCollider.enabled = true;
     }
 
     public void Toggeler()
     {
         isToggled = !isToggled;
         if (isToggled)
-        {
+        {  
+
             Debug.Log("Toggled On");
             if (playAnimation)
                 anim.SetTrigger("on");
@@ -132,6 +148,7 @@ public class SimpleInteractions : MonoBehaviour
         }
         else
         {
+
             Debug.Log("Toggled Off");
             if (playAnimation)
                 anim.SetTrigger("off");
