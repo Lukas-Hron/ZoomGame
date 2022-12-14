@@ -8,14 +8,10 @@ public class VolumeSlider : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private bool _musicVolume, _effectsVolume;
 
-
-    private void Awake()
+    void Start()
     {
         AudioHandler.Instance.ChangeEffectsVolume(_slider.value);
         AudioHandler.Instance.ChangeMusicVolume(_slider.value);
-    }
-    void Start()
-    {
 
         if (_effectsVolume)
             _slider.onValueChanged.AddListener(value => AudioHandler.Instance.ChangeEffectsVolume(value));
