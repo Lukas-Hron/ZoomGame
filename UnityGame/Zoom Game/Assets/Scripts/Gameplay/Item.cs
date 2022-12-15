@@ -6,6 +6,7 @@ using System;
 
 public class Item : MonoBehaviour
 {
+    public AudioClip pickupSound;
     Player player;
     Collider2D _collider;
     Inventory inventory;
@@ -22,6 +23,7 @@ public class Item : MonoBehaviour
         inventory.AddItem(this,inventorySize);
         _collider.enabled = false;
         player.canClick = false;
+        AudioHandler.Instance.PlaySoundEffect(pickupSound);
     }
 
     private void OnMouseEnter()
