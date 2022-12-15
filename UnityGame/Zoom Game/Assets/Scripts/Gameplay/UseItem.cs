@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UseItem : MonoBehaviour
 {
+    public AudioClip playOnUse;
     Player player;
     Animator anim;
     Inventory inventory;
@@ -14,7 +15,6 @@ public class UseItem : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
-        //item = GameObject.Find("Key").GetComponent<Item>();
         inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         item = itemToUse.GetComponent<Item>();
         anim = GetComponent<Animator>();
@@ -36,6 +36,7 @@ public class UseItem : MonoBehaviour
             Invoke(methodName: "OnAnimationFinish", animLenght);
             player.isItemInteract = false;
             player.hasRightItem = false;
+            AudioHandler.Instance.PlaySoundEffect(playOnUse);
         }
     }
 
