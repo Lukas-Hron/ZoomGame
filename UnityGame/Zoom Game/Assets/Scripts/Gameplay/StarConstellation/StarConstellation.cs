@@ -11,6 +11,8 @@ public class StarConstellation : MonoBehaviour
     public Sprite lineOn;
     public Sprite lineOff;
     public bool isFinished = false;
+    public ApateureRingScript ringApature;
+    public string name;
     [SerializeField] private float delayT = 0.1f;
     [SerializeField] private List<GameObject> lines;
     [SerializeField] private List<GameObject> stars;
@@ -60,7 +62,7 @@ public class StarConstellation : MonoBehaviour
             {
                 col.enabled = false;
             }
-            isFinished = true;
+            ringApature.checkRing(name);
         }
     }
 }
