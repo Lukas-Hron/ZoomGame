@@ -1079,6 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003cc30ed3fe0a74a9c555f156a74174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnUse: {fileID: 8300000, guid: c5febc60f5080914b92572fdcf60635b, type: 3}
   itemToUse: {fileID: 4088662119308770475}
   ObjectsToEnableAfterAnimation: []
   animLenght: 0
