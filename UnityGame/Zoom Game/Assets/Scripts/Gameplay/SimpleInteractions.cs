@@ -13,7 +13,7 @@ public class SimpleInteractions : MonoBehaviour
     [SerializeField] bool isTogglable = false;
     bool isToggled = false;
     [Tooltip("Whether this object should play an animation when interacted with")]
-    [SerializeField] bool playAnimation = false;
+    [SerializeField] bool playAnimation;
     [Tooltip("The sound to play when this object is interacted with")]
     [SerializeField] AudioClip soundToPlay;
     [Tooltip("The sound to play when this object is toggled off")]
