@@ -10,6 +10,7 @@ public class StarConstellation : MonoBehaviour
     public Sprite starOff;
     public Sprite lineOn;
     public Sprite lineOff;
+    public bool isFinished = false;
     [SerializeField] private float delayT = 0.1f;
     [SerializeField] private List<GameObject> lines;
     [SerializeField] private List<GameObject> stars;
@@ -59,6 +60,7 @@ public class StarConstellation : MonoBehaviour
             {
                 col.enabled = false;
             }
+            isFinished = true;
         }
     }
 }
