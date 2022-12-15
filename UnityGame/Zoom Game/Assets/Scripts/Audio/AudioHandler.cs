@@ -23,12 +23,6 @@ public class AudioHandler : MonoBehaviour
     [SerializeField] private List<AudioClip> audioClips;
     [SerializeField] private AudioSource audioSource, musicSource;
 
-    private void Start()
-    {
-        //audioSource = GetComponent<AudioSource>();
-        //musicSource = GetComponent<AudioSource>();
-    }
-
     public void PlaySoundEffect(AudioClip _clip)
     {
         audioSource.PlayOneShot(_clip);
