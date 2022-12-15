@@ -74,6 +74,8 @@ public class ZoomLayerHandler : MonoBehaviour
                 actionPerformedForZoomLevel3 = true;
                 InstansiateNewZoomLayer("ZoomLayer4 - CaveEntrance");
                 PanChange("ZoomLayer4 - CaveEntrance");
+                SetLayerFunctions("ZoomLayer3 - Bedroom", false);
+
                 zoom.zoomMax = 18f;
                 zoom.zoomMin = 15.29018f;
             }

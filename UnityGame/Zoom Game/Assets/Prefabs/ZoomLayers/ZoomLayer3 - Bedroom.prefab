@@ -1419,7 +1419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eee3001278bd36499809a6f5746b9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotSpots: []
+  hotSpots:
+  - {fileID: 623393098372003454}
   objectsWithColliders: []
   size: 13.7
   nextLayerPos: {fileID: 5791438482208809600}
@@ -2713,7 +2714,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5389474514987430583, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34
+      value: 1.509
       objectReference: {fileID: 0}
     - target: {fileID: 5389474514987430583, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2778,6 +2779,10 @@ PrefabInstance:
     - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: maxZoomClamp
       value: 15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
+      propertyPath: CanZoomInMiddle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151724, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: m_Name
