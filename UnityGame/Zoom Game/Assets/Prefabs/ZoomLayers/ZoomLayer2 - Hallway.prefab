@@ -714,7 +714,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3844072458948236269}
-  - component: {fileID: 7945000753705599260}
   - component: {fileID: 1443178081912456284}
   m_Layer: 0
   m_Name: Lamp
@@ -738,32 +737,6 @@ Transform:
   m_Father: {fileID: 8414762859183233716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7945000753705599260
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4078611216978534937}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7, y: 4.5}
-  m_EdgeRadius: 0
 --- !u!114 &1443178081912456284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,9 +1265,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.5995255, y: 1.7748971}
-      - {x: 3.5521393, y: 4.2611747}
-      - {x: 3.0294647, y: 5.8110523}
+    - - {x: 0.89336395, y: 1.2170568}
+      - {x: 2.135788, y: 2.1026087}
+      - {x: 3.0199738, y: 4.2799687}
+      - {x: 3.335556, y: 5.2812233}
+      - {x: 2.8231277, y: 5.950133}
       - {x: 2.7473602, y: 8.326031}
       - {x: 2.1202087, y: 11.246455}
       - {x: 0.72068024, y: 10.851773}
