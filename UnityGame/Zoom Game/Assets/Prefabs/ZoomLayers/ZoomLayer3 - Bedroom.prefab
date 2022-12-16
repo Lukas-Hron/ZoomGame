@@ -2381,7 +2381,7 @@ MonoBehaviour:
   itemToUse: {fileID: 5315006477016147119}
   ObjectsToEnableAfterAnimation:
   - {fileID: 623393098372003454}
-  animLenght: 2
+  animLenght: 1
 --- !u!58 &7066669669919696040
 CircleCollider2D:
   m_ObjectHideFlags: 0
