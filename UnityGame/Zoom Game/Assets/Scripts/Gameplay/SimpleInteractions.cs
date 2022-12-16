@@ -5,10 +5,24 @@ using UnityEngine;
 public class SimpleInteractions : MonoBehaviour
 {
     Player player;
+    [Tooltip("Off collider is the starting position and On is the collider when toggled")]
     public Collider2D onCollider, offCollider;
     Animator anim;
 
+    public float MinPitch 
+    {
+    get { return _minPitch; }
+    set { _minPitch = Mathf.Clamp(value, 0, 1); }
+    }
+
+    public float MaxPitch
+    {
+        get { return _maxPitch; }
+        set { _maxPitch = Mathf.Clamp(value, 0, 1); }
+    }
+
     [Header("Object Properties")]
+
     [Tooltip("Whether this object can be toggled on and off")]
     [SerializeField] bool isTogglable = false;
     bool isToggled = false;
@@ -16,14 +30,23 @@ public class SimpleInteractions : MonoBehaviour
     [SerializeField] bool playAnimation;
     [Tooltip("Whether this object should play sounds in random order")]
     [SerializeField] bool randomizeSound;
+    [Tooltip("The amount of time to wait before re-enabling the object's collider")]
+    [SerializeField] float interactionCooldown;
+
+    [Header("Randomize settings")]
+
     [Tooltip("List of sounds to ranomize from")]
     [SerializeField] List<AudioClip> listOfSounds;
+    [Tooltip("Adjust the random pitch range")]
+    [SerializeField, Range(0, 1)] private float _minPitch;
+    [SerializeField, Range(0, 1)] private float _maxPitch;
+    [Header("Toggle sound settings")]
     [Tooltip("The sound to play when this object is interacted with")]
     [SerializeField] AudioClip soundToPlay;
+
+
     [Tooltip("The sound to play when this object is toggled off")]
     [SerializeField] AudioClip soundToPlayToggleOff;
-    [Tooltip("The amount of time to wait before re-enabling the object's collider")]
-    [SerializeField] float timeToDisableCollider = 1;
     [Tooltip("The type of cursor to display when the player's cursor hovers over this object")]
     enum CursorType { Idle, Pointer, Hand };
     [SerializeField] CursorType cursor;
@@ -100,7 +123,7 @@ public class SimpleInteractions : MonoBehaviour
                 anim.SetTrigger("play");
         }
 
-        Invoke(methodName: "EnableColliders", timeToDisableCollider);
+        Invoke(methodName: "EnableColliders", interactionCooldown);
 
         switch (cursor)
         {
@@ -164,6 +187,6 @@ public class SimpleInteractions : MonoBehaviour
     {
         int randomIndex = Random.Range(0, listOfSounds.Count);
         AudioClip clip = listOfSounds[randomIndex];
-        AudioHandler.Instance.PlaySoundEffect(clip);
+        AudioHandler.Instance.PlaySoundRandomPitch(clip, _minPitch, _maxPitch);
     }
 }

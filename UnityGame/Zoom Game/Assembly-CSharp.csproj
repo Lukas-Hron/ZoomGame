@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Movement\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\StarConstellation\ApateureRingScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -21,11 +21,17 @@ public class AudioHandler : MonoBehaviour
     }
 
     [SerializeField] private List<AudioClip> audioClips;
-    [SerializeField] private AudioSource audioSource, musicSource;
+    [SerializeField] private AudioSource audioSource, musicSource, pitchedAudioSource;
 
     public void PlaySoundEffect(AudioClip _clip)
     {
+        audioSource.pitch = 1;
         audioSource.PlayOneShot(_clip);
+    }
+    public void PlaySoundRandomPitch(AudioClip _clip, float minPitch, float maxPitch)
+    {
+        pitchedAudioSource.pitch = Random.Range(minPitch, maxPitch);
+        pitchedAudioSource.PlayOneShot(_clip);
     }
     public void MenuButtonHover()
     {

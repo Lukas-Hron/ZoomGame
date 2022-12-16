@@ -888,7 +888,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5839355326707271162}
   - component: {fileID: 4282164530730000650}
-  - component: {fileID: 8507676386944552564}
   - component: {fileID: 8835178646538558019}
   m_Layer: 0
   m_Name: RightWindow
@@ -938,32 +937,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.1723614, y: 6.983714}
   m_EdgeRadius: 0
---- !u!61 &8507676386944552564
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4000929522902562546}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.369153, y: 0.6592221}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.1723614, y: 6.983714}
-  m_EdgeRadius: 0
 --- !u!114 &8835178646538558019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,12 +950,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onCollider: {fileID: 4282164530730000650}
-  offCollider: {fileID: 8507676386944552564}
-  isTogglable: 1
+  offCollider: {fileID: 0}
+  isTogglable: 0
   playAnimation: 0
-  soundToPlay: {fileID: 8300000, guid: 0c9a3458bcdcb9b469b5a99ebfeb6513, type: 3}
-  soundToPlayToggleOff: {fileID: 8300000, guid: 9f85649c3113f3147946df3f7a390fd3, type: 3}
-  timeToDisableCollider: 0.25
+  randomizeSound: 1
+  interactionCooldown: 0.1
+  listOfSounds:
+  - {fileID: 8300000, guid: 9f85649c3113f3147946df3f7a390fd3, type: 3}
+  - {fileID: 8300000, guid: 9f85649c3113f3147946df3f7a390fd3, type: 3}
+  - {fileID: 8300000, guid: 9f85649c3113f3147946df3f7a390fd3, type: 3}
+  _minPitch: 0.969
+  _maxPitch: 0.603
+  soundToPlay: {fileID: 0}
+  soundToPlayToggleOff: {fileID: 0}
   cursor: 0
 --- !u!1 &4005168331310335744
 GameObject:
@@ -1307,7 +1287,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.4868126, y: 4.329712}
+  m_Offset: {x: -7.5085955, y: 0.550045}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1318,7 +1298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 39.637474, y: 36.743584}
+  m_Size: {x: 17.188532, y: 29.184238}
   m_EdgeRadius: 0
 --- !u!114 &6792438271013859233
 MonoBehaviour:
@@ -1336,9 +1316,13 @@ MonoBehaviour:
   offCollider: {fileID: 0}
   isTogglable: 0
   playAnimation: 1
+  randomizeSound: 0
+  interactionCooldown: 30
+  listOfSounds: []
+  _minPitch: 0
+  _maxPitch: 0
   soundToPlay: {fileID: 8300000, guid: 71b11c52459dce04f92de99d8bc87623, type: 3}
   soundToPlayToggleOff: {fileID: 0}
-  timeToDisableCollider: 30
   cursor: 0
 --- !u!95 &4574223918027971914
 Animator:
@@ -1486,7 +1470,7 @@ GameObject:
   - component: {fileID: 2346503506685150087}
   - component: {fileID: 3903707753801490377}
   - component: {fileID: 5982182250512104283}
-  - component: {fileID: 3619763707146052097}
+  - component: {fileID: 6809216099899572540}
   m_Layer: 0
   m_Name: Closet
   m_TagString: Untagged
@@ -1523,13 +1507,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 798c7d2d91f453d4f82815e6ad69a9b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onCollider: {fileID: 3619763707146052097}
+  onCollider: {fileID: 6809216099899572540}
   offCollider: {fileID: 3903707753801490377}
   isTogglable: 1
   playAnimation: 1
+  randomizeSound: 0
+  interactionCooldown: 1.5
+  listOfSounds: []
+  _minPitch: 0
+  _maxPitch: 0
   soundToPlay: {fileID: 0}
   soundToPlayToggleOff: {fileID: 0}
-  timeToDisableCollider: 1
   cursor: 1
 --- !u!61 &3903707753801490377
 BoxCollider2D:
@@ -1577,20 +1565,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &3619763707146052097
+--- !u!61 &6809216099899572540
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6164593208750086519}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.75, y: 2.84}
+  m_Offset: {x: 2.47, y: 1.99}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1601,7 +1589,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.33, y: 6.35}
+  m_Size: {x: 2.16, y: 7.81}
   m_EdgeRadius: 0
 --- !u!1 &6166380899532826451
 GameObject:
@@ -1913,8 +1901,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361462640607487970}
   m_LocalRotation: {x: -0, y: -0, z: -0.057938606, w: 0.99832016}
-  m_LocalPosition: {x: -13.251381, y: -4.4255624, z: 0}
-  m_LocalScale: {x: 2.53, y: 0.7700001, z: 1}
+  m_LocalPosition: {x: -13.05, y: -4.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3556268465604464700}
@@ -1961,8 +1949,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 20732e8e3f722bd4d97e22461f74c1ea, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2003,7 +1991,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.49, y: 0.95}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2078,9 +2066,13 @@ MonoBehaviour:
   offCollider: {fileID: 4030623003033879558}
   isTogglable: 1
   playAnimation: 0
+  randomizeSound: 0
+  interactionCooldown: 1
+  listOfSounds: []
+  _minPitch: 0
+  _maxPitch: 0
   soundToPlay: {fileID: 8300000, guid: d0f1f32142e29de4e8567ace8cb7b798, type: 3}
   soundToPlayToggleOff: {fileID: 8300000, guid: 7d60176724d2bb14686565b8d92af5ae, type: 3}
-  timeToDisableCollider: 0.5
   cursor: 0
 --- !u!58 &4030623003033879558
 CircleCollider2D:
@@ -2233,6 +2225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003cc30ed3fe0a74a9c555f156a74174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnUse: {fileID: 0}
   itemToUse: {fileID: 7361462640607487970}
   ObjectsToEnableAfterAnimation:
   - {fileID: 3839220701797342733}
@@ -2384,6 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003cc30ed3fe0a74a9c555f156a74174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnUse: {fileID: 0}
   itemToUse: {fileID: 5315006477016147119}
   ObjectsToEnableAfterAnimation:
   - {fileID: 623393098372003454}
