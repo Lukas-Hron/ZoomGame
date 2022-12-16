@@ -10,7 +10,7 @@ public class ZoomHandler : MonoBehaviour
     Vector2 mousePos; // Mouse position in game coordinates
     [SerializeField] private float smoothZoom = 0.1f; //How smooth the zoom should be
     [SerializeField] private float zoomSpeed = 0.2f; //How far you zoom with each scroll
-    public float zoomInMultiplier = 0.5f;
+    float zoomInMultiplier = 0.7f;
     public float zoomValue = -1; //Target ZoomLevel
     public float currentZoomValue = -1;
     public Transform lockedZoomOrigin;
