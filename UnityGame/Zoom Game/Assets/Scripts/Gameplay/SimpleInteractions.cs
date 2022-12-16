@@ -14,6 +14,10 @@ public class SimpleInteractions : MonoBehaviour
     bool isToggled = false;
     [Tooltip("Whether this object should play an animation when interacted with")]
     [SerializeField] bool playAnimation;
+    [Tooltip("Whether this object should play sounds in random order")]
+    [SerializeField] bool randomizeSound;
+    [Tooltip("List of sounds to ranomize from")]
+    [SerializeField] List<AudioClip> listOfSounds;
     [Tooltip("The sound to play when this object is interacted with")]
     [SerializeField] AudioClip soundToPlay;
     [Tooltip("The sound to play when this object is toggled off")]
@@ -78,8 +82,8 @@ public class SimpleInteractions : MonoBehaviour
     private void OnMouseDown()
     {
 
-
-
+        if (randomizeSound)
+            RandomizeSoundToPlay();
 
         if (isTogglable)
         {
@@ -155,5 +159,11 @@ public class SimpleInteractions : MonoBehaviour
             if (soundToPlay != null)
                 AudioHandler.Instance.PlaySoundEffect(soundToPlayToggleOff);
         }
+    }
+    private void RandomizeSoundToPlay()
+    {
+        int randomIndex = Random.Range(0, listOfSounds.Count);
+        AudioClip clip = listOfSounds[randomIndex];
+        AudioHandler.Instance.PlaySoundEffect(clip);
     }
 }
