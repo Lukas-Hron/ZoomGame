@@ -41,6 +41,7 @@ public class MenuHandler : MonoBehaviour
         mainMenu.SetActive(false);
         player.inCutscene = true;
         player.canInput = false;
+        NarratorHandler.Instance.PlayFromKeyWord("opening");
     }
     public void SettingsMenu()
     {

@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 6441622983998706376}
   - component: {fileID: 5507746821578553308}
   - component: {fileID: 5074575675597903590}
+  - component: {fileID: 9134227518037093175}
   m_Layer: 0
   m_Name: Lamp
   m_TagString: Untagged
@@ -841,9 +842,13 @@ MonoBehaviour:
   offCollider: {fileID: 0}
   isTogglable: 0
   playAnimation: 1
+  randomizeSound: 0
+  interactionCooldown: 0
+  listOfSounds: []
+  _minPitch: 0
+  _maxPitch: 0
   soundToPlay: {fileID: 0}
   soundToPlayToggleOff: {fileID: 0}
-  timeToDisableCollider: 2
   cursor: 1
 --- !u!60 &5507746821578553308
 PolygonCollider2D:
@@ -908,6 +913,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9134227518037093175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4078611216978534937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a0a686dab11bf43bec4cb4ca4291e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyword: lamp
 --- !u!1 &4088662117594991263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1369,7 @@ GameObject:
   - component: {fileID: 459956077871843798}
   - component: {fileID: 6127263562284764811}
   - component: {fileID: 78437176930318155}
+  - component: {fileID: 3930227593470757013}
   m_Layer: 0
   m_Name: FlowerOrigin
   m_TagString: Untagged
@@ -1390,9 +1409,13 @@ MonoBehaviour:
   offCollider: {fileID: 0}
   isTogglable: 0
   playAnimation: 1
+  randomizeSound: 0
+  interactionCooldown: 0
+  listOfSounds: []
+  _minPitch: 0
+  _maxPitch: 0
   soundToPlay: {fileID: 0}
   soundToPlayToggleOff: {fileID: 0}
-  timeToDisableCollider: 1
   cursor: 1
 --- !u!60 &6127263562284764811
 PolygonCollider2D:
@@ -1456,6 +1479,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3930227593470757013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725214227637714387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a0a686dab11bf43bec4cb4ca4291e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyword: flower
 --- !u!1 &5298729027061888020
 GameObject:
   m_ObjectHideFlags: 0
