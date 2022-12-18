@@ -9,7 +9,7 @@ public class NarratorInitialization : MonoBehaviour
 
 
 
-    private void Awake()
+    private void Start()
     {
         NarratorHandler.Instance.InitializeLists();
         /////////////////////////////////////////////////////Openings
