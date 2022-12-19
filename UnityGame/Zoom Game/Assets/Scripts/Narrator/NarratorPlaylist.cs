@@ -49,8 +49,6 @@ public class NarratorPlaylist : MonoBehaviour
         }
         else
         isPlaying = false;
-            
 
-        
     }
 }
