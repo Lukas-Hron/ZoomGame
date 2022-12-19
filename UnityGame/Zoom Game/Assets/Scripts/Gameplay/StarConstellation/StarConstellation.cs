@@ -12,7 +12,7 @@ public class StarConstellation : MonoBehaviour
     public Sprite lineOff;
     public bool isFinished = false;
     public ApateureRingScript ringApature;
-    public string name;
+    public new string name;
     [SerializeField] private float delayT = 0.1f;
     [SerializeField] private List<GameObject> lines;
     [SerializeField] private List<GameObject> stars;

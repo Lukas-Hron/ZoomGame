@@ -21,13 +21,6 @@ public class ApateureRingScript : MonoBehaviour
 
     public Animator apatureRingAnimation;
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void checkRing(string ringName)
     {
         if (ringName == "fst")
