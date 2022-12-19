@@ -1871,6 +1871,7 @@ MonoBehaviour:
   mainMenu: {fileID: 1785281345}
   pausePanel: {fileID: 309406709}
   settingsPanel: {fileID: 490055768}
+  musicSource: {fileID: 631013922}
   pauseMenuIsShowing: 0
 --- !u!1 &631013922
 GameObject:
@@ -1888,7 +1889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &631013923
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1896,14 +1897,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631013922}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c154fda1b3dc9684382bbc5bfb034c36, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 08622acd159659a488604336b761fa9a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
