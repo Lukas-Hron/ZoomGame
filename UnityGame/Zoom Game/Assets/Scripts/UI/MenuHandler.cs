@@ -10,6 +10,7 @@ public class MenuHandler : MonoBehaviour
 	[SerializeField] private GameObject pausePanel;
 	[SerializeField] private GameObject settingsPanel;
 	[SerializeField] private GameObject musicSource;
+
     [SerializeField] private bool pauseMenuIsShowing;
     Player player;
     private void Start()
@@ -28,26 +29,25 @@ public class MenuHandler : MonoBehaviour
                 player.canInteract = false;
 		}
 		pausePanel.SetActive(pauseMenuIsShowing);
-	}
+	  }
 
     public void Quit()
-	{
+    {
 #if UNITY_EDITOR
-		UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
          Application.Quit();
 #endif
-	}
+	 }
 	public void StartGame()
-    {
+  {
         //startgame function
+        GetComponent<TutorialHandler>().DisplayZoom();
         mainMenu.SetActive(false);
         player.canInput = true;
         player.canOnlyZoomIn = true;
         musicSource.SetActive(true);
-
-
-        NarratorHandler.Instance.PlayFromKeyWord("opening");
+        FindObjectOfType<ZoomHandler>().smoothZoom = 0.05f;
     }
     public void SettingsMenu()
     {
@@ -81,4 +81,6 @@ public class MenuHandler : MonoBehaviour
         if (pauseMenuIsShowing == false)
             pauseMenuIsShowing = !pauseMenuIsShowing;
     }
+
+
 }
