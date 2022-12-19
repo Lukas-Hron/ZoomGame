@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\Gameplay\UseItem.cs" />
     <Compile Include="Assets\Scripts\UI\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SimpleInteractions.cs" />
-    <Compile Include="Assets\Scripts\Narrator\NarratorPlaylist.cs" />
     <Compile Include="Assets\TVChannelButton.cs" />
     <Compile Include="Assets\Scripts\Gameplay\MouseVectorAnimationScrubber.cs" />
     <Compile Include="Assets\Scripts\UI\MouseCursor.cs" />
@@ -80,10 +79,6 @@
     <Compile Include="Assets\Scripts\Tools\ZoomLayerHandler.cs" />
     <Compile Include="Assets\tvwakerupper.cs" />
     <Compile Include="Assets\TVPuzzle.cs" />
-    <Compile Include="Assets\Scripts\Narrator\NarratorInitialization.cs" />
-    <Compile Include="Assets\Scripts\Narrator\NarratorHandler.cs" />
-    <Compile Include="Assets\OnClickNarrator.cs" />
-    <Compile Include="Assets\Scripts\Narrator\NarratorVoiceLine.cs" />
     <Compile Include="Assets\Scripts\UI\Curser.cs" />
     <Compile Include="Assets\Scripts\Tools\DebugFunctions.cs" />
     <Compile Include="Assets\Scripts\Gameplay\StarConstellation\ApateureRingScript.cs" />
@@ -92,6 +87,11 @@
     <Compile Include="Assets\Scripts\Movement\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
+    <Compile Include="Assets\OnClickNarrator.cs" />
+    <Compile Include="Assets\Scripts\Narrator\NarratorPlaylist.cs" />
+    <Compile Include="Assets\Scripts\Narrator\NarratorVoiceLine.cs" />
+    <Compile Include="Assets\Scripts\Narrator\NarratorHandler.cs" />
+    <Compile Include="Assets\Scripts\Narrator\NarratorInitialization.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

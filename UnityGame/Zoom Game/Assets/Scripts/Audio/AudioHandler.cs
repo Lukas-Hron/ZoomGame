@@ -21,7 +21,7 @@ public class AudioHandler : MonoBehaviour
     }
 
     [SerializeField] private List<AudioClip> audioClips;
-    [SerializeField] private AudioSource audioSource, musicSource, pitchedAudioSource;
+    [SerializeField] private AudioSource audioSource, musicSource, pitchedAudioSource, narratorSource;
 
     public void PlaySoundEffect(AudioClip _clip)
     {
@@ -52,6 +52,7 @@ public class AudioHandler : MonoBehaviour
     public void ChangeEffectsVolume(float Value)
     {
         audioSource.volume = Value;
+        pitchedAudioSource.volume = Value;
     }
     public void ChangeMusicVolume(float Value)
     {
