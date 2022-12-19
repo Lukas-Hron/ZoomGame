@@ -39,8 +39,9 @@ public class MenuHandler : MonoBehaviour
     {
         //startgame function
         mainMenu.SetActive(false);
-        player.inCutscene = true;
-        player.canInput = false;
+        player.canInput = true;
+        player.canOnlyZoomIn = true;
+
         NarratorHandler.Instance.PlayFromKeyWord("opening");
     }
     public void SettingsMenu()

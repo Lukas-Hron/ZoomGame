@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public bool inCutscene;
     public bool isItemInteract;
     public bool hasRightItem;
+    public bool canOnlyZoomIn;
 
     public void toggleCutscene()
     {

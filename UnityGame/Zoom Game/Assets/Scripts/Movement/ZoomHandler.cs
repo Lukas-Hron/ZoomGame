@@ -60,6 +60,11 @@ public class ZoomHandler : MonoBehaviour
             zoomValue = cutscene.resultingZoomValue;
             currentZoomValue = zoomValue;
         }
+        else if (player.canOnlyZoomIn)
+        {
+            mousePos = lockedZoomOrigin.position;
+            isZoom = true;
+        }
 
         // If the isZoom flag is set, move to the zoom level and check the current zoom level
         if (isZoom)
@@ -84,10 +89,20 @@ public class ZoomHandler : MonoBehaviour
             }
         }
 
-        if (Input.mouseScrollDelta.y < 0) //Check if zooming in or out. Zooming in will be slower.
-            zoomValue = (Input.mouseScrollDelta.y * zoomSpeed) + zoomValue;
+        if (!player.canOnlyZoomIn)
+        {
+            if (Input.mouseScrollDelta.y < 0) //Check if zooming in or out. Zooming in will be slower.
+                zoomValue = (Input.mouseScrollDelta.y * zoomSpeed) + zoomValue;
+            else
+                zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
+        }
         else
-            zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
+        {
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                zoomValue = (Input.mouseScrollDelta.y * zoomSpeed * zoomInMultiplier) + zoomValue;
+            }
+        }
 
 
         if (hotSpotMax <= zoomMax)

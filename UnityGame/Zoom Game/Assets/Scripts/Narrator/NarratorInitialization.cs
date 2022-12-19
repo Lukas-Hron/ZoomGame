@@ -82,12 +82,38 @@ public class NarratorInitialization : MonoBehaviour
         keyWord = "flower";
         AddVoiceLine();
 
-        //ed >> ing
+        //ing >> ly
         voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_flower_ing_ly");
         recievingRhyme = "ing";
         endingRhyme = "ly";
         subtitles = "The lily flowers are blooming. So delicate and fragile, yet so strong, A symbol of love, it cannot go wrong. Although she often gets called silly.";
         keyWord = "flower";
+        AddVoiceLine();
+
+        /////////////////////////////////////////////////////sign
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_sign_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        subtitles = "Lily was happy with her family. Once they made a sign together, letting anyone know Lily lives here whenever.  She has her own room with her own bed.";
+        keyWord = "sign";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_sign_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        subtitles = "Lily door was signed. Signed by herself with her own paint.Even with her parents restraint. Everyone knows lily loves painting.";
+        keyWord = "sign";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_sign_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        subtitles = "Lily loves spending time decorating. Her door was covered in stickers once, it was the prettiest door around. But her parents made her take it all down. They said she put them on too messily. ";
+        keyWord = "sign";
         AddVoiceLine();
     }
     private void AddVoiceLine()

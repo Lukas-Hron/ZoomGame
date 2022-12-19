@@ -679,7 +679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2640912241117820876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.67, y: 16.18, z: 0}
+  m_LocalPosition: {x: 40.12, y: 23.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1072,7 +1072,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4257759339515334205}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.66, y: -16.37, z: 0}
+  m_LocalPosition: {x: -40.1, y: -27.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   hotSpots:
   - {fileID: 623393098372003454}
   objectsWithColliders: []
-  size: 13.7
+  size: 18.7
   nextLayerPos: {fileID: 5791438482208809600}
   topRight: {fileID: 8265754608966709107}
   bottomLeft: {fileID: 2490033204510060349}
@@ -2821,7 +2821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: maxZoomClamp
-      value: 15.1
+      value: 20.1
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: CanZoomInMiddle

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ZoomLayerHandler : MonoBehaviour
 {
+    Player player;
     ZoomHandler zoom;
     CameraPan pan;
     public List<GameObject> zoomLayerPrefab;
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         zoom = GetComponent<ZoomHandler>();
         pan = Camera.main.GetComponent<CameraPan>();
         zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == "ZoomLayer0 - MainMenu"), transform.position, Quaternion.identity));
@@ -34,32 +36,37 @@ public class ZoomLayerHandler : MonoBehaviour
 
 
 
-        if (zoomValue >= 6.0 && zoomValue < 9)
+        if (zoomValue >= 9.58f && zoomValue < 12)
         {
             if (!actionPerformedForZoomLevel1)
             {
-                actionPerformedForZoomLevel1 = true;
                 PanChange("ZoomLayer2 - Hallway");
+                player.canOnlyZoomIn = false;
+                player.canInput = true;
+                player.canZoom = true;
+                player.canPan = true;
+                actionPerformedForZoomLevel1 = true;
                 SetLayerFunctions("ZoomLayer2 - Hallway", true);
                 InstansiateNewZoomLayer("ZoomLayer3 - Bedroom");
-                zoom.zoomMax = 7.8f;
-                zoom.zoomMin = 6.8f;
+                DeleteZoomLayer("ZoomLayer0 - MainMenu");
+                zoom.zoomMax = 10.8f;
+                zoom.zoomMin = 9.58f;
             }
             return;
         }
 
 
 
-        else if (zoomValue >= 12.9f && zoomValue < 13)
+        else if (zoomValue >= 17.9f && zoomValue < 19)
         {
             if (!actionPerformedForZoomLevel2)
             {
                 actionPerformedForZoomLevel2 = true;
                 PanChange("ZoomLayer3 - Bedroom");
-                zoom.zoomMax = 13.4f;
-                zoom.zoomMin = 12.7f;
+                zoom.zoomMax = 19.4f;
+                zoom.zoomMin = 17.7f;
                 SetLayerFunctions("ZoomLayer2 - Hallway", false);
-                DeleteZoomLayer("ZoomLayer0 - MainMenu");
+  
                 DeleteZoomLayer("ZoomLayer2 - Hallway");
             }
             return;
@@ -67,7 +74,7 @@ public class ZoomLayerHandler : MonoBehaviour
 
 
 
-        else if (zoomValue >= 15 && zoomValue < 16)
+        else if (zoomValue >= 20 && zoomValue < 21)
         {
             if (!actionPerformedForZoomLevel3)
             {
@@ -76,8 +83,8 @@ public class ZoomLayerHandler : MonoBehaviour
                 PanChange("ZoomLayer4 - CaveEntrance");
                 SetLayerFunctions("ZoomLayer3 - Bedroom", false);
 
-                zoom.zoomMax = 18f;
-                zoom.zoomMin = 15.29018f;
+                zoom.zoomMax = 23f;
+                zoom.zoomMin = 20.29018f;
             }
             return;
 

@@ -6285,7 +6285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotSpots: []
   objectsWithColliders: []
-  size: 16.4
+  size: 21.4
   nextLayerPos: {fileID: 8304982287889777723}
   topRight: {fileID: 5884999626838477256}
   bottomLeft: {fileID: 112603182017694086}
