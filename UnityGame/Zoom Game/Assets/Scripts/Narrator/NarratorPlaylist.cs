@@ -40,16 +40,17 @@ public class NarratorPlaylist : MonoBehaviour
 
     public void PlayNextVoiceline()
     {
-        
-        if (NarratorVoiceLinePlaylist[0] != null)
+
+        if (NarratorVoiceLinePlaylist.Count > 0)
         {
             AudioHandler.Instance.PlaySoundEffect(NarratorVoiceLinePlaylist[0].voiceLine);
             Invoke(methodName: "PlayNextVoiceline", NarratorVoiceLinePlaylist[0].voiceLine.length + 0.5f);
+            NarratorVoiceLinePlaylist.RemoveAt(0);
         }
         else
         isPlaying = false;
             
 
-        NarratorVoiceLinePlaylist.RemoveAt(0);
+        
     }
 }
