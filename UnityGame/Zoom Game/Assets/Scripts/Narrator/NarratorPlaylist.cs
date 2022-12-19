@@ -5,7 +5,7 @@ using UnityEngine;
 public class NarratorPlaylist : MonoBehaviour
 {
     public static NarratorPlaylist Instance;
-
+    public Subtitles subtitle;
 
     public List<NarratorVoiceLine> NarratorVoiceLinePlaylist;
     bool isPlaying;
@@ -44,6 +44,8 @@ public class NarratorPlaylist : MonoBehaviour
         if (NarratorVoiceLinePlaylist.Count > 0)
         {
             AudioHandler.Instance.PlaySoundEffect(NarratorVoiceLinePlaylist[0].voiceLine);
+            string yourMomgey = NarratorVoiceLinePlaylist[0].subtitles;
+            subtitle.playSubtitle(yourMomgey,3);
             Invoke(methodName: "PlayNextVoiceline", NarratorVoiceLinePlaylist[0].voiceLine.length + 0.5f);
             NarratorVoiceLinePlaylist.RemoveAt(0);
         }
