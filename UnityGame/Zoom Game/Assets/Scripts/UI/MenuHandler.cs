@@ -5,15 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject creditsPanel;
-    [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject controlsPanel;
+	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject pausePanel;
+	[SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject musicSource;
 
     [SerializeField] private bool pauseMenuIsShowing;
     Player player;
-    private int counter;
-
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -21,13 +20,16 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false)
-        {
+		if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false)
+		{
             pauseMenuIsShowing = !pauseMenuIsShowing;
-        }
-        pausePanel.SetActive(pauseMenuIsShowing);
-    }
+            if (player.canInput == true)
+                player.canInput = false;
+            if (player.canInteract == true)
+                player.canInteract = false;
+		}
+		pausePanel.SetActive(pauseMenuIsShowing);
+	  }
 
     public void Quit()
     {
@@ -36,14 +38,15 @@ public class MenuHandler : MonoBehaviour
 #else
          Application.Quit();
 #endif
-    }
-    public void StartGame(string name)
-    {
+	 }
+	public void StartGame()
+  {
         //startgame function
         GetComponent<TutorialHandler>().DisplayZoom();
         mainMenu.SetActive(false);
         player.canInput = true;
         player.canOnlyZoomIn = true;
+        musicSource.SetActive(true);
         FindObjectOfType<ZoomHandler>().smoothZoom = 0.05f;
     }
     public void SettingsMenu()
@@ -51,24 +54,32 @@ public class MenuHandler : MonoBehaviour
         settingsPanel.SetActive(true);
         pauseMenuIsShowing = !pauseMenuIsShowing;
     }
-    public void Credits()
+    public void ControlsMenu()
     {
-        counter++;
+        controlsPanel.SetActive(true);
+        pauseMenuIsShowing = !pauseMenuIsShowing;
 
-        if (counter % 2 == 1)
-            creditsPanel.SetActive(true);
-        else
-            creditsPanel.SetActive(false);
     }
     public void ResumeGame()
     {
         pauseMenuIsShowing = !pauseMenuIsShowing;
+        if (player.canInput == false)
+        {
+            player.canInput = true;
+        }
+        if (player.canInteract == false)
+        {
+            player.canInteract = true;
+        }
     }
     public void BackToMenu()
     {
         if (settingsPanel.activeSelf == true)
             settingsPanel.SetActive(false);
-        pauseMenuIsShowing = !pauseMenuIsShowing;
+        if (controlsPanel.activeSelf == true)
+            controlsPanel.SetActive(false);
+        if (pauseMenuIsShowing == false)
+            pauseMenuIsShowing = !pauseMenuIsShowing;
     }
 
 
