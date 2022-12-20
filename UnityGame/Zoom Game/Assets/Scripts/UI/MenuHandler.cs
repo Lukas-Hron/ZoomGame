@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-	[SerializeField] private GameObject controlsPanel;
-	[SerializeField] private GameObject mainMenu;
-	[SerializeField] private GameObject pausePanel;
-	[SerializeField] private GameObject settingsPanel;
-	[SerializeField] private GameObject musicSource;
+    [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
+
     [SerializeField] private bool pauseMenuIsShowing;
     Player player;
+    private int counter;
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -19,66 +21,55 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
-		if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false)
-		{
+
+        if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false)
+        {
             pauseMenuIsShowing = !pauseMenuIsShowing;
-            if (player.canInput == true)
-                player.canInput = false;
-            if (player.canInteract == true)
-                player.canInteract = false;
-		}
-		pausePanel.SetActive(pauseMenuIsShowing);
-	}
+        }
+        pausePanel.SetActive(pauseMenuIsShowing);
+    }
 
     public void Quit()
-	{
+    {
 #if UNITY_EDITOR
-		UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
          Application.Quit();
 #endif
-	}
-	public void StartGame()
+    }
+    public void StartGame(string name)
     {
         //startgame function
+        GetComponent<TutorialHandler>().DisplayZoom();
         mainMenu.SetActive(false);
         player.canInput = true;
         player.canOnlyZoomIn = true;
-        musicSource.SetActive(true);
-
-
-        NarratorHandler.Instance.PlayFromKeyWord("opening");
+        FindObjectOfType<ZoomHandler>().smoothZoom = 0.05f;
     }
     public void SettingsMenu()
     {
         settingsPanel.SetActive(true);
         pauseMenuIsShowing = !pauseMenuIsShowing;
     }
-    public void ControlsMenu()
+    public void Credits()
     {
-        controlsPanel.SetActive(true);
-        pauseMenuIsShowing = !pauseMenuIsShowing;
+        counter++;
 
+        if (counter % 2 == 1)
+            creditsPanel.SetActive(true);
+        else
+            creditsPanel.SetActive(false);
     }
     public void ResumeGame()
     {
         pauseMenuIsShowing = !pauseMenuIsShowing;
-        if (player.canInput == false)
-        {
-            player.canInput = true;
-        }
-        if (player.canInteract == false)
-        {
-            player.canInteract = true;
-        }
     }
     public void BackToMenu()
     {
         if (settingsPanel.activeSelf == true)
             settingsPanel.SetActive(false);
-        if (controlsPanel.activeSelf == true)
-            controlsPanel.SetActive(false);
-        if (pauseMenuIsShowing == false)
-            pauseMenuIsShowing = !pauseMenuIsShowing;
+        pauseMenuIsShowing = !pauseMenuIsShowing;
     }
+
+
 }
