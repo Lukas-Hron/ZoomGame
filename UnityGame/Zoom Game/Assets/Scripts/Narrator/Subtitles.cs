@@ -24,12 +24,18 @@ public class Subtitles : MonoBehaviour
 
     public void toggleSubtitle()
     {
+        canvasSubtitle = GameObject.Find("canvasSubtitles");
         enabledSubtitle = !enabledSubtitle;
         if (enabledSubtitle)
         {
             button.image.sprite = toggleOff;
+            canvasSubtitle.SetActive(false);
         }
-        else button.image.sprite = toggleOn;
+        else
+        {
+            button.image.sprite = toggleOn;
+            canvasSubtitle.SetActive(true);
+        }
     }
     public void playSubtitle(string subTitle, float timer)
     {
@@ -37,12 +43,19 @@ public class Subtitles : MonoBehaviour
         {
            if (startSubtitle == false)
             {
-                canvasSubtitle.GetComponent<TextMeshPro>().text = subTitle;
+                canvasSubtitle.GetComponent<TextMeshProUGUI>().text = subTitle;
                 currentSubtitleTimer = 0;
                 targetSubtitleTimer = timer;
                 startSubtitle = true;
             }
         }
+    }
+
+    public void cutUpSubtitle(string stringen, float totalTime)
+    {
+        string[] splittedString = stringen.Split('.');
+        
+       
     }
     
     // Update is called once per frame
@@ -53,11 +66,11 @@ public class Subtitles : MonoBehaviour
             if (currentSubtitleTimer < targetSubtitleTimer) currentSubtitleTimer += Time.deltaTime;
             else
             {
-                canvasSubtitle.GetComponent<TextMeshPro>().text = "";
+                canvasSubtitle.GetComponent<TextMeshProUGUI>().text = "";
                 startSubtitle = false;
 
             }
         }
-
+     
     }
 }
