@@ -22,9 +22,9 @@ public class MenuHandler : MonoBehaviour
 		if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false)
 		{
             pauseMenuIsShowing = !pauseMenuIsShowing;
-            if (player.canInput == true)
+            if (pauseMenuIsShowing)
                 player.canInput = false;
-            if (player.canInteract == true)
+            else
                 player.canInteract = false;
 		}
 		pausePanel.SetActive(pauseMenuIsShowing);

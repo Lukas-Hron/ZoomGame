@@ -5,7 +5,8 @@ using UnityEngine;
 public class NarratorVoiceLine 
 {
     public AudioClip voiceLine;
-    public string recievingRhyme, endingRhyme, subtitles,keyWord;
+    public string recievingRhyme, endingRhyme, firstSubtitles, secondSubtitles, keyWord;
+    public float timeToSplit;
 
     public NarratorVoiceLine
     (
@@ -13,14 +14,18 @@ public class NarratorVoiceLine
         string keyWord,
         string recievingRhyme,
         string endingRhyme,
-        string subtitles
+        float timeToSplit,
+        string firstSubtitles,
+        string secondSubtitles
     )
     {
         voiceLine = audioClip;
         this.keyWord = keyWord;
         this.recievingRhyme = recievingRhyme;
         this.endingRhyme = endingRhyme;
-        this.subtitles = subtitles;
+        this.firstSubtitles = firstSubtitles;
+        this.secondSubtitles = secondSubtitles;
+        this.timeToSplit = timeToSplit;
 
     }
 
