@@ -25,7 +25,8 @@ public class ZoomLayerHandler : MonoBehaviour
 
     }
 
-
+    private bool actionPerformedForZoomLevel0 = false;
+    private bool actionPerformedForZoomLevel0b = false;
     private bool actionPerformedForZoomLevel1 = false;
     private bool actionPerformedForZoomLevel2 = false;
     private bool actionPerformedForZoomLevel3 = false;
@@ -35,22 +36,44 @@ public class ZoomLayerHandler : MonoBehaviour
         float zoomValue = zoom.currentZoomValue;
 
 
+        if (zoomValue >= 1f && zoomValue < 2)
+        {
+            if (!actionPerformedForZoomLevel0)
+            {
+                actionPerformedForZoomLevel0 = true;
+                NarratorHandler.Instance.PlayFromKeyWord("opening");
+            }
+            return;
+        }
+
+        if (zoomValue >= 4f && zoomValue < 5)
+        {
+            if (!actionPerformedForZoomLevel0b)
+            {
+                actionPerformedForZoomLevel0b = true;
+                FindObjectOfType<TutorialHandler>().ExitZoom();
+            }
+            return;
+        }
+
 
         if (zoomValue >= 9.58f && zoomValue < 12)
         {
             if (!actionPerformedForZoomLevel1)
             {
+                actionPerformedForZoomLevel1 = true;
+                FindObjectOfType<TutorialHandler>().DisplayPan();
                 PanChange("ZoomLayer2 - Hallway");
                 player.canOnlyZoomIn = false;
                 player.canInput = true;
                 player.canZoom = true;
                 player.canPan = true;
-                actionPerformedForZoomLevel1 = true;
                 SetLayerFunctions("ZoomLayer2 - Hallway", true);
                 InstansiateNewZoomLayer("ZoomLayer3 - Bedroom");
                 DeleteZoomLayer("ZoomLayer0 - MainMenu");
                 zoom.zoomMax = 10.8f;
                 zoom.zoomMin = 9.58f;
+                zoom.smoothZoom = 0.1f;
             }
             return;
         }
