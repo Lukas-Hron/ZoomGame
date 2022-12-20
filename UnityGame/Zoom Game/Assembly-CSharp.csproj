@@ -78,7 +78,6 @@
     <Compile Include="Assets\Scripts\Gameplay\StarConstellation\Star.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameBoard.cs" />
     <Compile Include="Assets\Scripts\Tools\ZoomLayerHandler.cs" />
-    <Compile Include="Assets\TutorialHandler.cs" />
     <Compile Include="Assets\tvwakerupper.cs" />
     <Compile Include="Assets\TVPuzzle.cs" />
     <Compile Include="Assets\Scripts\Narrator\NarratorInitialization.cs" />
