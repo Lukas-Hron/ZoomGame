@@ -45,9 +45,8 @@ public class MenuHandler : MonoBehaviour
         player.canInput = true;
         player.canOnlyZoomIn = true;
         musicSource.SetActive(true);
+        GetComponent<TutorialHandler>().DisplayZoom();
 
-
-        NarratorHandler.Instance.PlayFromKeyWord("opening");
     }
     public void SettingsMenu()
     {
