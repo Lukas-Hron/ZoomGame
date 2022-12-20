@@ -2670,7 +2670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0676b2d3a319fbe44a7c73407507b182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlsPanel: {fileID: 0}
+  controlsPanel: {fileID: 811341361}
   mainMenu: {fileID: 1785281345}
   pausePanel: {fileID: 309406709}
   settingsPanel: {fileID: 490055768}
