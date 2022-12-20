@@ -28,26 +28,14 @@ public class AudioHandler : MonoBehaviour
         audioSource.pitch = 1;
         audioSource.PlayOneShot(_clip);
     }
+    public void PlayNarration(AudioClip _clip)
+    {
+        narratorSource.PlayOneShot(_clip);
+    }
     public void PlaySoundRandomPitch(AudioClip _clip, float minPitch, float maxPitch)
     {
         pitchedAudioSource.pitch = Random.Range(minPitch, maxPitch);
         pitchedAudioSource.PlayOneShot(_clip);
-    }
-    public void MenuButtonHover()
-    {
-        audioSource.PlayOneShot(audioClips[0]);
-    }
-    public void MenuButtonClick()
-    {
-        audioSource.PlayOneShot(audioClips[1]);
-    }
-    public void StartBackgroundMusic()
-    {
-        audioSource.PlayOneShot(audioClips[2]);
-    }
-    public void StartAudio()
-    {
-        audioSource.PlayOneShot(audioClips[3]);
     }
     public void ChangeEffectsVolume(float Value)
     {
