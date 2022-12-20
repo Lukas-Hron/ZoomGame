@@ -14,19 +14,6 @@ public class NarratorPlaylist : MonoBehaviour
         NarratorVoiceLinePlaylist = new List<NarratorVoiceLine>();
     }
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void AddVoiceLineToPlaylist(NarratorVoiceLine voiceLine)
     {
         NarratorVoiceLinePlaylist.Add(voiceLine);
