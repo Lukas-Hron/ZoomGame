@@ -30,6 +30,7 @@ public class ZoomLayerHandler : MonoBehaviour
     private bool actionPerformedForZoomLevel1 = false;
     private bool actionPerformedForZoomLevel2 = false;
     private bool actionPerformedForZoomLevel3 = false;
+    private bool actionPerformedForZoomLevel4 = false;
 
     public void CheckZoomLevel()
     {
@@ -108,6 +109,22 @@ public class ZoomLayerHandler : MonoBehaviour
 
                 zoom.zoomMax = 23f;
                 zoom.zoomMin = 20.29018f;
+            }
+            return;
+
+        }
+        else if (zoomValue > 23 && zoomValue < 26)
+        {
+            if (!actionPerformedForZoomLevel4)
+            {
+                actionPerformedForZoomLevel4 = true;
+                InstansiateNewZoomLayer("ZoomLayer5 - Tunnel");
+                PanChange("ZoomLayer5 - Tunnel");
+                SetLayerFunctions("ZoomLayer4 - CaveEntrance", false);
+                DeleteZoomLayer("ZoomLayer4 - CaveEntrance");
+
+                zoom.zoomMax = 25.7f;
+                zoom.zoomMin = 23.1f;
             }
             return;
 

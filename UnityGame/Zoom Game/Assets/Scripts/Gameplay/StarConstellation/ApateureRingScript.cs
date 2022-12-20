@@ -21,6 +21,8 @@ public class ApateureRingScript : MonoBehaviour
 
     public Animator apatureRingAnimation;
 
+    public GameObject hotspotTunnel;
+
     public void checkRing(string ringName)
     {
         if (ringName == "fst")
@@ -45,6 +47,7 @@ public class ApateureRingScript : MonoBehaviour
         if (fstRingDone && sndRingDone && thrdRingDone)
         {
             apatureRingAnimation.SetTrigger("win");
+            hotspotTunnel.SetActive(true);
         }
     }
 }
