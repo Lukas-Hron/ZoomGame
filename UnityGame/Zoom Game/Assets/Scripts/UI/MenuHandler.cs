@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject creditsPanel;
-    [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject controlsPanel;
+	[SerializeField] private GameObject mainMenu;
+	[SerializeField] private GameObject pausePanel;
+	[SerializeField] private GameObject settingsPanel;
+	[SerializeField] private GameObject musicSource;
 
     [SerializeField] private bool pauseMenuIsShowing;
     Player player;
@@ -25,26 +26,32 @@ public class MenuHandler : MonoBehaviour
         if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false)
         {
             pauseMenuIsShowing = !pauseMenuIsShowing;
-        }
-        pausePanel.SetActive(pauseMenuIsShowing);
-    }
 
+            if (player.canInput == true)
+                player.canInput = false;
+            if (player.canInteract == true)
+                player.canInteract = false;
+		}
+		pausePanel.SetActive(pauseMenuIsShowing);
+	}
+  
     public void Quit()
-    {
+	{
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+		UnityEditor.EditorApplication.isPlaying = false;
 #else
          Application.Quit();
 #endif
-    }
-    public void StartGame(string name)
+
+	}
+	public void StartGame()
     {
         //startgame function
-        GetComponent<TutorialHandler>().DisplayZoom();
         mainMenu.SetActive(false);
         player.canInput = true;
         player.canOnlyZoomIn = true;
-        FindObjectOfType<ZoomHandler>().smoothZoom = 0.05f;
+
+        musicSource.SetActive(true);
     }
     public void SettingsMenu()
     {
@@ -70,6 +77,4 @@ public class MenuHandler : MonoBehaviour
             settingsPanel.SetActive(false);
         pauseMenuIsShowing = !pauseMenuIsShowing;
     }
-
-
 }
