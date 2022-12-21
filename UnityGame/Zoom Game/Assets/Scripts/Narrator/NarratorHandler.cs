@@ -5,11 +5,22 @@ using System.Linq;
 
 public class NarratorHandler : MonoBehaviour
 {
-    public string rhymeToUse = "ly";
+    public string rhymeToUse;
     public static NarratorHandler Instance;
     public List<NarratorVoiceLine> NarrVoiceLineList;
     private List<NarratorVoiceLine> KeyWordVoiceLines;
 
+    private void Start()
+    {
+        //choose random start line
+        int randomInt = Random.Range(1, 4);
+        if (randomInt == 1)
+            rhymeToUse = "ly";
+        else if (randomInt == 2)
+            rhymeToUse = "ing";
+        else
+            rhymeToUse = "ed";
+    }
     public void InitializeLists()
     {
      NarrVoiceLineList = new List<NarratorVoiceLine>();
@@ -49,6 +60,18 @@ public class NarratorHandler : MonoBehaviour
             }
         }
     }
+
+    public void PlayFromName(string name)
+    {
+        foreach (NarratorVoiceLine voiceLine in NarrVoiceLineList)
+        {
+            if (voiceLine.voiceLine.name == name)
+            {
+                AddToPlaylist(voiceLine);
+            }
+        }
+    }
+
 
     public void AddToPlaylist(NarratorVoiceLine voiceLine)
     {

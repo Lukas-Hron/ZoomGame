@@ -105,8 +105,8 @@ public class ZoomLayerHandler : MonoBehaviour
             {
                 actionPerformedForZoomLevel3 = true;
                 InstansiateNewZoomLayer("ZoomLayer4 - CaveEntrance");
-                PanChange("ZoomLayer4 - CaveEntrance");
                 SetLayerFunctions("ZoomLayer3 - Bedroom", false);
+                player.inCutscene = true;
 
                 zoom.zoomMax = 23f;
                 zoom.zoomMin = 20.29018f;
@@ -114,18 +114,17 @@ public class ZoomLayerHandler : MonoBehaviour
             return;
 
         }
-        else if (zoomValue > 23 && zoomValue < 26)
+        else if (zoomValue > 25.2f && zoomValue < 26)
         {
             if (!actionPerformedForZoomLevel4)
             {
                 actionPerformedForZoomLevel4 = true;
-                InstansiateNewZoomLayer("ZoomLayer5 - Tunnel");
                 PanChange("ZoomLayer5 - Tunnel");
                 SetLayerFunctions("ZoomLayer4 - CaveEntrance", false);
-                DeleteZoomLayer("ZoomLayer4 - CaveEntrance");
+                //DeleteZoomLayer("ZoomLayer4 - CaveEntrance");
 
-                zoom.zoomMax = 25.7f;
-                zoom.zoomMin = 23.1f;
+                zoom.zoomMax = 27f;
+                zoom.zoomMin = 25f;
             }
             return;
 
@@ -134,7 +133,7 @@ public class ZoomLayerHandler : MonoBehaviour
 
     //Methods to call 
 
-    void InstansiateNewZoomLayer(string name)
+    public void InstansiateNewZoomLayer(string name)
     {
         zoom.ZoomLayers.Add(Instantiate(zoomLayerPrefab.Find(x => x.name == name), zoom.ZoomLayers[zoom.ZoomLayers.Count - 1].GetComponent<Layer>().nextLayerPos.transform.position, Quaternion.identity));
         zoom.RealignZoomlayers();

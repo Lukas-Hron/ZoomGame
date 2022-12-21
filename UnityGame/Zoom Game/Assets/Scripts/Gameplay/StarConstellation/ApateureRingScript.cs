@@ -47,6 +47,7 @@ public class ApateureRingScript : MonoBehaviour
         if (fstRingDone && sndRingDone && thrdRingDone)
         {
             apatureRingAnimation.SetTrigger("win");
+            FindObjectOfType<ZoomLayerHandler>().InstansiateNewZoomLayer("ZoomLayer5 - Tunnel");
             hotspotTunnel.SetActive(true);
         }
     }
