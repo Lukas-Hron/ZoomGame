@@ -72,7 +72,7 @@ public class Curser : MonoBehaviour
         {
             if (currentCurser == 100)
             {
-                transform.localScale = new Vector3(0.09f, 0.09f, 0.09f);
+                transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
                 sprn.sprite = currentItem;
 
             }
