@@ -173,9 +173,5 @@ public class ZoomLayerHandler : MonoBehaviour
             zoom.zoomMax = max;
     }
 
-    public void SetPlayerState()
-    {
-        // :D
-    }
 }
 

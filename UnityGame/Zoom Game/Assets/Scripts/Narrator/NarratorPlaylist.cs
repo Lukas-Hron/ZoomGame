@@ -11,6 +11,7 @@ public class NarratorPlaylist : MonoBehaviour
     public List<NarratorVoiceLine> HasPlayed;
     NarratorHandler narrHandler;
     bool isPlaying;
+    float fullPlaylistTime;
 
     private void Start()
     {
@@ -75,5 +76,12 @@ public class NarratorPlaylist : MonoBehaviour
             narrHandler.PlayFromName(voiceline.voiceLine.name + "_end");
         }
         narrHandler.PlayFromKeyWord("end");
+
+        fullPlaylistTime = 0;
+        foreach (NarratorVoiceLine voiceline in NarratorVoiceLinePlaylist)
+        {
+            fullPlaylistTime += voiceline.voiceLine.length;
+        }
+        FindObjectOfType<CutsceneManager>().duration = fullPlaylistTime;
     }
 }

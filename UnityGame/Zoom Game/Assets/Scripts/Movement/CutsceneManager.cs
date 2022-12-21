@@ -12,7 +12,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] float targetZoomValue;
     float lerp;
    public float resultingZoomValue;
-    [SerializeField] float duration = 5f;
+    public float duration = 5f;
 
     private void Start()
     {
