@@ -90,10 +90,10 @@
     <Compile Include="Assets\Scripts\Gameplay\StarConstellation\ApateureRingScript.cs" />
     <Compile Include="Assets\Scripts\Movement\Layer.cs" />
     <Compile Include="Assets\Scripts\Gameplay\StarConstellation\StarLine.cs" />
+    <Compile Include="Assets\Subtitles.cs" />
     <Compile Include="Assets\Scripts\Movement\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColliderDisabler.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioHandler.cs" />
-    <Compile Include="Assets\Subtitles.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
