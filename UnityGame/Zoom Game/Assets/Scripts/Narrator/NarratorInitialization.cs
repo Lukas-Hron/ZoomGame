@@ -45,6 +45,8 @@ public class NarratorInitialization : MonoBehaviour
         keyWord = "opening";
         AddVoiceLine();
 
+
+
         /////////////////////////////////////////////////////Lamp
 
         // ly >> ed
@@ -76,6 +78,8 @@ public class NarratorInitialization : MonoBehaviour
         timeToSplit = 5.7f;
         keyWord = "lamp";
         AddVoiceLine();
+
+
 
         /////////////////////////////////////////////////////Flower
 
@@ -109,6 +113,8 @@ public class NarratorInitialization : MonoBehaviour
         keyWord = "flower";
         AddVoiceLine();
 
+
+
         /////////////////////////////////////////////////////sign
 
         //ly >> ed
@@ -140,6 +146,146 @@ public class NarratorInitialization : MonoBehaviour
         timeToSplit = 6.4f;
         keyWord = "sign";
         AddVoiceLine();
+
+
+
+        ///////////////////////////////////////////////////// drawing
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_drawing_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        firstSubtitles = "Her father says her art is painterly. She can't help but feel proud";
+        secondSubtitles = "But she always gets embarrassed when he says it out loud. Though he never regrets what he’s said.";
+        timeToSplit = 4.2f;
+        keyWord = "drawing";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_drawing_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        firstSubtitles = "She tapes her drawings above her bed. She loves the way they brightened up her room";
+        secondSubtitles = "and how they seemed to sway. Almost as much as she loves drawing.";
+        timeToSplit = 4.7f;
+        keyWord = "drawing";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_drawing_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        firstSubtitles = "More than anything, Lily loves drawing. She loves the way the pencil feels in her hand";
+        secondSubtitles = "and how easy it is to understand. Her parents always said she drew beautifully.";
+        timeToSplit = 5.7f;
+        keyWord = "drawing";
+        AddVoiceLine();
+
+
+
+        ///////////////////////////////////////////////////// bedroom
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_bedroom_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        firstSubtitles = "In her house there’s a room just for Lily. It is a place where she can be herself and not have to hide.";
+        secondSubtitles = "Her room will always be a place where she can reside. That’s just what her mother said.";
+        timeToSplit = 6.5f;
+        keyWord = "bedroom";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_bedroom_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        firstSubtitles = "Lily loves everything about her room, from the books on her shelves";
+        secondSubtitles = "to her warm comfy bed. Even her friends are jealous of her bedding.";
+        timeToSplit = 3.5f;
+        keyWord = "bedroom";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_bedroom_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        firstSubtitles = "Lily has her own room where she likes playing. It is where she feels most at home,";
+        secondSubtitles = "with her cozy bed made out of foam. Even if it does get chilly.";
+        timeToSplit = 5.2f;
+        keyWord = "bedroom";
+        AddVoiceLine();
+
+
+
+        ///////////////////////////////////////////////////// pillow
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_pillow_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        firstSubtitles = "Lily makes her bed carefully. Making sure every pillow is in the right place.";
+        secondSubtitles = "Leaving not a single empty space. She’s proud of how she makes her bed.";
+        timeToSplit = 4.7f;
+        keyWord = "pillow";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_pillow_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        firstSubtitles = "She sometimes hides things in her bed. Maybe a sock, shirt or even a remote.";
+        secondSubtitles = "Once she even hid her dad’s coat. But he got mad so she stopped the hiding.";
+        timeToSplit = 5.5f;
+        keyWord = "pillow";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_pillow_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        firstSubtitles = "Lily doesn’t like sleeping. She would rather stay awake all night,";
+        secondSubtitles = "after all she does have her nightlight. Even though she tackles the dark fearlessly.";
+        timeToSplit = 4.4f;
+        keyWord = "pillow";
+        AddVoiceLine();
+
+
+
+        ///////////////////////////////////////////////////// tv
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tv_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        firstSubtitles = "Lily’s tv glows brightly.";
+        secondSubtitles = "Brightly with the glow of her favorite show. The show that’s called golden red.";
+        timeToSplit = 2.2f;
+        keyWord = "tv";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tv_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        firstSubtitles = "Lily’s favorite tv show is called golden red. She watches it every friday noon.";
+        secondSubtitles = "It tells the tale of a girl and the moon. She loves it even if some scenes are shocking.";
+        timeToSplit = 5.6f;
+        keyWord = "tv";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tv_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        firstSubtitles = "Lily is always watching. Her TV, her movies, when she isn’t busy drawing.";
+        secondSubtitles = "Her favorite movies are always kind of silly.";
+        timeToSplit = 4.8f;
+        keyWord = "tv";
+        AddVoiceLine();
+
+
+
+
     }
     private void AddVoiceLine()
     {

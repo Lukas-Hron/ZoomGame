@@ -87,6 +87,7 @@ public class ZoomLayerHandler : MonoBehaviour
             {
                 actionPerformedForZoomLevel2 = true;
                 PanChange("ZoomLayer3 - Bedroom");
+                NarratorHandler.Instance.PlayFromKeyWord("bedroom");
                 zoom.zoomMax = 19.4f;
                 zoom.zoomMin = 17.7f;
                 SetLayerFunctions("ZoomLayer2 - Hallway", false);
