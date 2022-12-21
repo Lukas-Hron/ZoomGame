@@ -15,6 +15,15 @@ public class Inventory : MonoBehaviour
     public void AddItem(Item item,float size)
     {
         itemList.Add(item);
+        try
+        {
+        item.GetComponent<Animator>().enabled = false;
+        }
+        catch
+        {
+
+        }
+        item.GetComponent<SpriteRenderer>().sortingLayerID = 97;
         item.transform.parent = gameObject.transform;
         item.transform.position = transform.position + new Vector3(0, (itemList.Count - 1) * itemOffset, 0);
         item.transform.localScale = new Vector3(size,size,size);

@@ -10,6 +10,7 @@ public class DebugFunctions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
+            NarratorPlaylist.Instance.PlayEnding();
             SceneManager.LoadScene(0);
         }
     }

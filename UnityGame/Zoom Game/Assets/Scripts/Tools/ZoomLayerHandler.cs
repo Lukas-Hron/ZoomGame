@@ -28,6 +28,7 @@ public class ZoomLayerHandler : MonoBehaviour
     private bool actionPerformedForZoomLevel0 = false;
     private bool actionPerformedForZoomLevel0b = false;
     private bool actionPerformedForZoomLevel1 = false;
+    private bool actionPerformedForZoomLevel1b = false;
     private bool actionPerformedForZoomLevel2 = false;
     private bool actionPerformedForZoomLevel3 = false;
     private bool actionPerformedForZoomLevel4 = false;
@@ -79,17 +80,26 @@ public class ZoomLayerHandler : MonoBehaviour
             return;
         }
 
+        if (zoomValue >= 15f && zoomValue < 16)
+        {
+            if (!actionPerformedForZoomLevel1b)
+            {
+                actionPerformedForZoomLevel1b = true;
+                NarratorHandler.Instance.PlayFromKeyWord("bedroom");
+            }
+            return;
+        }
 
 
-        else if (zoomValue >= 17.9f && zoomValue < 19)
+
+        else if (zoomValue >= 17.6f && zoomValue < 19)
         {
             if (!actionPerformedForZoomLevel2)
             {
                 actionPerformedForZoomLevel2 = true;
                 PanChange("ZoomLayer3 - Bedroom");
-                NarratorHandler.Instance.PlayFromKeyWord("bedroom");
-                zoom.zoomMax = 19.4f;
-                zoom.zoomMin = 17.7f;
+                zoom.zoomMax = 18.8f;
+                zoom.zoomMin = 17.5f;
                 SetLayerFunctions("ZoomLayer2 - Hallway", false);
   
                 DeleteZoomLayer("ZoomLayer2 - Hallway");
@@ -121,7 +131,7 @@ public class ZoomLayerHandler : MonoBehaviour
                 actionPerformedForZoomLevel4 = true;
                 PanChange("ZoomLayer5 - Tunnel");
                 SetLayerFunctions("ZoomLayer4 - CaveEntrance", false);
-                //DeleteZoomLayer("ZoomLayer4 - CaveEntrance");
+                NarratorPlaylist.Instance.PlayEnding();
 
                 zoom.zoomMax = 27f;
                 zoom.zoomMin = 25f;
