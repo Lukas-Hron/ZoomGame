@@ -9,6 +9,7 @@ public class UseItem : MonoBehaviour
     Animator anim;
     Inventory inventory;
     Item item;
+    public bool noanimation;
     [SerializeField] GameObject itemToUse;
     [SerializeField] List<GameObject> ObjectsToEnableAfterAnimation;
     [SerializeField] float animLenght;
@@ -17,6 +18,7 @@ public class UseItem : MonoBehaviour
         player = FindObjectOfType<Player>();
         inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         item = itemToUse.GetComponent<Item>();
+        if (!noanimation)
         anim = GetComponent<Animator>();
     }
     private void OnMouseDown()
@@ -28,7 +30,8 @@ public class UseItem : MonoBehaviour
 
         if (inventory.itemList.Contains(item))
         {
-            anim.SetTrigger("item");
+            if (!noanimation)
+                anim.SetTrigger("item");
             Debug.Log("Item found");
             inventory.RemoveItem(item.name);
             Destroy(itemToUse);

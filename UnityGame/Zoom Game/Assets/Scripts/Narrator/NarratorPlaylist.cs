@@ -43,7 +43,7 @@ public class NarratorPlaylist : MonoBehaviour
 
         if (NarratorVoiceLinePlaylist.Count > 0)
         {
-            AudioHandler.Instance.PlaySoundEffect(NarratorVoiceLinePlaylist[0].voiceLine);
+            AudioHandler.Instance.PlayNarration(NarratorVoiceLinePlaylist[0].voiceLine);
             subtitle.playSubtitle(NarratorVoiceLinePlaylist[0].firstSubtitles, NarratorVoiceLinePlaylist[0].secondSubtitles,NarratorVoiceLinePlaylist[0].voiceLine.length, NarratorVoiceLinePlaylist[0].timeToSplit);
             Invoke(methodName: "PlayNextVoiceline", NarratorVoiceLinePlaylist[0].voiceLine.length + 0.5f);
             NarratorVoiceLinePlaylist.RemoveAt(0);

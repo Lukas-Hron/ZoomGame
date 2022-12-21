@@ -19,13 +19,22 @@ public class MenuHandler : MonoBehaviour
 
     private void Update()
     {
-		if (Input.GetKeyDown("escape") && mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false)
+		if (Input.GetKeyDown("escape"))
 		{
-            pauseMenuIsShowing = !pauseMenuIsShowing;
-            if (pauseMenuIsShowing)
-                player.canInput = false;
-            else
-                player.canInteract = false;
+            if (mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false)
+            {
+                pauseMenuIsShowing = !pauseMenuIsShowing;
+                if (pauseMenuIsShowing)
+                    player.canInput = false;
+                else
+                    player.canInteract = false;
+            }
+            else if (pauseMenuIsShowing)
+            {
+                settingsPanel.SetActive(false);
+                player.canInteract = true;
+                player.canInput = true;
+            }
 		}
 		pausePanel.SetActive(pauseMenuIsShowing);
 	}
