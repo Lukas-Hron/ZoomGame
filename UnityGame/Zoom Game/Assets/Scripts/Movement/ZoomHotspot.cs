@@ -18,7 +18,7 @@ public class ZoomHotspot : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        zoom = Object.FindObjectOfType<ZoomHandler>();
+            zoom = Object.FindObjectOfType<ZoomHandler>();
     }
 
     private void FixedUpdate()

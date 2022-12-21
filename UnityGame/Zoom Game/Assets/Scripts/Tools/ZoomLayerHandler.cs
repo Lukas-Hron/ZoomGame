@@ -106,7 +106,7 @@ public class ZoomLayerHandler : MonoBehaviour
                 actionPerformedForZoomLevel3 = true;
                 InstansiateNewZoomLayer("ZoomLayer4 - CaveEntrance");
                 SetLayerFunctions("ZoomLayer3 - Bedroom", false);
-                player.inCutscene = true;
+                //player.inCutscene = true;
 
                 zoom.zoomMax = 23f;
                 zoom.zoomMin = 20.29018f;
