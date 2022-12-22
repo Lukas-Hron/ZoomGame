@@ -20,18 +20,23 @@ public class Item : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        if (player.canInteract) { 
         inventory.AddItem(this,inventorySize);
         _collider.enabled = false;
         player.canClick = false;
-        AudioHandler.Instance.PlaySoundEffect(pickupSound);
+            AudioHandler.Instance.PlaySoundEffect(pickupSound);
+        }
     }
 
-    private void OnMouseEnter()
+        private void OnMouseEnter()
     {
-        player.canClick = true;
+        if (player.canInteract)
+        {
+            player.canClick = true;
+        }
     }
-    private void OnMouseExit()
+        private void OnMouseExit()
     {
-        player.canClick = false;
+            player.canClick = false;
     }
 }

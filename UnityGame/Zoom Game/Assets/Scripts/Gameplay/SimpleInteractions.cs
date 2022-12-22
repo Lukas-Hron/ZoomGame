@@ -64,21 +64,24 @@ public class SimpleInteractions : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        switch (cursor)
+        if (player.canInteract)
         {
-            case CursorType.Idle:
-                //Nothing
-                break;
-            case CursorType.Pointer:
-                player.canClick = true;
+            switch (cursor)
+            {
+                case CursorType.Idle:
+                    //Nothing
+                    break;
+                case CursorType.Pointer:
+                    player.canClick = true;
 
-                break;
-            case CursorType.Hand:
-                player.startDragInteract = true;
+                    break;
+                case CursorType.Hand:
+                    player.startDragInteract = true;
 
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
         }
 
     }
@@ -104,46 +107,49 @@ public class SimpleInteractions : MonoBehaviour
 
     private void OnMouseDown()
     {
-
-        if (randomizeSound)
-            RandomizeSoundToPlay();
-
-        if (isTogglable)
+        if (player.canInteract)
         {
-            onCollider.enabled = false;
-            offCollider.enabled = false;
-            Toggeler();
+            if (randomizeSound)
+                RandomizeSoundToPlay();
+
+            if (isTogglable)
+            {
+                onCollider.enabled = false;
+                offCollider.enabled = false;
+                Toggeler();
+            }
+            else
+            {
+                onCollider.enabled = false;
+                if (soundToPlay != null)
+                    AudioHandler.Instance.PlaySoundEffect(soundToPlay);
+                if (playAnimation)
+                    anim.SetTrigger("play");
+            }
+
+            Invoke(methodName: "EnableColliders", interactionCooldown);
+
+            switch (cursor)
+            {
+                case CursorType.Idle:
+                    //Nothing
+                    break;
+                case CursorType.Pointer:
+                    player.canClick = false;
+
+                    break;
+                case CursorType.Hand:
+                    player.startDragInteract = false;
+
+                    break;
+                default:
+                    break;
+            }
         }
-        else
-        {
-            onCollider.enabled = false;
-            if (soundToPlay != null)
-                AudioHandler.Instance.PlaySoundEffect(soundToPlay);
-            if (playAnimation)
-                anim.SetTrigger("play");
+
         }
 
-        Invoke(methodName: "EnableColliders", interactionCooldown);
-
-        switch (cursor)
-        {
-            case CursorType.Idle:
-                //Nothing
-                break;
-            case CursorType.Pointer:
-                player.canClick = false;
-
-                break;
-            case CursorType.Hand:
-                player.startDragInteract = false;
-
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void EnableColliders()
+        public void EnableColliders()
     {
         if (isTogglable)
         {
