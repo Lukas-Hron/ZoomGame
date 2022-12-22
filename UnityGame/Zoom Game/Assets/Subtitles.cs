@@ -24,7 +24,7 @@ public class Subtitles : MonoBehaviour
     public void toggleSubtitle()
     {
         enabledSubtitle = !enabledSubtitle;
-        if (enabledSubtitle)
+        if (!enabledSubtitle)
         {
             button.image.sprite = toggleOff;
             canvasSubtitle.SetActive(false);
