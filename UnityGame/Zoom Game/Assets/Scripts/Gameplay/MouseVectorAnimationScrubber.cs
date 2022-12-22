@@ -26,61 +26,70 @@ public class MouseVectorAnimationScrubber : MonoBehaviour
     }
 
     void Update()
-    {  
-        if (isHolding)
+    {
+        if (player.canInteract)
         {
-            
-            anim.Play(animClipName, -1, normalizedTime);
-            if (Input.GetMouseButtonUp(0))
+            if (isHolding)
             {
 
-                isHolding = false;
-                if (normalizedTime > 0.95) //Complete state
+                anim.Play(animClipName, -1, normalizedTime);
+                if (Input.GetMouseButtonUp(0))
                 {
-                    player.isDragInteract = false;
-                    normalizedTime = 0.99f;
-                    GetComponent<Collider2D>().enabled = false;
-                    anim.Play(animClipName, -1, normalizedTime); //snap animation to right position
 
-                    if (coltoggle != null)
+                    isHolding = false;
+                    if (normalizedTime > 0.95) //Complete state
                     {
-                        Debug.Log("AnimatinFinished");
-                        coltoggle.TurnOffColliders("self");
-                        coltoggle.TurnOnColliders("other");
-                    }
-                    return;
-                }
-                else //Failed to complete
-                {
-                    player.isDragInteract = false;
-                    normalizedTime = 0f;
-                    anim.Play(animClipName, -1, normalizedTime); //snap animation to begining position
-                    return;
-                }
-            }
+                        player.isDragInteract = false;
+                        normalizedTime = 0.99f;
+                        GetComponent<Collider2D>().enabled = false;
+                        anim.Play(animClipName, -1, normalizedTime); //snap animation to right position
 
-            if (!Input.GetMouseButton(1) || !Input.GetMouseButton(3))
-            {
-                Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                projectedVector = Vector3.Project(currentMousePos, dragVector);
-                normalizedTime = InverseLerp(startPoint, endPoint.position, projectedVector);
-                normalizedTime = Mathf.Clamp(normalizedTime, 0f, 0.99f);
+                        if (coltoggle != null)
+                        {
+                            Debug.Log("AnimatinFinished");
+                            coltoggle.TurnOffColliders("self");
+                            coltoggle.TurnOnColliders("other");
+                        }
+                        return;
+                    }
+                    else //Failed to complete
+                    {
+                        player.isDragInteract = false;
+                        normalizedTime = 0f;
+                        anim.Play(animClipName, -1, normalizedTime); //snap animation to begining position
+                        return;
+                    }
+                }
+
+                if (!Input.GetMouseButton(1) || !Input.GetMouseButton(3))
+                {
+                    Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    projectedVector = Vector3.Project(currentMousePos, dragVector);
+                    normalizedTime = InverseLerp(startPoint, endPoint.position, projectedVector);
+                    normalizedTime = Mathf.Clamp(normalizedTime, 0f, 0.99f);
+                }
             }
         }
     }
 
     private void OnMouseDown()
     {
-        player.isDragInteract = true;
-        startPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        isHolding = true;
-        dragVector = endPoint.position - startPoint;
+        if (player.canInteract)
+        {
+            player.isDragInteract = true;
+            startPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            isHolding = true;
+            dragVector = endPoint.position - startPoint;
+        }
 
     }
 
     private void OnMouseOver()
     {
-        player.startDragInteract = true;
+        if (player.canInteract)
+        {
+            player.startDragInteract = true;
+        }
     }
     private void OnMouseExit()
     {

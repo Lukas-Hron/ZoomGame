@@ -63,6 +63,7 @@ public class ZoomLayerHandler : MonoBehaviour
         {
             if (!actionPerformedForZoomLevel1)
             {
+                player.canInteract = true;
                 actionPerformedForZoomLevel1 = true;
                 FindObjectOfType<TutorialHandler>().DisplayPan();
                 PanChange("ZoomLayer2 - Hallway");
