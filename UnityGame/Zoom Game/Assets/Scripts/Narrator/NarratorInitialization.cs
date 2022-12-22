@@ -258,7 +258,7 @@ public class NarratorInitialization : MonoBehaviour
         recievingRhyme = "ly";
         endingRhyme = "ed";
         firstSubtitles = "Lily's tv glows brightly.";
-        secondSubtitles = "Brightly with the glow of her favorite show. The show that's called golden red.";
+        secondSubtitles = "Brightly with the glow of her favorite show. The show that's called Golden Red.";
         timeToSplit = 2.2f;
         keyWord = "tv";
         AddVoiceLine();
@@ -267,7 +267,7 @@ public class NarratorInitialization : MonoBehaviour
         voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tv_ed_ing");
         recievingRhyme = "ed";
         endingRhyme = "ing";
-        firstSubtitles = "Lily's favorite tv show is called golden red. She watches it every friday noon.";
+        firstSubtitles = "Lily's favorite tv show is called Golden Red. She watches it every friday noon.";
         secondSubtitles = "It tells the tale of a girl and the moon. She loves it even if some scenes are shocking.";
         timeToSplit = 5.6f;
         keyWord = "tv";
