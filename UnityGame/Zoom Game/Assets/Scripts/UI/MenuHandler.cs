@@ -21,7 +21,7 @@ public class MenuHandler : MonoBehaviour
     {
 		if (Input.GetKeyDown("escape"))
 		{
-            if (mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false)
+            if (mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false && controlsPanel.activeSelf == false)
             {
                 pauseMenuIsShowing = !pauseMenuIsShowing;
                 if (pauseMenuIsShowing)
@@ -29,13 +29,23 @@ public class MenuHandler : MonoBehaviour
                 else
                     player.canInteract = false;
             }
-            else if (pauseMenuIsShowing)
+            else if (controlsPanel.activeSelf == true || settingsPanel.activeSelf == true )
             {
-                settingsPanel.SetActive(false);
-                player.canInteract = true;
-                player.canInput = true;
+                if (settingsPanel.activeSelf == true)
+                    settingsPanel.SetActive(false);
+                if (controlsPanel.activeSelf == true)
+                    controlsPanel.SetActive(false);
+                if (pauseMenuIsShowing == false)
+                    pauseMenuIsShowing = !pauseMenuIsShowing;
             }
 		}
+
+        if (pauseMenuIsShowing == false && settingsPanel.activeSelf == false && controlsPanel.activeSelf == false)
+        {
+            settingsPanel.SetActive(false);
+            player.canInteract = true;
+            player.canInput = true;
+        }
 		pausePanel.SetActive(pauseMenuIsShowing);
 	}
 
