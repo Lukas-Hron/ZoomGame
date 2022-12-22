@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
         {
 
         }
-        item.GetComponent<SpriteRenderer>().sortingLayerID = 97;
+        item.GetComponent<SpriteRenderer>().sortingOrder = 97;
         item.transform.parent = gameObject.transform;
         item.transform.position = transform.position + new Vector3(0, (itemList.Count - 1) * itemOffset, 0);
         item.transform.localScale = new Vector3(size,size,size);
