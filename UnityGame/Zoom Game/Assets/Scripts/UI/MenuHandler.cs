@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuHandler : MonoBehaviour
 {
+	[SerializeField] private GameObject tutorial;
 	[SerializeField] private GameObject controlsPanel;
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject pausePanel;
@@ -26,8 +27,8 @@ public class MenuHandler : MonoBehaviour
                 pauseMenuIsShowing = !pauseMenuIsShowing;
                 if (pauseMenuIsShowing)
                     player.canInput = false;
-                else
                     player.canInteract = false;
+                    tutorial.SetActive(false);
             }
             else if (controlsPanel.activeSelf == true || settingsPanel.activeSelf == true )
             {
@@ -46,7 +47,7 @@ public class MenuHandler : MonoBehaviour
             player.canInteract = true;
             player.canInput = true;
         }
-		pausePanel.SetActive(pauseMenuIsShowing);
+        pausePanel.SetActive(pauseMenuIsShowing);
 	}
 
     public void Quit()
