@@ -1164,11 +1164,11 @@ MonoBehaviour:
   isTogglable: 0
   playAnimation: 1
   randomizeSound: 0
-  interactionCooldown: 0
+  interactionCooldown: 2
   listOfSounds: []
   _minPitch: 0
   _maxPitch: 0
-  soundToPlay: {fileID: 0}
+  soundToPlay: {fileID: 8300000, guid: 4b96d2fd7586d204892eb4dfd5f936b7, type: 3}
   soundToPlayToggleOff: {fileID: 0}
   cursor: 1
 --- !u!60 &5507746821578553308
