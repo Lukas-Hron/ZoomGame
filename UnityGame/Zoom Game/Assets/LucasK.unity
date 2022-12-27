@@ -2037,6 +2037,9 @@ MonoBehaviour:
   starOff: {fileID: 21300000, guid: 625af6deb36a65b4cbd94c01601507c8, type: 3}
   lineOn: {fileID: 21300000, guid: 7eb1588580120b640986a906f749e0d1, type: 3}
   lineOff: {fileID: 21300000, guid: 625af6deb36a65b4cbd94c01601507c8, type: 3}
+  isFinished: 0
+  ringApature: {fileID: 0}
+  name: 
   delayT: 0.1
   lines:
   - {fileID: 1464220099}
@@ -2313,9 +2316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8e8c390eb78634da86937efb307c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 243738706}
-  _musicVolume: 1
-  _effectsVolume: 0
+  _audioMixer: {fileID: 0}
 --- !u!114 &243738706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3735,7 +3736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &459859010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4354,6 +4355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40934b18f48fc504ca97394cf47b17d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 0}
   inventorySize: 0
 --- !u!114 &561603794
 MonoBehaviour:
@@ -4725,9 +4727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8e8c390eb78634da86937efb307c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 608122462}
-  _musicVolume: 0
-  _effectsVolume: 1
+  _audioMixer: {fileID: 0}
 --- !u!1 &608352712
 GameObject:
   m_ObjectHideFlags: 0
@@ -4799,7 +4799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003cc30ed3fe0a74a9c555f156a74174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  playOnUse: {fileID: 0}
+  noanimation: 0
+  itemToUse: {fileID: 0}
   ObjectsToEnableAfterAnimation: []
   animLenght: 0
 --- !u!1 &626264117
@@ -5172,7 +5174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &710238834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5185,10 +5187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0676b2d3a319fbe44a7c73407507b182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creditsPanel: {fileID: 944509089}
+  tutorial: {fileID: 0}
+  controlsPanel: {fileID: 0}
   mainMenu: {fileID: 304445970}
   pausePanel: {fileID: 809249}
   settingsPanel: {fileID: 700081277}
+  musicSource: {fileID: 0}
   pauseMenuIsShowing: 0
 --- !u!4 &710238835
 Transform:
@@ -6296,6 +6300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40934b18f48fc504ca97394cf47b17d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 0}
   inventorySize: 0
 --- !u!212 &914457190
 SpriteRenderer:
@@ -7977,13 +7982,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linesConnected:
-  - {fileID: 459859009}
-  - {fileID: 1911510251}
   - {fileID: 1207832227}
+  - {fileID: 1911510251}
   starsConnected:
   - {fileID: 1442313028}
   - {fileID: 470480679}
-  - {fileID: 1917786697}
   litStar: 1
 --- !u!212 &1225273179
 SpriteRenderer:
@@ -8186,6 +8189,9 @@ MonoBehaviour:
   starOff: {fileID: 21300000, guid: 625af6deb36a65b4cbd94c01601507c8, type: 3}
   lineOn: {fileID: 21300000, guid: 7eb1588580120b640986a906f749e0d1, type: 3}
   lineOff: {fileID: 21300000, guid: 625af6deb36a65b4cbd94c01601507c8, type: 3}
+  isFinished: 0
+  ringApature: {fileID: 0}
+  name: 
   delayT: 0.1
   lines:
   - {fileID: 1012445145}
@@ -8490,6 +8496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40934b18f48fc504ca97394cf47b17d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 0}
   inventorySize: 0
 --- !u!212 &1326923092
 SpriteRenderer:
@@ -10621,6 +10628,9 @@ MonoBehaviour:
   starOff: {fileID: 21300000, guid: 625af6deb36a65b4cbd94c01601507c8, type: 3}
   lineOn: {fileID: 21300000, guid: 7eb1588580120b640986a906f749e0d1, type: 3}
   lineOff: {fileID: 21300000, guid: 625af6deb36a65b4cbd94c01601507c8, type: 3}
+  isFinished: 0
+  ringApature: {fileID: 0}
+  name: 
   delayT: 0.1
   lines:
   - {fileID: 626264117}
@@ -10629,11 +10639,18 @@ MonoBehaviour:
   - {fileID: 718694612}
   - {fileID: 563427329}
   - {fileID: 371832689}
-  - {fileID: 459859009}
-  - {fileID: 1911510251}
   - {fileID: 1207832227}
+  - {fileID: 1911510251}
   - {fileID: 1534133137}
-  stars: []
+  stars:
+  - {fileID: 2037285969}
+  - {fileID: 1442313028}
+  - {fileID: 376769396}
+  - {fileID: 1561163090}
+  - {fileID: 439799907}
+  - {fileID: 561362774}
+  - {fileID: 470480679}
+  - {fileID: 1225273176}
 --- !u!4 &1899269220
 Transform:
   m_ObjectHideFlags: 0
@@ -10787,7 +10804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1917786698
 Transform:
   m_ObjectHideFlags: 0
@@ -11029,7 +11046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1960633806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11045,6 +11062,8 @@ MonoBehaviour:
   audioClips: []
   audioSource: {fileID: 1583986895}
   musicSource: {fileID: 2076604712}
+  pitchedAudioSource: {fileID: 0}
+  narratorSource: {fileID: 0}
 --- !u!4 &1960633807
 Transform:
   m_ObjectHideFlags: 0
