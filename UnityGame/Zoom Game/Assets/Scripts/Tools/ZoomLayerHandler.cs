@@ -110,12 +110,13 @@ public class ZoomLayerHandler : MonoBehaviour
 
 
 
-        else if (zoomValue >= 20 && zoomValue < 21)
+        else if (zoomValue >= 20.1 && zoomValue < 21)
         {
             if (!actionPerformedForZoomLevel3)
             {
                 actionPerformedForZoomLevel3 = true;
                 InstansiateNewZoomLayer("ZoomLayer4 - CaveEntrance");
+                PanChange("ZoomLayer4 - CaveEntrance");
                 SetLayerFunctions("ZoomLayer3 - Bedroom", false);
                 //player.inCutscene = true;
 
