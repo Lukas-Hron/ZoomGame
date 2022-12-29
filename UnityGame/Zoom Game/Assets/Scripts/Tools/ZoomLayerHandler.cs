@@ -122,7 +122,7 @@ public class ZoomLayerHandler : MonoBehaviour
             return;
 
         }
-        else if (zoomValue > 25.2f && zoomValue < 26)
+        else if (zoomValue > 26f && zoomValue < 26.2)
         {
             if (!actionPerformedForZoomLevel4)
             {
@@ -131,8 +131,8 @@ public class ZoomLayerHandler : MonoBehaviour
                 SetLayerFunctions("ZoomLayer4 - CaveEntrance", false);
                 NarratorPlaylist.Instance.PlayEnding();
 
-                zoom.zoomMax = 27f;
-                zoom.zoomMin = 25f;
+                zoom.zoomMax = 32f;
+                zoom.zoomMin = 26f;
             }
             return;
 

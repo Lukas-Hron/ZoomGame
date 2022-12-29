@@ -7642,7 +7642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: maxZoomClamp
-      value: 26
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5389474515446151723, guid: da4cfd8a046e76e47b57d2f4cd9de93e, type: 3}
       propertyPath: CanZoomInMiddle
