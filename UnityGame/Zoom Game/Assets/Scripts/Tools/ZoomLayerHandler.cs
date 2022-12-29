@@ -101,8 +101,6 @@ public class ZoomLayerHandler : MonoBehaviour
                 PanChange("ZoomLayer3 - Bedroom");
                 zoom.zoomMax = 18.8f;
                 zoom.zoomMin = 17.5f;
-                SetLayerFunctions("ZoomLayer2 - Hallway", false);
-  
                 DeleteZoomLayer("ZoomLayer2 - Hallway");
             }
             return;
@@ -115,10 +113,8 @@ public class ZoomLayerHandler : MonoBehaviour
             if (!actionPerformedForZoomLevel3)
             {
                 actionPerformedForZoomLevel3 = true;
-                InstansiateNewZoomLayer("ZoomLayer4 - CaveEntrance");
                 PanChange("ZoomLayer4 - CaveEntrance");
-                SetLayerFunctions("ZoomLayer3 - Bedroom", false);
-                //player.inCutscene = true;
+                DeleteZoomLayer("ZoomLayer3 - Bedroom");
 
                 zoom.zoomMax = 23f;
                 zoom.zoomMin = 20.29018f;

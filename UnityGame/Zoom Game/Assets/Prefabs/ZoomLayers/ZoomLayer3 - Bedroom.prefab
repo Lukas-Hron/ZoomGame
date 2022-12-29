@@ -2000,7 +2000,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: a94815509c5483543819e03ab7912147, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32358108d0db13f4e934259da7fb23c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2265,6 +2265,54 @@ Transform:
   m_Father: {fileID: 1784047622592530380}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4657360256833494260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928590391971432420}
+  - component: {fileID: 5898095920712495617}
+  m_Layer: 0
+  m_Name: EnableThings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &928590391971432420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657360256833494260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2791651689036819828}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5898095920712495617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4657360256833494260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763260f9e6a83b14797608d83616844e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InstanciateZoomLayer: 1
+  gameObjects:
+  - {fileID: 623393098372003454}
+  layerName: ZoomLayer4 - CaveEntrance
 --- !u!1 &5315006477016147119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,7 +4253,8 @@ Transform:
   m_LocalPosition: {x: 0.74, y: 0.163, z: 0}
   m_LocalScale: {x: 0.105, y: 0.105, z: 0.105}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 928590391971432420}
   m_Father: {fileID: 2078799674865309658}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4277,7 +4326,6 @@ MonoBehaviour:
   noanimation: 0
   itemToUse: {fileID: 5315006477016147119}
   ObjectsToEnableAfterAnimation:
-  - {fileID: 623393098372003454}
   - {fileID: 124916274453228988}
   animLenght: 4.7
 --- !u!58 &7066669669919696040
