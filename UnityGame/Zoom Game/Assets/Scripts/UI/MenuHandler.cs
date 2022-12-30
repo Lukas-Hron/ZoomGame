@@ -13,6 +13,7 @@ public class MenuHandler : MonoBehaviour
 	[SerializeField] private GameObject musicSource;
     [SerializeField] private bool pauseMenuIsShowing;
     Player player;
+    bool checkmenu;
     private void Start()
     {
         player = FindObjectOfType<Player>();
@@ -29,6 +30,7 @@ public class MenuHandler : MonoBehaviour
                     player.canInput = false;
                     player.canInteract = false;
                     tutorial.SetActive(false);
+                checkmenu = true;
             }
             else if (controlsPanel.activeSelf == true || settingsPanel.activeSelf == true )
             {
@@ -41,11 +43,12 @@ public class MenuHandler : MonoBehaviour
             }
 		}
 
-        if (pauseMenuIsShowing == false && settingsPanel.activeSelf == false && controlsPanel.activeSelf == false)
+        if (pauseMenuIsShowing == false && settingsPanel.activeSelf == false && controlsPanel.activeSelf == false && checkmenu)
         {
             settingsPanel.SetActive(false);
             player.canInteract = true;
             player.canInput = true;
+            checkmenu = false;  
         }
         pausePanel.SetActive(pauseMenuIsShowing);
 	}

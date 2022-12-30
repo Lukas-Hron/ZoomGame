@@ -55,7 +55,7 @@ public class ZoomHandler : MonoBehaviour
         // and the resulting zoom value from the cutscene as the zoom level
         else if (player.inCutscene)
         {
-            mousePos = cutscene.cutsceneOrigin;
+            mousePos = cutscene.cutsceneOrigin.position;
             isZoom = true;
             zoomValue = cutscene.resultingZoomValue;
             currentZoomValue = zoomValue;
@@ -81,7 +81,7 @@ public class ZoomHandler : MonoBehaviour
         {
             float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
             layerZoom = Mathf.Exp(layerZoom);
-            ScaleAround(ZoomLayers[i], new Vector3(mousePos.x, mousePos.y, 0), new Vector3(layerZoom, layerZoom, -10));
+            ScaleAround(ZoomLayers[i], new Vector3(mousePos.x, mousePos.y, 0), new Vector3(layerZoom, layerZoom, 1));
 
             if (i > 0)
             {
@@ -143,7 +143,7 @@ public class ZoomHandler : MonoBehaviour
         {
             float layerZoom = currentZoomValue - ZoomLayers[i].GetComponent<Layer>().size;
             layerZoom = Mathf.Exp(layerZoom);
-            ZoomLayers[i].transform.localScale = new Vector3(layerZoom, layerZoom, -10);
+            ZoomLayers[i].transform.localScale = new Vector3(layerZoom, layerZoom, 1);
 
             if (i > 0)
             {

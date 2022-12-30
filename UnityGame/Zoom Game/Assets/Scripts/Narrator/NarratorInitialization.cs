@@ -285,6 +285,74 @@ public class NarratorInitialization : MonoBehaviour
 
 
 
+        ///////////////////////////////////////////////////// gate
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_gate_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        firstSubtitles = "What's up it's me! The troll under the- in the.. the cave... and stuff";
+        secondSubtitles = "Yoo man.. fuck you! Bitch. What the fuck you doin' here huh?";
+        timeToSplit = 4.6f;
+        keyWord = "gate";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_gate_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        firstSubtitles = "What's up it's me! The troll under the- in the.. the cave... and stuff";
+        secondSubtitles = "Yoo man.. fuck you! Bitch. What the fuck you doin' here huh?";
+        timeToSplit = 4.6f;
+        keyWord = "gate";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_gate_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        firstSubtitles = "What's up it's me! The troll under the- in the.. the cave... and stuff";
+        secondSubtitles = "Yoo man.. fuck you! Bitch. What the fuck you doin' here huh?";
+        timeToSplit = 4.6f;
+        keyWord = "gate";
+        AddVoiceLine();
+
+
+
+        ///////////////////////////////////////////////////// end
+
+        //ly >> ed
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ly_ed");
+        recievingRhyme = "ly";
+        endingRhyme = "ed";
+        firstSubtitles = "And then Lily died because she was a bitch. Even though she smelled like a fish.";
+        secondSubtitles = "I'm not gonna write three different lines so you'll have to... figure this one out cause it doesn't rhyme.. Yeah!..";
+        timeToSplit = 5f;
+        keyWord = "end";
+        AddVoiceLine();
+
+        //ed >> ing
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ed_ing");
+        recievingRhyme = "ed";
+        endingRhyme = "ing";
+        firstSubtitles = "And then Lily died because she was a bitch. Even though she smelled like a fish.";
+        secondSubtitles = "I'm not gonna write three different lines so you'll have to... figure this one out cause it doesn't rhyme.. Yeah!..";
+        timeToSplit = 5f;
+        keyWord = "end";
+        AddVoiceLine();
+
+        //ing >> ly
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ing_ly");
+        recievingRhyme = "ing";
+        endingRhyme = "ly";
+        firstSubtitles = "And then Lily died because she was a bitch. Even though she smelled like a fish.";
+        secondSubtitles = "I'm not gonna write three different lines so you'll have to... figure this one out cause it doesn't rhyme.. Yeah!..";
+        timeToSplit = 5f;
+        keyWord = "end";
+        AddVoiceLine();
+
+
+
 
     }
     private void AddVoiceLine()

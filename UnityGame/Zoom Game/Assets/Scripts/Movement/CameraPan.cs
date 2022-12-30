@@ -145,21 +145,27 @@ public class CameraPan : MonoBehaviour
     }
     public void UpdatePanConstraints()
     {
+        if (player.isPanConstrained)
+        {
         // Get the transforms for the top-right and bottom-left constraints
         conTopRight = layer.GetComponent<Layer>().topRight;
         conBottomLeft = layer.GetComponent<Layer>().bottomLeft;
+
+        }
     }
 
     public void MoveDirectlyToClampedPosition()
     {
-        targetPos = ClampCameraPosition
+        if (player.isPanConstrained)
+        {
+            targetPos = ClampCameraPosition
         (
             new Vector2(conTopRight.position.x - conSlowZone, conTopRight.position.y - conSlowZone),
             new Vector2(conBottomLeft.position.x + conSlowZone, conBottomLeft.position.y + conSlowZone),
             targetPos,
             Vector2.zero
         );
-        isPanning = true;
-
+            isPanning = true;
+        }
     }
 }

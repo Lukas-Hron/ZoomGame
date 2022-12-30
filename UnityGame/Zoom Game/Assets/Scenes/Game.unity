@@ -2485,6 +2485,7 @@ MonoBehaviour:
   - {fileID: 5998832980105918276, guid: 3727cf0b4590e5246a677f5ea5483184, type: 3}
   - {fileID: 8096989655114568191, guid: bff337f7812cedb439d9f001aaf810d6, type: 3}
   - {fileID: 510390796022014613, guid: b8ce40615591aaa40bfd1b0461560cec, type: 3}
+  - {fileID: 510390796022014613, guid: 7f50210675f8ecb4a9aad719405636c8, type: 3}
 --- !u!114 &521842391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2503,29 +2504,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.19901223
+      outSlope: 0.19901223
       tangentMode: 0
       weightedMode: 3
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.934526
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0.009179831
-      outSlope: -0.009179831
+      inSlope: -0.0025393367
+      outSlope: -0.0025393367
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.77075815
+      inWeight: 0.05055982
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   player: {fileID: 521842392}
   zoom: {fileID: 0}
-  cutsceneOrigin: {x: 0, y: 0}
+  cutsceneOrigin: {fileID: 0}
   zoomValue: -1
-  targetZoomValue: 6.8
+  targetZoomValue: 34.67026
   resultingZoomValue: -1
   duration: 8
 --- !u!114 &521842392
@@ -2541,6 +2542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curser: {fileID: 1263007557}
+  isPanConstrained: 1
   isLockedZoom: 0
   canInput: 0
   canZoom: 0

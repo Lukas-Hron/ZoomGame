@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Curser curser;
 
+    public bool isPanConstrained = true;
     public bool isLockedZoom;
     public bool canInput;
     public bool canZoom;

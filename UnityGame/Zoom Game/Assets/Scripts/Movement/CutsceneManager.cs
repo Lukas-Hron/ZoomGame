@@ -7,42 +7,64 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] AnimationCurve curve;
     public Player player;
     public ZoomHandler zoom;
-    public Vector2 cutsceneOrigin = Vector2.zero;
+    public Transform cutsceneOrigin;
     public float zoomValue;
     [SerializeField] float targetZoomValue;
-    float lerp;
-   public float resultingZoomValue;
+    float zoomLerp;
+    float panLerp;
+    bool finishPan = false;
+    bool hasAssignedOrigin;
+    public float resultingZoomValue;
     public float duration = 5f;
 
     private void Start()
     {
         player = GetComponent<Player>();
         zoom = GetComponent<ZoomHandler>();
-        zoomValue = zoom.zoomValue;
     }
+
     private void Update()
     {
+
         if (player.inCutscene)
         {
-            player.canInput = false;
+            if (!hasAssignedOrigin)
+            {
+                cutsceneOrigin = FindObjectOfType<cursceneorigin>().transform;
+                zoomValue = zoom.currentZoomValue;
+                resultingZoomValue = zoomValue;
+
+                hasAssignedOrigin = true;
+            }
+
             PlayCutscene();
         }
     }
-
     private void PlayCutscene()
     {
-        lerp += Time.deltaTime / duration;
-        resultingZoomValue = Mathf.Lerp(zoomValue, targetZoomValue,curve.Evaluate(lerp));
-
-
-        if (resultingZoomValue == targetZoomValue)
+        if (finishPan)
         {
-            player.inCutscene = false;
-            player.canInput = true;
-            player.canZoom = true;
-            player.canPan = true;
-            zoom.zoomValue = targetZoomValue;
-            zoom.currentZoomValue = targetZoomValue;
+            zoomLerp += Time.deltaTime / (duration-1);
+            resultingZoomValue = Mathf.Lerp(zoomValue, targetZoomValue,curve.Evaluate(zoomLerp));
+
+
+            if (resultingZoomValue == targetZoomValue)
+            {
+                zoom.currentZoomValue = targetZoomValue;
+            }
+
+        }
+        else
+        {
+            panLerp += Time.deltaTime;
+            Vector3 cameraPos = Vector2.Lerp(Camera.main.transform.position, cutsceneOrigin.position, panLerp);
+            cameraPos.z = -10;
+            Camera.main.transform.position = cameraPos;
+
+            if (panLerp >= 1)
+            {
+                finishPan = true;
+            }
         }
     }
 }

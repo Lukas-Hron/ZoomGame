@@ -122,13 +122,16 @@ public class ZoomLayerHandler : MonoBehaviour
             return;
 
         }
-        else if (zoomValue > 26f && zoomValue < 26.2)
+        else if (zoomValue > 25.7f && zoomValue < 27)
         {
             if (!actionPerformedForZoomLevel4)
             {
                 actionPerformedForZoomLevel4 = true;
                 PanChange("ZoomLayer5 - Tunnel");
-                SetLayerFunctions("ZoomLayer4 - CaveEntrance", false);
+                InstansiateNewZoomLayer("ZoomLayer6 - Tunnel2");
+                DeleteZoomLayer("ZoomLayer4 - CaveEntrance");
+                player.canInput = false;
+                player.isPanConstrained = false;
                 NarratorPlaylist.Instance.PlayEnding();
 
                 zoom.zoomMax = 32f;

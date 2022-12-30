@@ -65,9 +65,16 @@ public class NarratorHandler : MonoBehaviour
     {
         foreach (NarratorVoiceLine voiceLine in NarrVoiceLineList)
         {
-            if (voiceLine.voiceLine.name == name)
+            try
             {
-                AddToPlaylist(voiceLine);
+                if (voiceLine.voiceLine.name == name)
+                {
+                    AddToPlaylist(voiceLine);
+                }
+            }
+            catch
+            {
+                Debug.LogError("Couldn't find " + name + ".");
             }
         }
     }

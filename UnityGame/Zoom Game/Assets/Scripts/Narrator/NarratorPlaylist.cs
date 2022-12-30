@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NarratorPlaylist : MonoBehaviour
 {
+    bool buffer = false;
     public static NarratorPlaylist Instance;
     public Subtitles subtitle;
     NarratorVoiceLine currentlyPlaying;
@@ -12,12 +13,14 @@ public class NarratorPlaylist : MonoBehaviour
     NarratorHandler narrHandler;
     bool isPlaying;
     float fullPlaylistTime;
+    Player player;
 
     private void Start()
     {
         NarratorVoiceLinePlaylist = new List<NarratorVoiceLine>();
         HasPlayed = new List<NarratorVoiceLine>();
         narrHandler = GetComponent<NarratorHandler>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Awake()
@@ -46,6 +49,12 @@ public class NarratorPlaylist : MonoBehaviour
 
     public void PlayNextVoiceline()
     {
+        if (!buffer)
+        {
+            if (NarratorVoiceLinePlaylist[0].keyWord == "gate")
+            {
+                player.inCutscene = true;
+            }
 
         if (NarratorVoiceLinePlaylist.Count > 0)
         {
@@ -60,28 +69,44 @@ public class NarratorPlaylist : MonoBehaviour
         else
             isPlaying = false;
 
+        }
+        else
+        {
+            isPlaying = false;
+        }
+
 
 
     }
 
     public void PlayEnding()
     {
+        buffer = true;
         NarratorVoiceLinePlaylist.Clear();
 
         narrHandler.rhymeToUse = currentlyPlaying.endingRhyme;
         narrHandler.PlayFromKeyWord("gate");
 
+        //foreach (NarratorVoiceLine voiceline in HasPlayed)
+        //{
+        //    narrHandler.PlayFromName(voiceline.voiceLine.name + "_end");
+        //}
+
+        //TEMP
         foreach (NarratorVoiceLine voiceline in HasPlayed)
         {
-            narrHandler.PlayFromName(voiceline.voiceLine.name + "_end");
+            narrHandler.PlayFromName(voiceline.voiceLine.name);
         }
-        narrHandler.PlayFromKeyWord("end");
-
         fullPlaylistTime = 0;
+        buffer = false;
+        narrHandler.PlayFromKeyWord("end");
         foreach (NarratorVoiceLine voiceline in NarratorVoiceLinePlaylist)
         {
             fullPlaylistTime += voiceline.voiceLine.length;
         }
         FindObjectOfType<CutsceneManager>().duration = fullPlaylistTime;
+
+
+
     }
 }
