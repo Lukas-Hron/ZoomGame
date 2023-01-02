@@ -7,9 +7,11 @@ public class MenuHandler : MonoBehaviour
 {
 	[SerializeField] private GameObject tutorial;
 	[SerializeField] private GameObject controlsPanel;
+	[SerializeField] private GameObject creditsPanel;
 	[SerializeField] private GameObject mainMenu;
 	[SerializeField] private GameObject pausePanel;
 	[SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject exitGamePanel;
 	[SerializeField] private GameObject musicSource;
     [SerializeField] private bool pauseMenuIsShowing;
     Player player;
@@ -23,7 +25,7 @@ public class MenuHandler : MonoBehaviour
     {
 		if (Input.GetKeyDown("escape"))
 		{
-            if (mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false && controlsPanel.activeSelf == false)
+            if (mainMenu.activeSelf == false && settingsPanel.activeSelf == false && player.canOnlyZoomIn == false && controlsPanel.activeSelf == false && player.inCutscene == false && creditsPanel.activeSelf == false && exitGamePanel.activeSelf == false)
             {
                 pauseMenuIsShowing = !pauseMenuIsShowing;
                 if (pauseMenuIsShowing)
@@ -32,12 +34,16 @@ public class MenuHandler : MonoBehaviour
                     tutorial.SetActive(false);
                 checkmenu = true;
             }
-            else if (controlsPanel.activeSelf == true || settingsPanel.activeSelf == true )
+            else if (controlsPanel.activeSelf == true || settingsPanel.activeSelf == true || creditsPanel.activeSelf == true || exitGamePanel.activeSelf == true)
             {
                 if (settingsPanel.activeSelf == true)
                     settingsPanel.SetActive(false);
                 if (controlsPanel.activeSelf == true)
                     controlsPanel.SetActive(false);
+                if (creditsPanel.activeSelf == true)
+                    creditsPanel.SetActive(false);
+                if (exitGamePanel.activeSelf == true)
+                    exitGamePanel.SetActive(false);
                 if (pauseMenuIsShowing == false)
                     pauseMenuIsShowing = !pauseMenuIsShowing;
             }
@@ -53,6 +59,11 @@ public class MenuHandler : MonoBehaviour
         pausePanel.SetActive(pauseMenuIsShowing);
 	}
 
+    public void ExitGame()
+    {
+        exitGamePanel.SetActive(true);
+        pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
     public void Quit()
 	{
 #if UNITY_EDITOR
@@ -80,6 +91,11 @@ public class MenuHandler : MonoBehaviour
     {
         controlsPanel.SetActive(true);
         pauseMenuIsShowing = !pauseMenuIsShowing;
+    }
+    public void CreditsMenu()
+    {
+        creditsPanel.SetActive(true);
+        pauseMenuIsShowing = !pauseMenuIsShowing;
 
     }
     public void ResumeGame()
@@ -100,6 +116,10 @@ public class MenuHandler : MonoBehaviour
             settingsPanel.SetActive(false);
         if (controlsPanel.activeSelf == true)
             controlsPanel.SetActive(false);
+        if (creditsPanel.activeSelf == true)
+            creditsPanel.SetActive(false);
+        if (exitGamePanel.activeSelf == true)
+            exitGamePanel.SetActive(false);
         if (pauseMenuIsShowing == false)
             pauseMenuIsShowing = !pauseMenuIsShowing;
     }
