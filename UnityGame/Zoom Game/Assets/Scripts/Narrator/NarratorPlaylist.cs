@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NarratorPlaylist : MonoBehaviour
 {
-    bool buffer = false;
+    public bool buffer = false;
     public static NarratorPlaylist Instance;
     public Subtitles subtitle;
     NarratorVoiceLine currentlyPlaying;
@@ -51,23 +51,26 @@ public class NarratorPlaylist : MonoBehaviour
     {
         if (!buffer)
         {
-            if (NarratorVoiceLinePlaylist[0].keyWord == "gate")
-            {
-                player.inCutscene = true;
-            }
 
-        if (NarratorVoiceLinePlaylist.Count > 0)
-        {
-            AudioHandler.Instance.PlayNarration(NarratorVoiceLinePlaylist[0].voiceLine);
-            subtitle.playSubtitle(NarratorVoiceLinePlaylist[0].firstSubtitles, NarratorVoiceLinePlaylist[0].secondSubtitles, NarratorVoiceLinePlaylist[0].voiceLine.length, NarratorVoiceLinePlaylist[0].timeToSplit);
-            Invoke(methodName: "PlayNextVoiceline", NarratorVoiceLinePlaylist[0].voiceLine.length + 0.5f);
-            currentlyPlaying = NarratorVoiceLinePlaylist[0];
-            HasPlayed.Add(NarratorVoiceLinePlaylist[0]); //Add it to the lines that have been played
-            NarratorVoiceLinePlaylist.RemoveAt(0);
-            Debug.Log(currentlyPlaying.voiceLine.name);
-        }
-        else
-            isPlaying = false;
+            if (NarratorVoiceLinePlaylist.Count > 0)
+            {
+                if (NarratorVoiceLinePlaylist[0].keyWord == "gate")
+                {
+                    player.inCutscene = true;
+                }
+
+
+                AudioHandler.Instance.PlayNarration(NarratorVoiceLinePlaylist[0].voiceLine);
+                subtitle.playSubtitle(NarratorVoiceLinePlaylist[0].firstSubtitles, NarratorVoiceLinePlaylist[0].secondSubtitles, NarratorVoiceLinePlaylist[0].voiceLine.length, NarratorVoiceLinePlaylist[0].timeToSplit);
+                Invoke(methodName: "PlayNextVoiceline", NarratorVoiceLinePlaylist[0].voiceLine.length + 0.5f);
+                currentlyPlaying = NarratorVoiceLinePlaylist[0];
+                HasPlayed.Add(NarratorVoiceLinePlaylist[0]); //Add it to the lines that have been played
+                NarratorVoiceLinePlaylist.RemoveAt(0);
+                Debug.Log(currentlyPlaying.voiceLine.name);
+
+            }
+            else
+                isPlaying = false;
 
         }
         else

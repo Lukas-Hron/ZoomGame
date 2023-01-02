@@ -127,15 +127,19 @@ public class ZoomLayerHandler : MonoBehaviour
             if (!actionPerformedForZoomLevel4)
             {
                 actionPerformedForZoomLevel4 = true;
-                PanChange("ZoomLayer5 - Tunnel");
+                player.isPanConstrained = false;
                 InstansiateNewZoomLayer("ZoomLayer6 - Tunnel2");
                 DeleteZoomLayer("ZoomLayer4 - CaveEntrance");
+                zoom.isZoom = false;
                 player.canInput = false;
-                player.isPanConstrained = false;
+                player.canZoom = false;
+                player.canPan = false;
+                player.isLockedZoom = false;
+                
                 NarratorPlaylist.Instance.PlayEnding();
 
-                zoom.zoomMax = 32f;
-                zoom.zoomMin = 26f;
+                zoom.zoomMax = 26f;
+                zoom.zoomMin = 23f;
             }
             return;
 

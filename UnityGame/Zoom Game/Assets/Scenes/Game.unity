@@ -2798,9 +2798,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   player: {fileID: 521842392}
   zoom: {fileID: 0}
+  orin: {fileID: 0}
   cutsceneOrigin: {fileID: 0}
   zoomValue: -1
-  targetZoomValue: 34.67026
+  targetZoomValue: 34.73026
   resultingZoomValue: -1
   duration: 8
 --- !u!114 &521842392
@@ -5128,6 +5129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458cf5f95a3ef7f4b8b48cf4ad614593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffer: 0
   subtitle: {fileID: 85182808}
 --- !u!1 &981261923
 GameObject:

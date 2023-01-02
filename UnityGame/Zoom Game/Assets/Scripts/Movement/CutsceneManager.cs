@@ -7,11 +7,12 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] AnimationCurve curve;
     public Player player;
     public ZoomHandler zoom;
+    public cursceneorigin orin;
     public Transform cutsceneOrigin;
     public float zoomValue;
     [SerializeField] float targetZoomValue;
-    float zoomLerp;
-    float panLerp;
+    float zoomLerp = 0;
+    float panLerp = 0;
     bool finishPan = false;
     bool hasAssignedOrigin;
     public float resultingZoomValue;
@@ -30,7 +31,8 @@ public class CutsceneManager : MonoBehaviour
         {
             if (!hasAssignedOrigin)
             {
-                cutsceneOrigin = FindObjectOfType<cursceneorigin>().transform;
+                orin = FindObjectOfType<cursceneorigin>();
+                cutsceneOrigin = orin.transform;
                 zoomValue = zoom.currentZoomValue;
                 resultingZoomValue = zoomValue;
 
@@ -44,7 +46,7 @@ public class CutsceneManager : MonoBehaviour
     {
         if (finishPan)
         {
-            zoomLerp += Time.deltaTime / (duration-1);
+            zoomLerp += Time.deltaTime / (duration-3);
             resultingZoomValue = Mathf.Lerp(zoomValue, targetZoomValue,curve.Evaluate(zoomLerp));
 
 
@@ -56,7 +58,7 @@ public class CutsceneManager : MonoBehaviour
         }
         else
         {
-            panLerp += Time.deltaTime;
+            panLerp += (Time.deltaTime/3);
             Vector3 cameraPos = Vector2.Lerp(Camera.main.transform.position, cutsceneOrigin.position, panLerp);
             cameraPos.z = -10;
             Camera.main.transform.position = cameraPos;
