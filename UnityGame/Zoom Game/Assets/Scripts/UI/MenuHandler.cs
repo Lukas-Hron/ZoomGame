@@ -49,7 +49,7 @@ public class MenuHandler : MonoBehaviour
             }
 		}
 
-        if (pauseMenuIsShowing == false && settingsPanel.activeSelf == false && controlsPanel.activeSelf == false && checkmenu)
+        if (pauseMenuIsShowing == false && settingsPanel.activeSelf == false && controlsPanel.activeSelf == false && creditsPanel.activeSelf == false && exitGamePanel.activeSelf == false && checkmenu)
         {
             settingsPanel.SetActive(false);
             player.canInteract = true;
