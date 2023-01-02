@@ -105,7 +105,7 @@ public class NarratorPlaylist : MonoBehaviour
         narrHandler.PlayFromKeyWord("end");
         foreach (NarratorVoiceLine voiceline in NarratorVoiceLinePlaylist)
         {
-            fullPlaylistTime += voiceline.voiceLine.length;
+            fullPlaylistTime += voiceline.voiceLine.length +0.5f;
         }
         FindObjectOfType<CutsceneManager>().duration = fullPlaylistTime;
 
