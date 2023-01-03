@@ -83,7 +83,7 @@ public class NarratorPlaylist : MonoBehaviour
     }
 
     public void PlayEnding()
-    {
+        {
         buffer = true;
         NarratorVoiceLinePlaylist.Clear();
 

@@ -70,12 +70,14 @@ public class NarratorHandler : MonoBehaviour
                 if (voiceLine.voiceLine.name == name)
                 {
                     AddToPlaylist(voiceLine);
+                    return;
                 }
             }
             catch
             {
-                Debug.LogError("Couldn't find " + name + ".");
+                Debug.LogError("Failed finding: " + name);
             }
+
         }
     }
 

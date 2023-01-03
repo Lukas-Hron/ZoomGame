@@ -285,10 +285,10 @@ public class NarratorInitialization : MonoBehaviour
 
 
 
-        ///////////////////////////////////////////////////// gate
+        ///////////////////////////////////////////////////// tunnel
 
         //ly >> ed
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_gate_ly_ed");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tunnel_ly");
         recievingRhyme = "ly";
         endingRhyme = "ed";
         firstSubtitles = "What's up it's me! The troll under the- in the.. the cave... and stuff";
@@ -298,7 +298,7 @@ public class NarratorInitialization : MonoBehaviour
         AddVoiceLine();
 
         //ed >> ing
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_gate_ed_ing");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tunnel_ed");
         recievingRhyme = "ed";
         endingRhyme = "ing";
         firstSubtitles = "What's up it's me! The troll under the- in the.. the cave... and stuff";
@@ -308,7 +308,7 @@ public class NarratorInitialization : MonoBehaviour
         AddVoiceLine();
 
         //ing >> ly
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_gate_ing_ly");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_tunnel_ing");
         recievingRhyme = "ing";
         endingRhyme = "ly";
         firstSubtitles = "What's up it's me! The troll under the- in the.. the cave... and stuff";
@@ -322,7 +322,7 @@ public class NarratorInitialization : MonoBehaviour
         ///////////////////////////////////////////////////// end
 
         //ly >> ed
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ly_ed");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ly");
         recievingRhyme = "ly";
         endingRhyme = "ed";
         firstSubtitles = "And then Lily died because she was a bitch. Even though she smelled like a fish.";
@@ -332,7 +332,7 @@ public class NarratorInitialization : MonoBehaviour
         AddVoiceLine();
 
         //ed >> ing
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ed_ing");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ed");
         recievingRhyme = "ed";
         endingRhyme = "ing";
         firstSubtitles = "And then Lily died because she was a bitch. Even though she smelled like a fish.";
@@ -342,7 +342,7 @@ public class NarratorInitialization : MonoBehaviour
         AddVoiceLine();
 
         //ing >> ly
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ing_ly");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_end_ing");
         recievingRhyme = "ing";
         endingRhyme = "ly";
         firstSubtitles = "And then Lily died because she was a bitch. Even though she smelled like a fish.";
