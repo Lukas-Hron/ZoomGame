@@ -90,16 +90,11 @@ public class NarratorPlaylist : MonoBehaviour
         narrHandler.rhymeToUse = currentlyPlaying.endingRhyme;
         narrHandler.PlayFromKeyWord("gate");
 
-        //foreach (NarratorVoiceLine voiceline in HasPlayed)
-        //{
-        //    narrHandler.PlayFromName(voiceline.voiceLine.name + "_end");
-        //}
-
-        //TEMP
         foreach (NarratorVoiceLine voiceline in HasPlayed)
         {
-            narrHandler.PlayFromName(voiceline.voiceLine.name);
+            narrHandler.PlayFromName(voiceline.voiceLine.name + "_end");
         }
+
         fullPlaylistTime = 0;
         buffer = false;
         narrHandler.PlayFromKeyWord("end");
