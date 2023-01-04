@@ -7,6 +7,7 @@ public class ZoomLayerHandler : MonoBehaviour
     Player player;
     ZoomHandler zoom;
     CameraPan pan;
+
     public List<GameObject> zoomLayerPrefab;
     private void Start()
     {
