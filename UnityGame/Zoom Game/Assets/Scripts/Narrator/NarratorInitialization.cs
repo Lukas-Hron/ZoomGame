@@ -772,7 +772,7 @@ public class NarratorInitialization : MonoBehaviour
         ///////////////////////////////////////////////////// painting transition
 
         //ly >> ed
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_painting_ly_ed_end");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_field_ly_ed_end");
         recievingRhyme = "ly";
         endingRhyme = "ed";
         firstSubtitles = "A field of flowers she had remembered so fondly.";
@@ -782,7 +782,7 @@ public class NarratorInitialization : MonoBehaviour
         AddVoiceLine();
 
         //ed >> ing
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_painting_ed_ing_end");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_field_ed_ing_end");
         recievingRhyme = "ed";
         endingRhyme = "ing";
         firstSubtitles = "Lily was proud of the picture she had painted.";
@@ -792,7 +792,7 @@ public class NarratorInitialization : MonoBehaviour
         AddVoiceLine();
 
         //ing >> ly
-        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_painting_ing_ly_end");
+        voiceLine = Resources.Load<AudioClip>("Sounds/Narrator/narr_field_ing_ly_end");
         recievingRhyme = "ing";
         endingRhyme = "ly";
         firstSubtitles = "An open field was the best place for running.";
@@ -907,5 +907,10 @@ public class NarratorInitialization : MonoBehaviour
     private void AddVoiceLine()
     {
         NarratorHandler.Instance.NarrVoiceLineList.Add(new NarratorVoiceLine(voiceLine, keyWord, recievingRhyme, endingRhyme, timeToSplit, firstSubtitles, secondSubtitles));
+        if (voiceLine == null)
+        {
+            Debug.LogError("Couldn't find narr_" + keyWord + "_" + recievingRhyme + "_" + endingRhyme);
+            Debug.LogError(firstSubtitles);
+        }
     }
 }
