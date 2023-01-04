@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.Rendering.PostProcessing;
 
 public class NarratorPlaylist : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class NarratorPlaylist : MonoBehaviour
     public List<NarratorVoiceLine> NarratorVoiceLinePlaylist;
     public List<NarratorVoiceLine> HasPlayed;
     NarratorHandler narrHandler;
+    bool playedEnding;
     bool isPlaying;
     float fullPlaylistTime;
     Player player;
@@ -51,6 +55,16 @@ public class NarratorPlaylist : MonoBehaviour
     {
         if (!buffer)
         {
+            if (playedEnding)
+            {
+                Invoke(methodName: "RestartGame",2);
+            }
+
+            if (NarratorVoiceLinePlaylist[0].keyWord == "end")
+            {
+                playedEnding = true;
+            }
+
 
             if (NarratorVoiceLinePlaylist.Count > 0)
             {
@@ -58,6 +72,8 @@ public class NarratorPlaylist : MonoBehaviour
                 {
                     player.inCutscene = true;
                 }
+
+
 
 
                 AudioHandler.Instance.PlayNarration(NarratorVoiceLinePlaylist[0].voiceLine);
@@ -68,9 +84,17 @@ public class NarratorPlaylist : MonoBehaviour
                 NarratorVoiceLinePlaylist.RemoveAt(0);
                 Debug.Log(currentlyPlaying.voiceLine.name);
 
+
+
+
+
             }
             else
                 isPlaying = false;
+
+
+
+
 
         }
         else
@@ -83,7 +107,7 @@ public class NarratorPlaylist : MonoBehaviour
     }
 
     public void PlayEnding()
-        {
+    {
         buffer = true;
         NarratorVoiceLinePlaylist.Clear();
 
@@ -100,11 +124,26 @@ public class NarratorPlaylist : MonoBehaviour
         narrHandler.PlayFromKeyWord("end");
         foreach (NarratorVoiceLine voiceline in NarratorVoiceLinePlaylist)
         {
-            fullPlaylistTime += voiceline.voiceLine.length +0.5f;
+            fullPlaylistTime += voiceline.voiceLine.length + 0.5f;
         }
         FindObjectOfType<CutsceneManager>().duration = fullPlaylistTime;
 
 
 
+    }
+
+    public void RestartGame()
+    {
+        // Find all the objects in the scene that have "Don't Destroy on Load" enabled
+        GameObject[] resetObjects = FindObjectsOfType<GameObject>().Where(obj => obj.scene.name != null).ToArray();
+
+        // Destroy all the objects in the list
+        foreach (GameObject obj in resetObjects)
+        {
+            Destroy(obj);
+        }
+
+        // Reload the current scene to restart the game
+        SceneManager.LoadScene(0);
     }
 }
