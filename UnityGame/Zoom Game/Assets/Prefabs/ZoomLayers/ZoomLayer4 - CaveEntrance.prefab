@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712e2946c0ce5d84eb906fd38b4f3b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyword: mouse
   starOn: {fileID: 21300000, guid: 83bbd2845831c8346997741b31010b21, type: 3}
   starOff: {fileID: 21300000, guid: bc9d1d250eadbad4bafc700571c552fb, type: 3}
   lineOn: {fileID: 21300000, guid: 64e24a499d7261c4cbc26c2ed3220e70, type: 3}
@@ -1705,6 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712e2946c0ce5d84eb906fd38b4f3b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyword: wheel
   starOn: {fileID: 21300000, guid: 83bbd2845831c8346997741b31010b21, type: 3}
   starOff: {fileID: 21300000, guid: bc9d1d250eadbad4bafc700571c552fb, type: 3}
   lineOn: {fileID: 21300000, guid: 64e24a499d7261c4cbc26c2ed3220e70, type: 3}
@@ -2269,6 +2271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712e2946c0ce5d84eb906fd38b4f3b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyword: rocket
   starOn: {fileID: 21300000, guid: 83bbd2845831c8346997741b31010b21, type: 3}
   starOff: {fileID: 21300000, guid: bc9d1d250eadbad4bafc700571c552fb, type: 3}
   lineOn: {fileID: 21300000, guid: 64e24a499d7261c4cbc26c2ed3220e70, type: 3}

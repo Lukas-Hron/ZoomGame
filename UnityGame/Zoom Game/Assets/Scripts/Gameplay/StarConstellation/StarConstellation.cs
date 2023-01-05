@@ -6,6 +6,7 @@ using System.Linq;
 
 public class StarConstellation : MonoBehaviour
 {
+    public string keyword;
     public Sprite starOn;
     public Sprite starOff;
     public Sprite lineOn;
@@ -63,6 +64,7 @@ public class StarConstellation : MonoBehaviour
                 col.enabled = false;
             }
             ringApature.checkRing(name);
+            NarratorHandler.Instance.PlayFromKeyWord(keyword);
         }
     }
 }

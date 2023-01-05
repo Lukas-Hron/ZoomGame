@@ -9,6 +9,7 @@ public class CutsceneManager : MonoBehaviour
     public ZoomHandler zoom;
     public cursceneorigin orin;
     public Transform cutsceneOrigin;
+    private Vector3 cameraPos;
     public float zoomValue;
     [SerializeField] float targetZoomValue;
     float zoomLerp = 0;
@@ -35,7 +36,7 @@ public class CutsceneManager : MonoBehaviour
                 cutsceneOrigin = orin.transform;
                 zoomValue = zoom.currentZoomValue;
                 resultingZoomValue = zoomValue;
-
+                cameraPos = Camera.main.transform.position;
                 hasAssignedOrigin = true;
             }
 
@@ -59,7 +60,7 @@ public class CutsceneManager : MonoBehaviour
         else
         {
             panLerp += (Time.deltaTime/3);
-            Vector3 cameraPos = Vector2.Lerp(Camera.main.transform.position, cutsceneOrigin.position, panLerp);
+            cameraPos = Vector2.Lerp(cameraPos, cutsceneOrigin.position, panLerp);
             cameraPos.z = -10;
             Camera.main.transform.position = cameraPos;
 

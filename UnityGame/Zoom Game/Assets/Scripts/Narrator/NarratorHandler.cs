@@ -56,7 +56,9 @@ public class NarratorHandler : MonoBehaviour
             {
                 rhymeToUse = voiceLine.endingRhyme;
                 AddToPlaylist(voiceLine);
-                return;
+                Debug.Log("Added: " + voiceLine.voiceLine.name);
+                Debug.Log("Reciving rhyme: " + voiceLine.recievingRhyme + "   Rhyme to use: " + rhymeToUse);
+                break;
             }
         }
     }
