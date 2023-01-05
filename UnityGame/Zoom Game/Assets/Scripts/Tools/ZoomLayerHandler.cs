@@ -116,6 +116,7 @@ public class ZoomLayerHandler : MonoBehaviour
                 actionPerformedForZoomLevel3 = true;
                 PanChange("ZoomLayer4 - CaveEntrance");
                 DeleteZoomLayer("ZoomLayer3 - Bedroom");
+                NarratorHandler.Instance.PlayFromKeyWord("field");
 
                 zoom.zoomMax = 23f;
                 zoom.zoomMin = 20.29018f;

@@ -60,19 +60,35 @@ public class NarratorPlaylist : MonoBehaviour
                 Invoke(methodName: "RestartGame",2);
             }
 
-            if (NarratorVoiceLinePlaylist[0].keyWord == "end")
+            try
             {
-                playedEnding = true;
+               if (NarratorVoiceLinePlaylist[0].keyWord == "end")
+                  {
+                      playedEnding = true;
+                  }
+
+            }
+            catch
+            {
+
             }
 
 
-            if (NarratorVoiceLinePlaylist.Count > 0)
-            {
-                if (NarratorVoiceLinePlaylist[0].keyWord == "gate")
+                if (NarratorVoiceLinePlaylist.Count > 0)
                 {
-                    player.inCutscene = true;
-                }
+                try
+                {
+                    if (NarratorVoiceLinePlaylist[0].keyWord == "gate")
+                    {
+                        player.inCutscene = true;
+                    }
 
+
+                }
+                catch
+                {
+
+                }
 
 
 
