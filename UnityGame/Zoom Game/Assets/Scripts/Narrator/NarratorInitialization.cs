@@ -21,7 +21,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily is a curious girl, her heart full of wonder, She loves to explore and learn, and let her mind wander.";
         secondSubtitles = "Her bright eyes sparkle with joy and delight and she loves to laugh and giggle, morning to night. Always with a smile so lovely";
-        timeToSplit = 7.5f;
+        timeToSplit = 6.6f;
         keyWord = "opening";
         AddVoiceLine();
 
@@ -31,7 +31,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Lily is a kind and caring friend, She always helps others and is never at an end. Her gentle nature shines bright and true,";
         secondSubtitles = "Just like her dress, which is always blue. She’s the nicest girl around just like her mother always said.";
-        timeToSplit = 8.5f;
+        timeToSplit = 9f;
         keyWord = "opening";
         AddVoiceLine();
 
@@ -40,8 +40,8 @@ public class NarratorInitialization : MonoBehaviour
         recievingRhyme = "ing";
         endingRhyme = "ing";
         firstSubtitles = "Lily is a curious girl, always asking why, Her mind is full of wonder and she is never shy.";
-        secondSubtitles = "Learning new things and to explore. Her want for adventure grew ever more. Lily knew loads about adventuring.";
-        timeToSplit = 7.7f;
+        secondSubtitles = "She loves to learn new things and to explore. Her want for adventure grew ever more. Lily knew loads about adventuring.";
+        timeToSplit = 7f;
         keyWord = "opening";
         AddVoiceLine();
 
@@ -55,7 +55,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "On the ceiling a lamp shined so brightly. Even her parents couldn't reach that high.";
         secondSubtitles = "Although she's never seen them try. She'd rather just imagine instead.";
-        timeToSplit = 5.5f;
+        timeToSplit = 6f;
         keyWord = "lamp";
         AddVoiceLine();
 
@@ -65,7 +65,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "She was often very caring. Once when the light in the hallway went out,";
         secondSubtitles = "Lily came to help without a doubt. And after that the light shined brightly.";
-        timeToSplit = 4.7f;
+        timeToSplit = 4.2f;
         keyWord = "lamp";
         AddVoiceLine();
 
@@ -75,7 +75,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Just like the light up ahead. Lily's bright mind shines with why's and how's.";
         secondSubtitles = "Even when she's looking around her house. To her, thinking is almost as good as doing.";
-        timeToSplit = 5.7f;
+        timeToSplit = 5.5f;
         keyWord = "lamp";
         AddVoiceLine();
 
@@ -89,7 +89,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Her favorite flower is also called Lily.";
         secondSubtitles = "This is the one Lily planted";
-        timeToSplit = 5.4f;
+        timeToSplit = 3f;
         keyWord = "flower";
         AddVoiceLine();
 
@@ -99,7 +99,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "The lily flowers have grown into a nice spread.";
         secondSubtitles = "It’s amazing how the old petals keep regrowing.";
-        timeToSplit = 6.3f;
+        timeToSplit = 3.3f;
         keyWord = "flower";
         AddVoiceLine();
 
@@ -109,7 +109,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "The lilies are blooming.";
         secondSubtitles = "They have grown rapidly.";
-        timeToSplit = 2.3f;
+        timeToSplit = 2f;
         keyWord = "flower";
         AddVoiceLine();
 
@@ -123,7 +123,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Lily was happy with her family. Once they made a sign together,";
         secondSubtitles = "letting anyone know Lily lives here whenever. She has her own room with her own bed.";
-        timeToSplit = 5.3f;
+        timeToSplit = 3.8f;
         keyWord = "sign";
         AddVoiceLine();
 
@@ -133,7 +133,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Lily door was signed. Signed by herself with her own paint.";
         secondSubtitles = "Even with her parents restraint. Everyone knows lily loves painting.";
-        timeToSplit = 4.1f;
+        timeToSplit = 4.5f;
         keyWord = "sign";
         AddVoiceLine();
 
@@ -143,7 +143,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily loves spending time decorating. Her door was covered in stickers once, it was the prettiest door around.";
         secondSubtitles = "But her parents made her take it all down. They said she put them on too messily.";
-        timeToSplit = 6.4f;
+        timeToSplit = 6.7f;
         keyWord = "sign";
         AddVoiceLine();
 
@@ -157,7 +157,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Her father says her art is painterly. She can't help but feel proud";
         secondSubtitles = "But she always gets embarrassed when he says it out loud. Though he never regrets what he's said.";
-        timeToSplit = 4.2f;
+        timeToSplit = 4.6f;
         keyWord = "drawing";
         AddVoiceLine();
 
@@ -167,7 +167,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "She tapes her drawings above her bed. She loves the way they brightened up her room";
         secondSubtitles = "and how they seemed to sway. Almost as much as she loves drawing.";
-        timeToSplit = 4.7f;
+        timeToSplit = 5f;
         keyWord = "drawing";
         AddVoiceLine();
 
@@ -177,7 +177,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "More than anything, Lily loves drawing. She loves the way the pencil feels in her hand";
         secondSubtitles = "and how easy it is to understand. Her parents always said she drew beautifully.";
-        timeToSplit = 5.7f;
+        timeToSplit = 5.2f;
         keyWord = "drawing";
         AddVoiceLine();
 
@@ -211,7 +211,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily has her own room where she likes playing. It is where she feels most at home, with her cozy bed that’s softer than foam.";
         secondSubtitles = "In the mornings, the sun shines through the window, waking her softly.";
-        timeToSplit = 6.2f;
+        timeToSplit = 8.2f;
         keyWord = "bedroom";
         AddVoiceLine();
 
@@ -225,7 +225,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Lily makes her bed carefully. Making sure every pillow is in the right place.";
         secondSubtitles = "Leaving not a single empty space. She's proud of how she makes her bed.";
-        timeToSplit = 4.7f;
+        timeToSplit = 5.2f;
         keyWord = "pillow";
         AddVoiceLine();
 
@@ -245,7 +245,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily doesn't like sleeping. She would rather stay awake all night,";
         secondSubtitles = "after all she does have her light. Even though she tackles the dark fearlessly.";
-        timeToSplit = 4.4f;
+        timeToSplit = 4.7f;
         keyWord = "pillow";
         AddVoiceLine();
 
@@ -259,7 +259,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Lily's tv glows brightly.";
         secondSubtitles = "Brightly with the glow of her favorite show. The show that’s called “A Tailor's Thread”.";
-        timeToSplit = 2.2f;
+        timeToSplit = 1.7f;
         keyWord = "tv";
         AddVoiceLine();
 
@@ -269,7 +269,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Lily’s favorite show is called “A Tailor’s Thread” She watches it every Friday afternoon.";
         secondSubtitles = "It’s about a girl with powers from the moon. She loves it even if some scenes are shocking.";
-        timeToSplit = 5.6f;
+        timeToSplit = 5.2f;
         keyWord = "tv";
         AddVoiceLine();
 
@@ -279,7 +279,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily is always watching. Her TV, her movies, when she isn’t busy drawing.";
         secondSubtitles = "Her favorite movies are always kind of silly.";
-        timeToSplit = 4.8f;
+        timeToSplit = 6.2f;
         keyWord = "tv";
         AddVoiceLine();
 
@@ -303,7 +303,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Lily is proud of the picture she painted.";
         secondSubtitles = "It’s a picture of a field she visited last spring.";
-        timeToSplit = 3.6f;
+        timeToSplit = 2.2f;
         keyWord = "field";
         AddVoiceLine();
 
@@ -313,7 +313,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "An open field is the best place for running.";
         secondSubtitles = "With plains of grass growing endlessly.";
-        timeToSplit = 3.8f;
+        timeToSplit = 2.5f;
         keyWord = "field";
         AddVoiceLine();
 
@@ -336,7 +336,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Lily takes care of the mice living under the shed.";
         secondSubtitles = "Taking care of animals is her second favorite thing.";
-        timeToSplit = 2.6f;
+        timeToSplit = 3.2f;
         keyWord = "mouse";
         AddVoiceLine();
 
@@ -346,7 +346,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily loves any cute little thing.";
         secondSubtitles = "Being a mouse is no exception to being treated kindly.";
-        timeToSplit = 2.8f;
+        timeToSplit = 2.5f;
         keyWord = "mouse";
         AddVoiceLine();
 
@@ -361,7 +361,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "When Lily grows up she wants to be an astronaut exploring the galaxy.";
         secondSubtitles = "She pretends to walk on planets she has discovered.";
-        timeToSplit = 2.2f;
+        timeToSplit = 3.2f;
         keyWord = "rocket";
         AddVoiceLine();
 
@@ -371,7 +371,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "She flew across the night sky with the rockets fired.";
         secondSubtitles = "Down on the distant surface she was looking.";
-        timeToSplit = 2.6f;
+        timeToSplit = 2.9f;
         keyWord = "rocket";
         AddVoiceLine();
 
@@ -381,7 +381,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Playing astronauts never gets tiring.";
         secondSubtitles = "Exploring new universes all across the galaxy.";
-        timeToSplit = 2.8f;
+        timeToSplit = 2.6f;
         keyWord = "rocket";
         AddVoiceLine();
 
@@ -395,7 +395,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "She often spent time in the garden with her mother only.";
         secondSubtitles = "Taking care of her very own Lily she planted.";
-        timeToSplit = 2.2f;
+        timeToSplit = 3.2f;
         keyWord = "wheel";
         AddVoiceLine();
 
@@ -405,7 +405,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Their garden has a big pretty flower bed.";
         secondSubtitles = "Lily often helps with the gardening.";
-        timeToSplit = 2.6f;
+        timeToSplit = 2.8f;
         keyWord = "wheel";
         AddVoiceLine();
 
@@ -428,7 +428,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Our time here has gone by and we have to leave shortly. Although it has been nice telling you about Lily and her dreams,";
         secondSubtitles = "Every happy story like this has to come to an end it seems.";
-        timeToSplit = 4.6f;
+        timeToSplit = 6.6f;
         keyWord = "gate";
         AddVoiceLine();
 
@@ -438,7 +438,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Look back on the path you’ve traveled. Although it has been nice telling you about Lily and her dreams,";
         secondSubtitles = "Every happy story like this has to come to an end it seems.";
-        timeToSplit = 4.6f;
+        timeToSplit = 6.6f;
         keyWord = "gate";
         AddVoiceLine();
 
@@ -448,7 +448,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Sometimes we don’t have a say in where we’re going. Although it has been nice telling you about Lily and her dreams,";
         secondSubtitles = "Every happy story like this has to come to an end it seems.";
-        timeToSplit = 4.6f;
+        timeToSplit = 6.6f;
         keyWord = "gate";
         AddVoiceLine();
 
@@ -539,7 +539,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "On the ceiling a lamp used to shine brightly. Even her parents couldn’t reach that high.";
         secondSubtitles = "Although she never saw them try. She’d rather just imagine instead.";
-        timeToSplit = 5.5f;
+        timeToSplit = 6f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -573,7 +573,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Her favorite flower was the Lily.";
         secondSubtitles = "That’s why she had it planted.";
-        timeToSplit = 5.4f;
+        timeToSplit = 2.4f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -583,7 +583,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "The lily flowers had grown into a nice spread.";
         secondSubtitles = "It’s amazing how to old petals kept regrowing.";
-        timeToSplit = 6.3f;
+        timeToSplit = 2.3f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -617,7 +617,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Lily’s door used to be signed. Signed by herself with her own paint.";
         secondSubtitles = "Even with her parent’s restraint. Everyone knew Lily loved painting.";
-        timeToSplit = 4.1f;
+        timeToSplit = 4.3f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -641,7 +641,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Her father said her art was painterly. She didn’t understand but couldn’t help but to feel proud.";
         secondSubtitles = "But she always got embarrassed when he said it out loud. Though he never regretted what he said.";
-        timeToSplit = 4.2f;
+        timeToSplit = 5.5f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -651,7 +651,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "She used to tape her drawings above her bed. She loved the way they would brighten up the room,";
         secondSubtitles = "and how they seemed to sway. Almost as much as she loved drawing.";
-        timeToSplit = 4.7f;
+        timeToSplit = 5.7f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -695,7 +695,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "Lily had her own room where she liked playing. It’s where she felt most at home, with her cozy bed that was softer than foam.";
         secondSubtitles = "In the mornings, the sun used to shine through the window, waking her softly.";
-        timeToSplit = 6.2f;
+        timeToSplit = 7.4f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -709,7 +709,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Lily used to make her bed carefully. Making sure every pillow was in the right place.";
         secondSubtitles = "Leaving not a single empty space. She was proud of how she made her bed.";
-        timeToSplit = 4.7f;
+        timeToSplit = 5.2f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -719,7 +719,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "She used to hide things in her bed. Maybe a sock, shirt or even the remote.";
         secondSubtitles = "One time she hid her father’s coat. He went around looking for it that whole evening.";
-        timeToSplit = 5.5f;
+        timeToSplit = 6.5f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -810,7 +810,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "Lily always treated animals kindly.";
         secondSubtitles = "Especially the mice that lived under the shed.";
-        timeToSplit = 2.2f;
+        timeToSplit = 2.4f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -820,7 +820,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Lily took care of the mice that lived under the shed.";
         secondSubtitles = "Taking care of animals was her second favorite thing.";
-        timeToSplit = 2.6f;
+        timeToSplit = 3.6f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -845,7 +845,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "When Lily grew up she wanted to be an astronaut exploring the galaxy.";
         secondSubtitles = "She pretended to walk on planets she would have discovered.";
-        timeToSplit = 2.2f;
+        timeToSplit = 4.5f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -855,7 +855,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "She would fly across the night sky with the rockets fired.";
         secondSubtitles = "Down on the distant surface she’d be looking.";
-        timeToSplit = 2.6f;
+        timeToSplit = 3.5f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -879,7 +879,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ed";
         firstSubtitles = "She would often spend time in the garden with her mother only.";
         secondSubtitles = "She took care of her very own Lily she had planted.";
-        timeToSplit = 2.2f;
+        timeToSplit = 3.2f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -889,7 +889,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ing";
         firstSubtitles = "Their garden had a big pretty flower bed.";
         secondSubtitles = "Lily often helped out with the gardening.";
-        timeToSplit = 2.6f;
+        timeToSplit = 3.2f;
         keyWord = "keyword";
         AddVoiceLine();
 
@@ -899,7 +899,7 @@ public class NarratorInitialization : MonoBehaviour
         endingRhyme = "ly";
         firstSubtitles = "She often helped her mother with the gardening.";
         secondSubtitles = "It was a nice way to spend some time with her mother only";
-        timeToSplit = 2.8f;
+        timeToSplit = 2.6f;
         keyWord = "keyword";
         AddVoiceLine();
 
