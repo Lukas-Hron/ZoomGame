@@ -15,7 +15,6 @@ public class Curser : MonoBehaviour
     {
         Cursor.visible = false;
         sprn = GetComponent<SpriteRenderer>();
-        Debug.Log(cursers.Count);
         sprn.sprite = cursers[0];
 
     }
@@ -82,7 +81,6 @@ public class Curser : MonoBehaviour
                 transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);
             }
 
-            Debug.Log("changed");
         }
 
 

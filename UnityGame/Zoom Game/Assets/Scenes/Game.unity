@@ -2244,7 +2244,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ammy Runeke\nElena Orman\nHenrik Nystr\xF6m\nLucas Karjel\nLukas Hron"
+  m_text: "Graphical artists:\nAmmy Runeke\nElena Orman\n\nProgrammers:\nHenrik Nystr\xF6m\nLucas
+    Karjel\nLukas Hron\n\nVoice actor:\nSabina Renck\nsabinarenck.com/"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2271,8 +2272,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20.1
+  m_fontSizeBase: 20.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
